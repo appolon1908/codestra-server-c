@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "Solutions numériques et automatisation intelligente pour les entreprises en croissance",
+    "imageAlt": "Interface de produit numérique Codestra"
+  },
+  "story": {
+    "title": "Nous créons des solutions numériques et des automatisations pour les entreprises attachées à la qualité et à la croissance",
+    "paragraphs": [
+      "Les outils inefficaces et processus fragmentés ralentissent les équipes. Codestra crée des systèmes ciblés que chacun peut utiliser avec confiance.",
+      "Codestra représente le développement et le progrès. Notre travail relie processus, automatisation et logiciel dans des flux opérationnels fiables.",
+      "Nous considérons le logiciel comme un moyen pratique d’améliorer l’entreprise et d’aider les équipes à se concentrer sur une valeur durable."
+    ]
+  },
+  "team": {
+    "title": "Nous accordons une grande importance à la qualité de notre travail.",
+    "body": "Codestra intervient en Amérique du Nord, en Amérique latine et dans les Caraïbes. Notre équipe partage le goût d’une exécution soignée et utile.",
+    "hiring": "Nous recrutons",
+    "imageAlt": "L’équipe Codestra collabore sur des produits numériques",
+    "empty": "Aucun profil d’employé n’est actuellement disponible."
+  },
+  "investors": {
+    "eyebrow": "Investisseurs",
+    "title": "La qualité et les relations durables comptent pour nous",
+    "body": "Cette section est réservée aux informations approuvées sur les investisseurs. Les noms et affiliations doivent être vérifiés avant publication.",
+    "founder": "Fondateur et directeur général",
+    "partner": "Associé",
+    "profileAlt": "Portrait de {{name}}",
+    "organizationAlt": "Logo de l’organisation investisseuse"
+  },
+  "news": {
+    "eyebrow": "Actualités",
+    "items": [
+      {
+        "title": "Actualité temporaire",
+        "body": "En attente d’une annonce approuvée.",
+        "source": "Codestra"
+      },
+      {
+        "title": "Actualité temporaire",
+        "body": "En attente d’une annonce approuvée.",
+        "source": "Codestra"
+      },
+      {
+        "title": "Actualité temporaire",
+        "body": "En attente d’une annonce approuvée.",
+        "source": "Codestra"
+      }
+    ]
+  },
+  "vision": {
+    "eyebrow": "Vision",
+    "success": {
+      "title": "Favoriser une réussite durable",
+      "body": "Codestra construit des partenariats durables autour d’expériences numériques utiles et de progrès opérationnels mesurables."
+    },
+    "ideas": {
+      "title": "Transformer les idées en réalité",
+      "body": "Notre travail de conception et développement aide les organisations à atteindre leurs objectifs et s’adapter aux défis futurs."
+    },
+    "ctaBody": "Découvrez notre travail plus en détail.",
+    "cta": "Nos réalisations"
+  }
+}

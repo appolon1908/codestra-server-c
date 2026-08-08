@@ -1,0 +1,2827 @@
+{
+  "directory": {
+    "eyebrow": "Plataforma de IA por industria de Codestra",
+    "title": "Flujos de IA adaptados al funcionamiento de tu industria",
+    "body": "Explora sistemas controlados de voz, mensajería, recepción, enrutamiento, CRM y automatización.",
+    "search": "Buscar industrias",
+    "searchPlaceholder": "Buscar por industria o flujo",
+    "filter": "Filtrar industrias",
+    "categories": "Categorías de industria",
+    "showing": "Mostrando {{visible}} de {{total}} industrias",
+    "choose": "Elige tu industria",
+    "count": "25 soluciones por industria",
+    "empty": "No hay industrias coincidentes",
+    "emptyBody": "Prueba otro término o elimina la categoría seleccionada.",
+    "clear": "Limpiar filtros",
+    "explore": "Explorar {{industry}}",
+    "logistics": "Explorar IA para logística",
+    "demo": "Solicitar una demo por industria"
+  },
+  "calculator": {
+    "eyebrow": "Calculadora de oportunidades",
+    "title": "Estima la oportunidad de consultas perdidas",
+    "inputs": {
+      "volume": "Consultas mensuales",
+      "missedPercent": "Porcentaje perdido",
+      "leadValue": "Valor medio del cliente potencial",
+      "conversion": "Tasa de conversión",
+      "wage": "Costo laboral por hora",
+      "minutes": "Minutos de gestión"
+    },
+    "estimate": "Solo estimaciones; no representan ingresos recuperados garantizados. Los datos de la calculadora no se envían a analítica.",
+    "review": "Revisar esta estimación con Codestra",
+    "missed": "Consultas perdidas estimadas",
+    "qualified": "Oportunidades calificadas estimadas",
+    "hours": "Horas de gestión estimadas",
+    "monthly": "Oportunidad mensual estimada",
+    "annual": "Oportunidad anual estimada"
+  },
+  "implementation": {
+    "map": {
+      "title": "Definir",
+      "body": "Aprueba admisión, rutas, campañas, equipos, campos de datos y límites de escalado."
+    },
+    "test": {
+      "title": "Probar",
+      "body": "Ensaya recorridos simulados, fallos, duplicados, reintentos, transferencias y reversión en staging."
+    },
+    "canary": {
+      "title": "Canario",
+      "body": "Activa un flujo aprobado, supervisa resultados y amplía solo tras su aceptación."
+    }
+  },
+  "shared": {
+    "home": "Inicio",
+    "breadcrumb": "Ruta de navegación",
+    "industries": "Industrias",
+    "workflow": "Ver cómo funciona",
+    "simulated": "FLUJO SIMULADO",
+    "intent": "Intención",
+    "route": "Ruta",
+    "odoo": "Estado de Odoo: entrega simulada en cola",
+    "problemsEyebrow": "Problemas empresariales",
+    "problems": "Convierte conversaciones en trabajo estructurado",
+    "problemBody": "Codestra captura contexto aprobado y conserva una ruta controlada hacia tu equipo humano.",
+    "workflowEyebrow": "Cómo funciona",
+    "workflowTitle": "De la consulta al equipo adecuado",
+    "capture": "Capturar",
+    "act": "Actuar",
+    "routeStep": "Dirigir",
+    "catalogEyebrow": "Catálogo de software y automatización",
+    "catalog": "Sistemas que Codestra puede crear",
+    "catalogBody": "Configurado con datos, roles, integraciones y controles humanos aprobados.",
+    "simulationEyebrow": "Simulación interactiva",
+    "simulationTitle": "Explorar escenarios de {{industry}}",
+    "simulationLabel": "Escenarios de demostración",
+    "simulationNotice": "SIMULADO — NO ES ACTIVIDAD DE CLIENTES",
+    "integrationEyebrow": "Límite de integración",
+    "integration": "Conecta sistemas aprobados",
+    "integrationNote": "La disponibilidad se confirma en cada implementación. Un estado planificado no implica soporte actual ni aprobación.",
+    "securityEyebrow": "Seguridad y control humano",
+    "security": "Automatización dentro de reglas aprobadas",
+    "analyticsEyebrow": "Analítica de muestra",
+    "analytics": "Comprende cada conversación con clientes",
+    "sample": "Datos de muestra",
+    "qualificationEyebrow": "Calificación",
+    "qualification": "Preguntas para planificar el sistema adecuado",
+    "qualificationBody": "Solo se captura con consentimiento durante una conversación de proyecto calificada.",
+    "implementationEyebrow": "Implementación",
+    "implementation": "Lanzamiento controlado en tres pasos",
+    "faq": "Preguntas frecuentes",
+    "questions": "Preguntas sobre {{industry}}",
+    "relatedEyebrow": "Industrias relacionadas",
+    "related": "Explorar otra industria",
+    "finalEyebrow": "Crea tu flujo industrial controlado",
+    "final": "Cada consulta merece un siguiente paso claro",
+    "finalBody": "Revisa con Codestra tus requisitos de recepción, enrutamiento, software, integración y CRM.",
+    "requestDemo": "Solicitar una demo por industria",
+    "requestPricing": "Solicitar precios",
+    "reviewWorkflow": "Revisa tu flujo industrial",
+    "dismiss": "Cerrar barra de demo"
+  },
+  "content": {
+    "logistics-ai": {
+      "name": "Transporte y logística",
+      "eyebrow": "IA de Codestra para logística",
+      "headline": "Mantener cada movimiento de conversión de envío",
+      "summary": "Capturar solicitudes de cotización de envío, detalles de recogida, información de cliente y transportista, necesidades de callback y contexto de enrutamiento alrededor del reloj.",
+      "problems": [
+        "Las solicitudes de cotización llegan mientras los equipos de ventas están manejando envíos activos.",
+        "Los usuarios repiten origen, destino, equipo y detalles de tiempo después de las transferencias.",
+        "Las consultas después de horas pueden esperar hasta el día siguiente del negocio.",
+        "Las conversaciones de clientes y portadores son difíciles de atribuir a través de sistemas."
+      ],
+      "intake": [
+        "Origen y destino",
+        "Tipo de envío y equipo",
+        "Fecha de recogida",
+        "Identidad del cliente o portador"
+      ],
+      "actions": [
+        "Preparar una solicitud de cotización",
+        "Solicitar una camioneta",
+        "Crear una actividad de callback",
+        "Sincronizar un plomo Odoo aprobado"
+      ],
+      "routing": [
+        "Oficina de ventas",
+        "Despacho o terminal",
+        "Servicio al cliente",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Google Calendar",
+          "status": "Apoyo"
+        },
+        {
+          "name": "VICIdial",
+          "status": "Plan"
+        },
+        {
+          "name": "Microsoft Outlook",
+          "status": "Plan"
+        },
+        {
+          "name": "Sistemas de gestión del transporte",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Cita de envío",
+          "transcript": "Caller proporciona origen en Miami, destino Dallas, cuenta de paletas, peso y fecha de recogida.",
+          "outcome": "Solicitud de cotización calificada preparada para la cola de ventas."
+        },
+        {
+          "title": "Programación de recogida",
+          "transcript": "El cliente confirma cuenta, ubicación, tipo de carga, horas de muelle y ventana de recogida preferida.",
+          "outcome": "Solicitud de recogida preparada para revisión de envío."
+        },
+        {
+          "title": "Llamada después de horas",
+          "transcript": "Carrier solicita un callback sobre una carga urgente del próximo día.",
+          "outcome": "Contexto de emergencia y espera para un operador humano."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra reemplazar nuestro número telefónico actual?",
+          "La aplicación aprobada normalmente puede utilizar la reenvío o el envío de proveedores para que el número público existente siga sin cambios."
+        ],
+        [
+          "¿Puede crear comillas de carga automáticamente?",
+          "Puede recoger y validar los insumos requeridos. La fijación de precios finales y la liberación de cotizaciones siguen dentro de las reglas de negocio aprobadas y los controles humanos."
+        ],
+        [
+          "¿Puede llamar la ruta por terminal o oficina?",
+          "Sí. El enrutamiento puede usar ubicación, departamento, idioma, tipo de llamada, horas de funcionamiento, intención y urgencia."
+        ],
+        [
+          "¿Se conecta a Odoo?",
+          "El middleware controlado soporta la entrega de plomo Odoo. Cada campo, campaña, equipo y mapeo del propietario se confirman en la puesta en escena antes de escribir en vivo."
+        ],
+        [
+          "¿La demostración es actividad real?",
+          "No. Todas las demostraciones y figuras de esta página son claramente etiquetadas simulaciones o datos de muestra."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de negocio",
+        "Barco, transportista, corredor o proveedor de logística",
+        "Envíos mensuales",
+        "Tamaño de la flota",
+        "CRM actual o TMS",
+        "Despacho",
+        "Integraciones requeridas",
+        "Problema operacional primario"
+      ]
+    },
+    "legal-ai": {
+      "name": "Abogados y servicios jurídicos",
+      "eyebrow": "IA de Codestra para servicios legales",
+      "headline": "Capturar a cada cliente potencial — Día o noche",
+      "summary": "Califique a los clientes potenciales, programe consultas, revise la práctica y mantenga los límites de revisión humana.",
+      "problems": [
+        "Los clientes potenciales llaman después de horas",
+        "Los detalles de la ingesta llegan de forma inconsistente",
+        "El enrutamiento de la práctica interrumpe los equipos jurídicos",
+        "Las consultas multilingües necesitan un seguimiento fiable"
+      ],
+      "intake": [
+        "Área de práctica",
+        "Identificadores de control de conflictos",
+        "Preferencias de consulta",
+        "Idioma requerido"
+      ],
+      "actions": [
+        "Recepcionista legal con IA",
+        "Entrada de cliente prospectivo",
+        "Calendario de consultas",
+        "Colección de documentos seguras",
+        "Resum",
+        "Integración de la gestión de casos"
+      ],
+      "routing": [
+        "Equipo de práctica y zona",
+        "Catch Specialist",
+        "Revisión autorizada del abogado",
+        "Llamada después de horas"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Calendarios",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas de gestión de casos",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Indagación después de horas",
+          "transcript": "Un cliente prospectivo describe la materia general y el tiempo de contacto preferido.",
+          "outcome": "Admisión preliminar preparada para revisión autorizada."
+        },
+        {
+          "title": "Solicitud de consulta",
+          "transcript": "Caller selecciona un área de práctica, oficina, idioma y tiempo disponible.",
+          "outcome": "Consulta solicitud realizada sin asesoramiento legal."
+        },
+        {
+          "title": "Seguimiento del documento",
+          "transcript": "El sistema explica un proceso de investigación de documentos seguro aprobado.",
+          "outcome": "Se preparó una tarea de reunión controlada por el hombre."
+        }
+      ],
+      "faq": [
+        [
+          "¿Le da asesoramiento legal a la AI?",
+          "No. Sólo realiza la ingesta administrativa aprobada y la trucha."
+        ],
+        [
+          "¿Puede prometer un resultado?",
+          "No. Nunca promete aceptación de casos o resultados."
+        ],
+        [
+          "¿Quién revisa las respuestas sustantivas?",
+          "Un profesional legal humano autorizado."
+        ],
+        [
+          "¿Puede recorrer por área de práctica?",
+          "Sí, usando reglas aprobadas de ingesta y enrutamiento."
+        ],
+        [
+          "¿Las demostraciones son asuntos de clientes reales?",
+          "No. Son simulaciones."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tamaño legal",
+        "Esferas de práctica",
+        "Solicitudes mensuales",
+        "Oficinas",
+        "Sistema actual de gestión de casos",
+        "Idiomas",
+        "Cobertura posterior a las horas",
+        "Reserva de consulta"
+      ],
+      "disclosures": [
+        "AI no proporciona asesoramiento jurídico.",
+        "AI no promete resultados de caso.",
+        "Las respuestas jurídicas sustantivas requieren un examen humano autorizado."
+      ]
+    },
+    "healthcare-ai": {
+      "name": "Salud privada",
+      "eyebrow": "IA de Codestra para atención médica",
+      "headline": "Dar a los pacientes acceso seguro, conveniente a su práctica",
+      "summary": "Apoyar la programación aprobada, ingesta, referencias, recordatorios y comunicación multilingüe con decisiones clínicas reservadas a profesionales autorizados.",
+      "problems": [
+        "Programación de la demanda abruma al personal",
+        "El acceso al paciente varía según el canal",
+        "El seguimiento de referencia está fragmentado",
+        "Los recordatorios de rutina consumen tiempo clínico"
+      ],
+      "intake": [
+        "Tipo de práctica",
+        "Proveedor o ubicación",
+        "Solicitud de nombramiento",
+        "Idioma preferido"
+      ],
+      "actions": [
+        "Recepcionista de prácticas médicas",
+        "Portal de pacientes privados",
+        "Flujo de trabajo seguro de las citas de vídeo",
+        "Carreteras de reposición y recarga",
+        "Recordatorios aprobados"
+      ],
+      "routing": [
+        "Planificación",
+        "Equipo de referencia",
+        "Examen clínico",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Calendarios",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas de gestión de prácticas",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Solicitud de nombramiento",
+          "transcript": "El paciente solicita un tipo de visita, proveedor, ubicación y tiempo preferido.",
+          "outcome": "Solicitud de programación preparada para el examen de disponibilidad aprobado."
+        },
+        {
+          "title": "Estado de referencia",
+          "transcript": "Caller solicita una actualización usando un límite controlado de verificación de identidad.",
+          "outcome": "El seguimiento de la remisión se dirigió al personal."
+        },
+        {
+          "title": "Solicitud de reembolso",
+          "transcript": "El paciente presenta una solicitud de recarga administrativa.",
+          "outcome": "Solicitud enrutada para revisión clínica autorizada."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede el diagnóstico de IA?",
+          "Dios mío."
+        ],
+        [
+          "¿Puede recetar medicamentos?",
+          "Dios mío."
+        ],
+        [
+          "¿Se reclama el cumplimiento?",
+          "No request for compliance shall be submitted until it has been formally verified."
+        ],
+        [
+          "¿Puede apoyar visitas de vídeo?",
+          "Puede coordinar un flujo de trabajo seguro aprobado."
+        ],
+        [
+          "¿Las demostraciones son actividad paciente?",
+          "No. Son simulaciones."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de práctica",
+        "Proveedores",
+        "Lugares",
+        "Nombramientos mensuales",
+        "Sistema de gestión de prácticas",
+        "Consulta de vídeo",
+        "Necesidades de recordatorio",
+        "Idiomas"
+      ],
+      "disclosures": [
+        "AI no diagnostica de forma independiente.",
+        "AI no prescribe ni cambia medicamentos.",
+        "Las decisiones médicas requieren revisión clínica autorizada.",
+        "El cumplimiento del cuidado de la salud no se reclama hasta que se verifica formalmente."
+      ]
+    },
+    "senior-care-ai": {
+      "name": "Atención superior y transporte médico",
+      "eyebrow": "IA de Codestra para cuidado de personas mayores",
+      "headline": "Coordinación de la atención, el transporte y la comunicación familiar",
+      "summary": "Coordinar solicitudes de viaje, viajes recurrentes, actualizaciones de cuidadores, ingesta de accesibilidad y notificaciones familiares controladas.",
+      "problems": [
+        "El transporte recurrente requiere una coordinación repetitiva",
+        "Las familias necesitan actualizaciones no clínicas oportunas",
+        "Las necesidades de accesibilidad deben seguir cada viaje",
+        "Las autorizaciones abarcan múltiples equipos"
+      ],
+      "intake": [
+        "Servicio o tipo de viaje",
+        "Necesidades de accesibilidad",
+        "Calendario de repetición",
+        "Estado de autorización"
+      ],
+      "actions": [
+        "Recepcionista de servicio superior",
+        "Portal de transporte médico",
+        "Programación de ridos",
+        "Comunicación de cuidadores",
+        "Notificaciones familiares",
+        "Seguimiento del conductor"
+      ],
+      "routing": [
+        "Servicio de transporte",
+        "Coordinador de la atención",
+        "Equipo de autorización",
+        "Escalada humana"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Proveedores de GPS",
+          "status": "Plan"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Viaje recurrente",
+          "transcript": "La familia solicita un transporte accesible recurrente.",
+          "outcome": "Solicitud programada para revisión de la autorización."
+        },
+        {
+          "title": "Actualización de la familia",
+          "transcript": "El miembro de la familia solicita una actualización aprobada de la categoría trís.",
+          "outcome": "Se preparó el flujo de trabajo de notificación."
+        },
+        {
+          "title": "Escalada del conductor",
+          "transcript": "El conductor informa de un retraso operacional.",
+          "outcome": "Escalada de despachada con contexto."
+        }
+      ],
+      "faq": [
+        [
+          "¿Sustituye esto a los cuidadores?",
+          "Dios mío."
+        ],
+        [
+          "¿Puede programar viajes recurrentes?",
+          "Sí, sujeto a aprobación."
+        ],
+        [
+          "¿Pueden las familias recibir actualizaciones?",
+          "Sí, usando reglas de consentimiento configuradas."
+        ],
+        [
+          "¿Toma decisiones médicas?",
+          "Dios mío."
+        ],
+        [
+          "¿Vive GPS?",
+          "Sólo después de una integración aprobada."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de servicio",
+        "Viajes mensuales",
+        "Tamaño de la flota",
+        "Necesidades de accesibilidad",
+        "Viajes recurrentes",
+        "Sistema de despacho actual",
+        "Necesidades de notificación familiar",
+        "Flujo de trabajo de autorización"
+      ]
+    },
+    "real-estate-ai": {
+      "name": "Gestión de bienes raíces y bienes",
+      "eyebrow": "IA de Codestra para bienes raíces",
+      "headline": "Convertir Más investigaciones sobre propiedades en nombramientos",
+      "summary": "Califica a los compradores, arrendatarios y vendedores; muestra programadas; mantenimiento de rutas; y sincronizar oportunidades de Odoo aprobadas.",
+      "problems": [
+        "El interés de propiedad se enfría rápidamente",
+        "Agentes repiten preguntas de calificación",
+        "Mostrando coordinación cruza calendarios",
+        "Las llamadas de mantenimiento necesitan un enrutamiento estructurado"
+      ],
+      "intake": [
+        "Comprador, arrendatario o vendedor",
+        "Ubicación y presupuesto",
+        "Calendario",
+        "Contexto de propiedad o mantenimiento"
+      ],
+      "actions": [
+        "Recepcionista inmobiliaria",
+        "Auxiliar de bienes",
+        "Calendario Ver",
+        "Portal de tenencia",
+        "Solicitudes de mantenimiento",
+        "Distribución del plomo"
+      ],
+      "routing": [
+        "Agente de lista",
+        "Equipo comprador",
+        "Administración de bienes",
+        "Proveedor de mantenimiento"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Calendarios",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Plataformas de inclusión",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Indagación del comprador",
+          "transcript": "El comprador proporciona presupuesto, ubicación, tipo de propiedad y plazo.",
+          "outcome": "Solicitud de presentación certificada preparada."
+        },
+        {
+          "title": "Consulta del vendedor",
+          "transcript": "El propietario solicita una consulta de valoración.",
+          "outcome": "El plomo del vendedor se enrutó por territorio."
+        },
+        {
+          "title": "Solicitud de mantenimiento",
+          "transcript": "El inquilino describe la categoría y la urgencia sin detalles sensibles.",
+          "outcome": "Solicitud de trabajo dirigida a la gestión de la propiedad."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede programar presentaciones?",
+          "Sí, a través de calendarios aprobados."
+        ],
+        [
+          "¿Puede asignar agentes?",
+          "Sí, usando reglas configuradas."
+        ],
+        [
+          "¿ Valora las propiedades?",
+          "No hace valoraciones vinculantes."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo después de la aprobación de despedida."
+        ],
+        [
+          "¿Están los listados en vivo?",
+          "Sólo con una integración aprobada."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de cartera",
+        "Agentes",
+        "Solicitudes mensuales",
+        "Lugares",
+        "CRM actual",
+        "Sistemas de lista",
+        "Mostrar volumen",
+        "Flujo de trabajo de mantenimiento"
+      ]
+    },
+    "financial-services-ai": {
+      "name": "Servicios financieros y seguros",
+      "eyebrow": "IA de Codestra para servicios financieros",
+      "headline": "Responder más rápido mientras mantiene los flujos de trabajo financieros controlados",
+      "summary": "Coordina la ingesta preliminar, a bordo, solicitudes de documentos seguras, consultas de estado, renovaciones y programación de asesores.",
+      "problems": [
+        "Estado llama a asesores interrumpidos",
+        "Los documentos de embarque llegan a través de canales",
+        "Las conversaciones de renovación necesitan un seguimiento oportuno",
+        "Las decisiones reglamentadas requieren transmisiones controladas"
+      ],
+      "intake": [
+        "Servicio solicitado",
+        "Situación del cliente",
+        "Preferencias",
+        "Requisito de seguimiento seguro"
+      ],
+      "actions": [
+        "Recepcionista de servicios financieros",
+        "Ingestión preliminar",
+        "Colección de documentos seguras",
+        "Cliente a bordo",
+        "Estado de aplicación",
+        "Renovación de políticas"
+      ],
+      "routing": [
+        "Equipo de asesores",
+        "Profesional licenciado",
+        "Operaciones",
+        "Examen del cumplimiento"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas de documentos seguros",
+          "status": "Plan"
+        },
+        {
+          "name": "Calendarios",
+          "status": "Apoyo"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Consejero",
+          "transcript": "El cliente solicita una consulta y un idioma preferido.",
+          "outcome": "Solicitud de programación del asesor preparada."
+        },
+        {
+          "title": "Estado de aplicación",
+          "transcript": "El cliente solicita una actualización a través de un límite de verificación de identidad.",
+          "outcome": "Solicitud de estatuto dirigida al personal autorizado."
+        },
+        {
+          "title": "Solicitud de renovación",
+          "transcript": "El titular de la política solicita un debate de renovación.",
+          "outcome": "Se preparó el seguimiento del equipo autorizado."
+        }
+      ],
+      "faq": [
+        [
+          "¿Aprueba IA las aplicaciones?",
+          "Dios mío."
+        ],
+        [
+          "¿Puede tomar decisiones reguladas?",
+          "Dios mío."
+        ],
+        [
+          "¿Se envían datos financieros a análisis?",
+          "Dios mío."
+        ],
+        [
+          "¿Se pueden recoger documentos?",
+          "Sólo a través de un sistema seguro aprobado."
+        ],
+        [
+          "¿Quién revisa las recomendaciones?",
+          "Profesionales humanos autorizados."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de negocio",
+        "Asesores o agentes",
+        "Solicitudes mensuales",
+        "Productos",
+        "CRM actual",
+        "Corriente de trabajo del documento",
+        "Idiomas",
+        "Necesidades de revisión reglamentaria"
+      ],
+      "disclosures": [
+        "AI no promete aprobación.",
+        "Las decisiones reglamentadas requieren un examen humano autorizado.",
+        "Los datos financieros sensibles no introducen análisis de marketing."
+      ]
+    },
+    "ecommerce-ai": {
+      "name": "Comercio y comercio electrónico",
+      "eyebrow": "IA de Codestra para comercio electrónico",
+      "headline": "Hacer preguntas del producto en pedidos completados",
+      "summary": "Ayuda a los compradores a encontrar productos, ordenes de verificación, gestionar devoluciones aprobadas, recibir avisos de inventario, y reconectar carritos abandonados.",
+      "problems": [
+        "Preguntas del producto retrasan las compras",
+        "Apoyo a las cargas de la demanda por orden y estado",
+        "Los retornos necesitan una gestión coherente de políticas",
+        "El interés del inventario se pierde cuando los artículos se venden"
+      ],
+      "intake": [
+        "Intención de producto o pedido",
+        "Preferencias de catálogo",
+        "Orden límite de referencia",
+        "Resolución preferida"
+      ],
+      "actions": [
+        "Asistente de compras",
+        "Recomendaciones de los productos",
+        "Situación del orden",
+        "Retorno de los flujos de trabajo",
+        "Notificaciones de inventario",
+        "Automatización amortiguada",
+        "Oportunidades de upsell"
+      ],
+      "routing": [
+        "Ventas",
+        "Apoyo a la orden",
+        "Devoluciones",
+        "Especialista humano"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Shopify",
+          "status": "Plan"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Búsqueda de productos",
+          "transcript": "Shopper describe uso, presupuesto y preferencias.",
+          "outcome": "Opciones de catálogo aprobadas presentadas."
+        },
+        {
+          "title": "Situación del orden",
+          "transcript": "El cliente solicita el estado a través de un límite de verificación de pedidos.",
+          "outcome": "Se inició el proceso de trabajo sobre el estatuto aprobado."
+        },
+        {
+          "title": "Solicitud de devolución",
+          "transcript": "El cliente selecciona una razón de devolución aprobada.",
+          "outcome": "Retorno del flujo de trabajo preparado bajo política."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede recomendar productos?",
+          "Sí, de datos de catálogo aprobados."
+        ],
+        [
+          "¿Puede emitir reembolsos?",
+          "Sólo si está autorizado y probado explícitamente."
+        ],
+        [
+          "¿Se integra con Shopify?",
+          "Planificada por ejecución."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Después de presentar la aprobación."
+        ],
+        [
+          "¿Se garantizan las reclamaciones de conversión?",
+          "Dios mío."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Plataforma de tiendas",
+        "Órdenes mensuales",
+        "Tamaño del catálogo",
+        "Volumen de apoyo",
+        "ERP actual",
+        "Retorno del flujo de trabajo",
+        "Idiomas",
+        "Integraciones requeridas"
+      ]
+    },
+    "hospitality-ai": {
+      "name": "Hoteles, viajes y hospitalidad",
+      "eyebrow": "IA de Codestra para hotelería",
+      "headline": "Servir a cada invitado antes, durante y después de su estancia",
+      "summary": "Coordinar reservas, check-in digital, solicitudes de huéspedes, servicios de conserjería, transporte, actividades, notificaciones y comentarios.",
+      "problems": [
+        "Las solicitudes de huéspedes llegan todo el día",
+        "Repetir las preguntas de reserva",
+        "Las órdenes de servicio abarcan varios departamentos",
+        "La retroalimentación llega demasiado tarde para recuperar problemas"
+      ],
+      "intake": [
+        "Bienes y fechas",
+        "Estado de la reserva",
+        "Solicitud de visita",
+        "Idioma preferido"
+      ],
+      "actions": [
+        "Recepcionista de hotel con IA",
+        "Auxiliar de reservas",
+        "Solicitud de visitas",
+        "Registro digital",
+        "Ordenación en la habitación",
+        "Concierge Assistant",
+        "Recopilación de información"
+      ],
+      "routing": [
+        "Reservas",
+        "Recepción frontal",
+        "Alimentos y bebidas",
+        "Servicios a los huéspedes"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Calendarios",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas de gestión de bienes",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Solicitud de reserva",
+          "transcript": "Solicitudes de clientes fechas, preferencias de habitación y servicios.",
+          "outcome": "Solicitud de reserva preparada."
+        },
+        {
+          "title": "Servicio de atención al cliente",
+          "transcript": "Los huéspedes solicitan transporte y una actividad.",
+          "outcome": "Las tareas de conserje se enrutaron."
+        },
+        {
+          "title": "Mantener la información",
+          "transcript": "Los huéspedes reportan una preocupación por el servicio.",
+          "outcome": "El flujo de trabajo de recuperación humana aumentó."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede confirmar las reservas?",
+          "Sólo a través de una conexión PMS aprobada."
+        ],
+        [
+          "¿Pueden los huéspedes cambiar idiomas?",
+          "Se pueden habilitar idiomas compatibles configurados."
+        ],
+        [
+          "¿Puede pedir servicio de habitaciones?",
+          "Bajo menús y flujos de trabajo aprobados."
+        ],
+        [
+          "¿Sustituye al personal?",
+          "No, apoya al personal."
+        ],
+        [
+          "¿La muestra se mantiene real?",
+          "Dios mío."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de propiedad",
+        "Habitaciones",
+        "Lugares",
+        "Reservas mensuales",
+        "PMS actuales",
+        "Servicios a los huéspedes",
+        "Idiomas",
+        "Integraciones requeridas"
+      ]
+    },
+    "construction-ai": {
+      "name": "Construcción y servicios de vivienda",
+      "eyebrow": "IA de Codestra para construcción",
+      "headline": "Poner llamadas de servicio en trabajos programados",
+      "summary": "Capture estimates, schedule inspections, dispatch technicals, coordinate field applications, and follow up on projects.",
+      "problems": [
+        "Crews no puede responder a cada llamada",
+        "Datos estimados llegan incompleta",
+        "Cambios durante todo el día",
+        "Fotos de proyecto y documentos dispersar a través de sistemas"
+      ],
+      "intake": [
+        "Tipo de servicio",
+        "Ubicación del proyecto",
+        "Emergencia",
+        "Solicitud de estimación o inspección"
+      ],
+      "actions": [
+        "Recepcionista del contratista AI",
+        "Solicitudes de estimación",
+        "Programación de inspección",
+        "Envío de técnicos",
+        "Aplicación del servicio móvil",
+        "Portal del proyecto de cliente",
+        "Seguimiento de inventarios"
+      ],
+      "routing": [
+        "Estimación",
+        "Sender",
+        "Project Manager",
+        "Escalada humana de emergencia"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas de servicio móvil",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Solicitud de estimación",
+          "transcript": "Homeowner proporciona servicio, propiedad, tiempo y detalles de contacto.",
+          "outcome": "Solicitud de estimación enrutada por territorio."
+        },
+        {
+          "title": "Programación de inspección",
+          "transcript": "El cliente selecciona una ventana de inspección aprobada.",
+          "outcome": "Solicitud de programación preparada."
+        },
+        {
+          "title": "Envío de técnicos",
+          "transcript": "La categoría de servicio urgente y la ubicación son capturados.",
+          "outcome": "Despacho humano alertado con contexto."
+        }
+      ],
+      "faq": [
+        [
+          "¿Pueden pagar trabajos?",
+          "Puede recoger insumos; las estimaciones finales siguen reglas aprobadas."
+        ],
+        [
+          "¿Puede enviar técnicos?",
+          "Sólo mediante flujos de trabajo aprobados."
+        ],
+        [
+          "¿Pueden los clientes subir fotos?",
+          "Se puede ampliar un sistema de carga seguro."
+        ],
+        [
+          "¿Puede rastrear el inventario?",
+          "Mediante una integración aprobada."
+        ],
+        [
+          "¿Están garantizados los tiempos de respuesta?",
+          "No se reclama ningún SLA público."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Comercio o servicio",
+        "Técnicos",
+        "Llamadas mensuales",
+        "Zona de servicio",
+        "Sistema de campo actual",
+        "Despacho",
+        "Flujo de trabajo de emergencia",
+        "Integraciones requeridas"
+      ]
+    },
+    "agriculture-ai": {
+      "name": "Agricultura y producción de alimentos",
+      "eyebrow": "IA de Codestra para agricultura",
+      "headline": "Toma decisiones más rápidas a través de su granja y cadena de suministro",
+      "summary": "Coordinar los planes de cultivo, observaciones de riego, inventarios, tareas de trabajo, producir ventas, relaciones de comprador, informes de plagas y paneles de rentabilidad.",
+      "problems": [
+        "Los datos operacionales siguen en registros separados",
+        "Las tareas estacionales dependen de la coordinación oportuna",
+        "Es difícil prever el inventario de insumos",
+        "El comprador y la planificación de la producción están desconectados"
+      ],
+      "intake": [
+        "Tipo de operación",
+        "Escala de hormigón o producción",
+        "Cultivo o producto",
+        "Desafío de la planificación primaria"
+      ],
+      "actions": [
+        "Plataforma de gestión agrícola",
+        "Planificación de cultivos",
+        "Planificación y programación de cosechas",
+        "Supervisión de los riegos",
+        "Inventario de insumos",
+        "Tareas de trabajo",
+        "Comprador CRM",
+        "Presentación de informes sobre plagas"
+      ],
+      "routing": [
+        "Operating Director",
+        "Equipo de campaña",
+        "Ventas",
+        "Revisión calificada de la agronomía"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Plataformas de sensores",
+          "status": "Plan"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Plan de cultivo",
+          "transcript": "Manager selecciona campos, cultivos, fechas de destino y limitaciones de recursos.",
+          "outcome": "Preparación del flujo de trabajo."
+        },
+        {
+          "title": "Presentación de informes sobre plagas",
+          "transcript": "El trabajador registra una observación y un flujo de trabajo de imagen aprobado opcional.",
+          "outcome": "El informe de apoyo a las decisiones se tradujo en el examen de expertos."
+        },
+        {
+          "title": "Indagación del comprador",
+          "transcript": "Comprador pide producto, cantidad, grado y tiempo de entrega.",
+          "outcome": "Consulta de ventas calificada preparada."
+        }
+      ],
+      "faq": [
+        [
+          "¿El análisis de imagen garantiza un diagnóstico?",
+          "No. Sólo es apoyo a la decisión."
+        ],
+        [
+          "¿Puede monitorear el riego?",
+          "Con integraciones de sensores aprobadas."
+        ],
+        [
+          "¿Puede rastrear la rentabilidad?",
+          "Utilizando datos de coste y producción configurados."
+        ],
+        [
+          "¿Pueden los trabajadores recibir tareas?",
+          "Sí, a través de una solicitud aprobada."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Después de la asignación y aprobación del estancamiento."
+        ]
+      ],
+      "qualifyingQuestions": [
+        "Tipo de operación",
+        "Envelope",
+        "Cultivos o productos",
+        "Trabajadores",
+        "Software actual",
+        "Sistemas de sensores",
+        "Volumen del comprador",
+        "Problema operacional primario"
+      ],
+      "disclosures": [
+        "El análisis de cultivos basado en imágenes es el soporte de decisión y no un diagnóstico garantizado."
+      ]
+    },
+    "education-ai": {
+      "name": "Educación y capacitación",
+      "category": "Servicios públicos y comunitarios",
+      "eyebrow": "IA para educación y capacitación",
+      "headline": "Apoyo a todos los estudiantes desde la inscripción hasta la finalización",
+      "summary": "Conectar admisiones, registro, apoyo estudiantil, comunicación de padres, entrenamiento, recordatorios y análisis de éxito a través de flujos de trabajo controlados.",
+      "primaryCta": "Modernizar su experiencia estudiantil",
+      "products": [
+        "Recepcionista de inscripción",
+        "Portal de información para estudiantes",
+        "Aplicación de registro de cursos",
+        "Asistente de tutoría virtual",
+        "Integración de la gestión del aprendizaje",
+        "Portal de comunicación de parientes",
+        "Supervisión de la asistencia",
+        "Ticketing Student-support",
+        "Recordatorios de matrícula y pago",
+        "Programación de clases",
+        "Entrada de admisión multilingüe",
+        "Análisis de éxito del estudiante",
+        "Plataforma de formación empresarial"
+      ],
+      "intake": [
+        "Tipo de institución",
+        "Conteo de estudiantes y campus",
+        "Solicitudes mensuales",
+        "Sistema estudiantil actual"
+      ],
+      "actions": [
+        "Respuesta preguntas de admisión",
+        "Calificar a los estudiantes potenciales",
+        "Visitas programadas del campus",
+        "Curso de registro interés",
+        "Enviar recordatorios de aplicación",
+        "Estudiantes de ruta a asesores",
+        "Seguimiento de inscripción incompleta",
+        "Generar actividades de asesoramiento",
+        "Sincronizar candidatos aprobados con Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de institución",
+        "Número de estudiantes",
+        "Número de campus",
+        "Solicitudes mensuales",
+        "Sistema estudiantil actual",
+        "Idiomas requeridos",
+        "Requisitos de aprendizaje en línea",
+        "Desafío de inscripción"
+      ],
+      "disclosures": [
+        "Los registros de los estudiantes requieren acceso controlado y retención.",
+        "Se requiere el consentimiento adecuado para la edad.",
+        "Las decisiones académicas requieren una revisión humana.",
+        "AI no emite calificaciones finales ni decisiones disciplinarias sin revisión autorizada."
+      ],
+      "problems": [
+        "Las investigaciones sobre educación y capacitación llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre ai recepcionista de inscripción y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "dental-ai": {
+      "name": "Prácticas dentales",
+      "category": "Salud y atención",
+      "eyebrow": "AI para prácticas dentales",
+      "headline": "Llene su horario sin llamadas de pacientes perdidos",
+      "summary": "Coordinar los nombramientos, los recordatorios, la ingesta de nuevos pacientes, los camareros de cancelación, los recordatorios aprobados y la escalada del personal.",
+      "primaryCta": "Construya su sistema de pacientes dentales",
+      "products": [
+        "Recepcionista odontológica",
+        "Portal de reserva de nombramientos",
+        "Recordar y limpiar recordatorios",
+        "Flujos de trabajo de seguimiento del tratamiento",
+        "Entrada de nuevo paciente",
+        "Recopilación de información sobre seguros",
+        "Lista de espera de cancelación",
+        "Portal de documentos seguros",
+        "Solicitudes de videoconsulta",
+        "Pauta de comunicación del paciente"
+      ],
+      "intake": [
+        "Tamaño de la práctica",
+        "Lugares",
+        "Nombramientos mensuales",
+        "Sistema de práctica actual"
+      ],
+      "actions": [
+        "Visitas programadas y programadas",
+        "Rellene las citas canceladas",
+        "Enviar recordatorios de tratamiento aprobados",
+        "Emergencias por carretera al personal",
+        "Recopilar información preliminar sobre seguros",
+        "Enviar formularios de admisión",
+        "Solicitud de información posterior a la visita",
+        "Conversión de fuentes de publicidad"
+      ],
+      "qualifyingQuestions": [
+        "Tamaño de la práctica",
+        "Proveedores",
+        "Lugares",
+        "Llamadas mensuales",
+        "Sistema de práctica actual",
+        "Corrientes de seguro",
+        "Recordar volumen",
+        "Idiomas requeridos"
+      ],
+      "disclosures": [
+        "La IA no diagnostica ni prescribe.",
+        "Las decisiones clínicas requieren profesionales dentales.",
+        "El cumplimiento del cuidado de la salud no se reclama sin pruebas verificadas."
+      ],
+      "problems": [
+        "Las consultas sobre prácticas dentales llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista de ai dental y proporciona detalles de ingesta aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "veterinary-ai": {
+      "name": "Prácticas veterinarias",
+      "category": "Salud y atención",
+      "eyebrow": "AI para prácticas veterinarias",
+      "headline": "Ayuda a los propietarios de mascotas Alcanzar su práctica en cualquier momento",
+      "summary": "Asistencia para la ingesta de mascotas, programación rutinaria, recordatorios de vacunación, embarque, recarga de la trucha y escalada humana de emergencia.",
+      "primaryCta": "Mejora tu experiencia de mascotas",
+      "products": [
+        "Recepcionista Veterinaria AI",
+        "Portal Pet-owner",
+        "Programa de citas",
+        "Recordatorios de vacunación",
+        "Solicitud de reserva de inscripción",
+        "Pets de admisión y formas de historia",
+        "Escalada de emergencia",
+        "Sistema de reservas",
+        "Comunicaciones de seguimiento",
+        "Enrutamiento entre múltiples ubicaciones"
+      ],
+      "intake": [
+        "Tipo de animal y servicio",
+        "Cliente nuevo o existente",
+        "Ubicación preferida",
+        "Declaración de Urgency"
+      ],
+      "actions": [
+        "Identificar el tipo de animal y servicio",
+        "Visitas rutinarias del libro",
+        "Declaraciones de emergencia en la ruta",
+        "Enviar recordatorios de vacunación",
+        "Recopilar información previsitada",
+        "Grooming programado o embarque",
+        "Notificar al personal sobre solicitudes de reembolso",
+        "Pista citas perdidas"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de práctica",
+        "Veterinarios",
+        "Lugares",
+        "Visitas mensuales",
+        "Sistema de práctica actual",
+        "Embarque o acondicionamiento",
+        "Necesidades de recordatorio",
+        "Flujo de trabajo de emergencia"
+      ],
+      "disclosures": [
+        "La IA no diagnostica de forma independiente a los animales.",
+        "AI no prescribe ni cambia la medicación.",
+        "Las decisiones médicas y de emergencia requieren revisión veterinaria."
+      ],
+      "problems": [
+        "Las investigaciones sobre prácticas veterinarias llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el veterinario ai recepcionista y proporciona detalles de ingesta aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "automotive-ai": {
+      "name": "Distribuidores y reparaciones automotrices",
+      "category": "Comercio y Hospitalidad",
+      "eyebrow": "AI para empresas automotrices",
+      "headline": "Transformar las investigaciones de vehículos en nombramientos y ventas",
+      "summary": "Conectar la calificación del comprador, preguntas de inventario, unidades de prueba, nombramientos de servicio, estado de reparación, preguntas de piezas y seguimiento de CRM.",
+      "primaryCta": "Automatizar sus operaciones automotrices",
+      "products": [
+        "Recepcionista AI",
+        "Recepcionista AI taller",
+        "Programador de nombramientos de servicio",
+        "Auxiliar de inventario de vehículos",
+        "Programador de ensayo",
+        "Portal de recuperación de estimaciones",
+        "Aplicación de reparación-estatal",
+        "Auxiliar de disponibilidad de piezas",
+        "Sistema de seguimiento del cliente",
+        "Integración CRM"
+      ],
+      "intake": [
+        "Distribuidora o taller de reparación",
+        "Intereses de vehículos o servicios",
+        "Ubicación",
+        "Preferencias"
+      ],
+      "actions": [
+        "Calificar compradores de vehículos",
+        "Unidades de prueba programadas",
+        "Aprovechamiento de la información comercial",
+        "Visitas de servicio de libros",
+        "Enviar recordatorios de mantenimiento",
+        "Notificar el estado de reparación",
+        "Información sobre las piezas de ruta",
+        "Seguimiento de cables no vendidos",
+        "Crear oportunidades de Odoo",
+        "Conversión de la campaña de seguimiento"
+      ],
+      "qualifyingQuestions": [
+        "Distribuidora o taller de reparación",
+        "Número de emplazamientos",
+        "Llamadas mensuales",
+        "Órdenes de reparación mensuales",
+        "Tamaño del inventario de vehículos",
+        "Sistema actual de gestión de distribuidores",
+        "Integraciones requeridas"
+      ],
+      "problems": [
+        "Los concesionarios automáticos y las preguntas de reparación llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el concesionario ai recepcionista y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "restaurant-ai": {
+      "name": "Restaurantes y servicio de comida",
+      "category": "Comercio y Hospitalidad",
+      "eyebrow": "AI para Restaurantes y Servicio de Alimentos",
+      "headline": "Servir a más clientes sin pedidos o reservas",
+      "summary": "Coordinar las reservas, aprobar preguntas de menú, llevar, catering, lealtad, entrega, compra, horarios y reportaje multilocalización.",
+      "primaryCta": "Automatizar su experiencia de huéspedes y pedidos",
+      "products": [
+        "Restaurante AI recepcionista",
+        "Auxiliar de reservas",
+        "Asistente de mando",
+        "Portal de recepción",
+        "Menú digital",
+        "Aplicación de la fidelidad de los clientes",
+        "Coordinación de la ejecución",
+        "Inventario y compra dashboard",
+        "Programación de empleados",
+        "Informes de múltiples ubicaciones"
+      ],
+      "intake": [
+        "Ubicación",
+        "Reserva, orden o intención de catering",
+        "Parte o tamaño del pedido",
+        "Horas"
+      ],
+      "actions": [
+        "Responder menú y preguntas de apertura",
+        "Hacer solicitudes de reserva",
+        "Consultas de restauración",
+        "Proporcionar información alérgenos aprobada",
+        "Enviar confirmaciónes del pedido",
+        "Solicitudes de viaje por carretera",
+        "Recibir información",
+        "Crear oportunidades de catering en Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de restaurante",
+        "Lugares",
+        "Reservas mensuales",
+        "Volumen de pedidos",
+        "POS actuales",
+        "Sistemas de entrega",
+        "Volumen de cocina",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "La información de alergen proviene únicamente de fuentes controladas.",
+        "AI no inventa ingredientes ni información de seguridad.",
+        "Solicitudes complejas de alergia para el examen del personal."
+      ],
+      "problems": [
+        "Restaurantes y servicios de comida llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el restaurante ai recepcionista y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "manufacturing-ai": {
+      "name": "Fabricación",
+      "category": "Agricultura y producción",
+      "eyebrow": "AI para la fabricación",
+      "headline": "Conecte Producción, Calidad y Operaciones de Cliente",
+      "summary": "Conectar el monitoreo de producción, mantenimiento, calidad, proveedores, inventario, pedidos de trabajo, informes de seguridad, pedidos de clientes y Odoo middleware.",
+      "primaryCta": "Construya su sistema de fabricación inteligente",
+      "products": [
+        "Panel de control de la producción",
+        "Sistema de retención de mantenimiento",
+        "Apoyo predictivo de mantenimiento",
+        "Flujo de trabajo de control de calidad",
+        "Portal de proveedores",
+        "Automatización de la adquisición",
+        "Supervisión de los inventarios",
+        "Aplicación de órdenes de trabajo",
+        "Informes de incidentes de seguridad",
+        "Portal de pedidos de clientes",
+        "Equipo de fabricación de odoo"
+      ],
+      "intake": [
+        "Tipo de fabricación",
+        "Instalaciones",
+        "Volumen de producción",
+        "ERP actual"
+      ],
+      "actions": [
+        "Crear pedidos de mantenimiento",
+        "Detectar excepciones de producción",
+        "Efectos de calidad de la ruta",
+        "Extracto de documentos de proveedores",
+        "Supervisar los umbrales de existencias",
+        "Notificar pedidos retrasados",
+        "Resumen de los informes de turno",
+        "Pista de tiempo de inactividad",
+        "Sincronizar los registros de fabricación de Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de fabricación",
+        "Número de instalaciones",
+        "Volumen de producción",
+        "ERP actual",
+        "Cuenta de equipo",
+        "Causas de las horas de inactividad primaria",
+        "Fuentes de datos",
+        "Integraciones requeridas"
+      ],
+      "problems": [
+        "Las investigaciones de fabricación llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el panel de control de la producción y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "recruitment-ai": {
+      "name": "Reclutamiento y recursos humanos",
+      "category": "Servicios profesionales",
+      "eyebrow": "IA para reclutamiento y recursos humanos",
+      "headline": "Mover candidatos calificados mediante la contratación de más",
+      "summary": "Coordinar la ingesta de candidatos, entrevistas, comunicación, a bordo, apoyo a los empleados, capacitación, análisis de la fuerza laboral y reclutamiento de Odoo.",
+      "primaryCta": "Mejora tu flujo de trabajo de contratación",
+      "products": [
+        "Reclutamiento de receptores AI",
+        "Portal de atención",
+        "Compra aplicada",
+        "Programador de entrevistas",
+        "Sistema de comunicación para candidatos",
+        "Portal de embarque",
+        "Servicio de ayuda a los empleados",
+        "Auxiliar de capacitación y políticas",
+        "Análisis de fuerza de trabajo",
+        "Integración de la contratación de odoo"
+      ],
+      "intake": [
+        "Posición abierta",
+        "Etapa candidata",
+        "Tiempo de entrevista preferente",
+        "Falta de documentos"
+      ],
+      "actions": [
+        "Responder preguntas de trabajo",
+        "Aplicaciones de recogida",
+        "Entrevistas programadas",
+        "Enviar notificaciones de estado",
+        "Candidatos de ruta por posición",
+        "Solicitud de documentos perdidos",
+        "Generar actividades de reclutamiento",
+        "Coordinado a bordo",
+        "Seguimiento del desempeño de los proveedores de contratación"
+      ],
+      "qualifyingQuestions": [
+        "Tamaño de la empresa",
+        "Solicitantes mensuales",
+        "Funciones abiertas",
+        "Programador",
+        "ATS actuales",
+        "Corriente de trabajo de entrevista",
+        "Necesidades de internado",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "Las características protegidas no se utilizan para la puntuación.",
+        "AI no toma decisiones definitivas de contratación o terminación.",
+        "Se necesitan criterios de examen humano, criterios explicables y auditorías de recomendaciones."
+      ],
+      "problems": [
+        "Las investigaciones sobre el reclutamiento y los recursos humanos llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista ai de reclutamiento y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "nonprofit-ai": {
+      "name": "Organizaciones no lucrativas y comunitarias",
+      "category": "Servicios públicos y comunitarios",
+      "eyebrow": "AI para organizaciones comunitarias y sin fines de lucro",
+      "headline": "Servir a más personas con operaciones digitales conectadas",
+      "summary": "Conectar información comunitaria, donantes, voluntarios, programas, donaciones, eventos, ingesta de beneficiarios, comunicaciones e informes de impacto.",
+      "primaryCta": "Ampliar el impacto de su organización",
+      "products": [
+        "Servicio comunitario Recepcionista AI",
+        "Portal de donantes",
+        "Sistema de gestión voluntaria",
+        "Registro del programa",
+        "Seguimiento de Grant",
+        "Registro de eventos",
+        "Ingestión benéfica",
+        "Auxiliar de información multilingüe",
+        "Divulgación de donaciones",
+        "Dashboard de impacto"
+      ],
+      "intake": [
+        "Programa o servicio",
+        "Intención voluntaria o donante",
+        "Ubicación",
+        "Idioma preferido"
+      ],
+      "actions": [
+        "Respuesta preguntas del programa",
+        "Voluntarios de registro",
+        "Orientación programada",
+        "Aprovechamiento de las solicitudes de donantes",
+        "Enviar recordatorios del evento",
+        "Solicitudes de servicio de ruta",
+        "Plazos límite de las subvenciones",
+        "Generar actividades de seguimiento",
+        "Elaborar informes de impacto",
+        "Sincronizar contactos con Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de organización",
+        "Programas",
+        "Solicitudes mensuales",
+        "Voluntarios",
+        "Sistema actual de donantes",
+        "Eventos",
+        "Idiomas",
+        "Necesidades de presentación de informes"
+      ],
+      "disclosures": [
+        "La información benéfica requiere una recogida minimizada, acceso controlado y retención.",
+        "Los receptores de servicios protegidos están excluidos de la analítica."
+      ],
+      "problems": [
+        "Las consultas sin fines de lucro y organizaciones comunitarias llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta acerca de la comunidad-servicios ai recepcionista y proporciona detalles de ingesta aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "public-services-ai": {
+      "name": "Gobierno y servicios públicos",
+      "category": "Servicios públicos y comunitarios",
+      "eyebrow": "AI para servicios públicos",
+      "headline": "Hacer que la información y los servicios públicos sean más fáciles de acceder",
+      "summary": "Conectar información pública aprobada, servicios ciudadanos, nombramientos, permisos, solicitudes, notificaciones, registros, quejas y paneles operativos.",
+      "primaryCta": "Modernizar la entrega de servicios públicos",
+      "products": [
+        "Public information receptionist AI",
+        "Portal de servicios públicos",
+        "Sistema de nombramientos",
+        "Compra de permisos y licencias",
+        "Seguimiento de solicitudes de servicios",
+        "Auxiliar de información multilingüe",
+        "Corriente de trabajo de notificación de emergencia",
+        "Portal de solicitud de registros públicos",
+        "Sistema de denuncias y comentarios",
+        "Dashboard operacional"
+      ],
+      "intake": [
+        "Organismo o departamento",
+        "Servicio solicitado",
+        "Ubicación",
+        "Accesibilidad o necesidad de idioma"
+      ],
+      "actions": [
+        "Respuesta a preguntas públicas aprobadas",
+        "Solicitudes de ruta por agencia",
+        "Nombramientos programados",
+        "Recopilar información sobre la aplicación",
+        "Notificar a los residentes sobre el estado",
+        "Solicitudes no resueltas",
+        "Escalete urgent public-safety statements",
+        "Generar colas de trabajo del departamento"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de organismo",
+        "Departamentos",
+        "Población servida",
+        "Solicitudes mensuales",
+        "Sistema de caso actual",
+        "Idiomas",
+        "Necesidades de accesibilidad",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "La admisibilidad jurídica y las decisiones adversas requieren un examen humano autorizado.",
+        "Se requieren alternativas accesibles, retención de registros públicos y protección de identidad."
+      ],
+      "problems": [
+        "Las consultas gubernamentales y de servicios públicos llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista ai de información pública y proporciona detalles de ingesta aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "energy-ai": {
+      "name": "Energía, energía solar y servicios públicos",
+      "category": "Operaciones e infraestructura",
+      "eyebrow": "AI para energía, energía solar y utilidades",
+      "headline": "Conectar Servicio al Cliente, Trabajo sobre el Terreno y Operaciones Energéticas",
+      "summary": "Coordinar la calificación solar, reportaje de salidas, despacho de campo, instalaciones, datos de medición, mantenimiento, facturación de enrutamiento, ventas y operaciones.",
+      "primaryCta": "Construya su plataforma de energía conectada",
+      "products": [
+        "Recepcionista de Utilidad AI",
+        "Asistente de clasificación de plomo solar",
+        "Portal de presentación de informes sobre el terreno",
+        "Despacho de servicio móvil",
+        "Calendario de instalación",
+        "Panel de energía del cliente",
+        "Integración de datos medidores",
+        "Aplicación de mantenimiento",
+        "Remisión de solicitudes de facturación",
+        "Ventas y operaciones CRM"
+      ],
+      "intake": [
+        "Utilidad o solicitud solar",
+        "Ubicación del servicio",
+        "Contexto de proyecto o de salida",
+        "Seguimiento preferido"
+      ],
+      "actions": [
+        "Calificar las perspectivas solares",
+        "Necesidades preliminares estimadas",
+        "Evaluaciones del sitio",
+        "Recibir informes de salida",
+        "Declaraciones de emergencia en la ruta",
+        "Personal de oficina",
+        "Enviar actualizaciones de instalación",
+        "Crear oportunidades de venta de Odoo",
+        "Seguimiento de campañas renovables"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de negocio",
+        "Territorio de servicio",
+        "Solicitudes mensuales",
+        "Equipos sobre el terreno",
+        "CRM actual",
+        "Sistemas de medición o vigilancia",
+        "Volumen de instalación",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "Los ahorros y los resultados de producción no se prometen sin cálculos validados.",
+        "Las condiciones peligrosas requieren una escalada aprobada inmediata.",
+        "Las operaciones de control de campo autorizadas de los humanos."
+      ],
+      "problems": [
+        "Las consultas sobre energía, energía solar y servicios públicos llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista de la utilidad ai y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "telecom-it-ai": {
+      "name": "Telecomunicaciones y gestión de TI",
+      "category": "Tecnología y medios de comunicación",
+      "eyebrow": "AI para Telecom y Managed IT",
+      "headline": "Resolver solicitudes más rápido y mantener conectados a los clientes",
+      "summary": "Conecte la ingesta de soporte, enrutamiento de entradas, estado de servicio, instalaciones, incidentes de red, conocimiento, monitoreo SLA, suscripciones y renovaciones.",
+      "primaryCta": "Modernizar sus operaciones de apoyo",
+      "products": [
+        "Recepcionista AI de apoyo técnico",
+        "Portal de asistencia al cliente",
+        "Entrada y enrutamiento de entradas",
+        "Estado del servicio de pizarra",
+        "Calendario de instalación",
+        "Desglose de los incidentes de red",
+        "Sistema de solicitud de apoyo remoto",
+        "Auxiliar de conocimientos",
+        "Supervisión del SLA",
+        "Automatización de suscripción y renovación"
+      ],
+      "intake": [
+        "Tipo de servicio y cuenta",
+        "Objetivo de apoyo",
+        "Impacto y gravedad",
+        "Contacto preferido"
+      ],
+      "actions": [
+        "Identificar el tipo de servicio y cuenta",
+        "Clasificar la intención de apoyo",
+        "Crear entradas de soporte",
+        "Actos de ruta por gravedad",
+        "Instalación programada",
+        "Enviar actualizaciones de salida",
+        "Escalete SLA risks",
+        "Summarize llamadas de apoyo",
+        "Sincronizar clientes y oportunidades de Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de proveedor",
+        "Clientes",
+        "Billetes mensuales",
+        "Equipos de apoyo",
+        "Sistema de ticketing actual",
+        "Herramientas de red",
+        "Tigres SLA",
+        "Integraciones requeridas"
+      ],
+      "problems": [
+        "Las telecomunicaciones y las consultas de TI administradas llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista ai de soporte técnico y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "wellness-ai": {
+      "name": "Belleza, bienestar y fitness",
+      "category": "Salud y atención",
+      "eyebrow": "AI para Belleza, Bienestar y Fitness",
+      "headline": "Mantenga su programa completo y sus clientes conectados",
+      "summary": "Coordinar citas, clases, membresías, entrenamiento, recordatorios, camareras, lealtad, suscripciones, comunicaciones y análisis multilocación.",
+      "primaryCta": "Crece su negocio de bienestar",
+      "products": [
+        "Recepcionista de salón o gimnasio AI",
+        "Nombramiento y reserva de clase",
+        "Portal de membresía",
+        "Programador de capacitación personal",
+        "Recordatorios de tratamiento y servicios",
+        "Lista de espera de cancelación",
+        "Aplicación de la lealtad",
+        "Gestión de paquetes y suscripción",
+        "Comunicación del cliente",
+        "Análisis multilocalización"
+      ],
+      "intake": [
+        "Servicio o clase",
+        "Ubicación",
+        "Tiempo preferente",
+        "Situación de los miembros"
+      ],
+      "actions": [
+        "Con citas y clases de libros",
+        "Cancelaciones",
+        "Enviar recordatorios",
+        "Promover servicios aprobados",
+        "Seguimiento de las solicitudes de membresía",
+        "Preguntas sobre el tratamiento de la ruta al personal cualificado",
+        "Recibir información",
+        "Seguimiento de clientes inactivos",
+        "Crear oportunidades de venta de Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de negocio",
+        "Lugares",
+        "Reservas mensuales",
+        "Miembros",
+        "Sistema de reserva actual",
+        "Clases o tratamientos",
+        "Necesidades de la lista de espera",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "AI no proporciona asesoramiento médico o de tratamiento no aprobado.",
+        "Las preguntas relacionadas con la salud se dirigen a profesionales cualificados."
+      ],
+      "problems": [
+        "Las consultas de belleza, bienestar y fitness llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta acerca de salón o gimnasio ai recepcionista y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "security-services-ai": {
+      "name": "Empresas de seguridad y alarma",
+      "category": "Operaciones e infraestructura",
+      "eyebrow": "AI para empresas de servicios de seguridad",
+      "headline": "Responder más rápido de la investigación de ventas al dispensador de servicio",
+      "summary": "Conectar la calificación de prospección, toma de alarma, instalaciones, despacho, acceso al cliente, incidentes, guardias, equipos, renovaciones y reportajes.",
+      "primaryCta": "Conecte sus operaciones de seguridad",
+      "products": [
+        "Recepcionista AI de la compañía de seguridad",
+        "Ingestión del servicio de alarma",
+        "Calendario de instalación",
+        "Envío de técnicos",
+        "Portal del cliente",
+        "Solicitud de notificación de incidentes",
+        "Programación de guardia",
+        "Inventario de equipo",
+        "Automatización de renovación de contratos",
+        "Ventas y tablero de servicio"
+      ],
+      "intake": [
+        "Solicitud de venta o servicio",
+        "Tipo de propiedad",
+        "Ubicación",
+        "Frontera de emergencia"
+      ],
+      "actions": [
+        "Calificar las perspectivas de seguridad",
+        "Evaluaciones de bienes",
+        "Solicitudes de servicio de ruta",
+        "Identificar problemas urgentes de alarma",
+        "Técnicos autorizados para la separación",
+        "Enviar actualizaciones de instalación",
+        "Crear registros de incidentes",
+        "Renovaciones de contratos de seguimiento",
+        "Crear oportunidades y actividades de Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de servicio",
+        "Lugares",
+        "Llamadas mensuales",
+        "Técnicos o guardias",
+        "Sistema de despacho actual",
+        "Plataformas de alarma",
+        "Volumen de renovación",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "AI no puede desactivar alarmas ni controles sin autorización autenticada.",
+        "Los eventos de emergencia requieren una escalada aprobada.",
+        "Los detalles de seguridad de la propiedad están excluidos de la analítica."
+      ],
+      "problems": [
+        "Solicitudes de seguridad y alarma llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta acerca de la compañía de seguridad ai recepcionista y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "marketing-media-ai": {
+      "name": "Agencias de comercialización y medios de comunicación",
+      "category": "Tecnología y medios de comunicación",
+      "eyebrow": "AI para agencias de marketing y equipos de medios",
+      "headline": "Crear, aprobar y medir campañas más rápido",
+      "summary": "Conectar la ingesta de la agencia, portales de clientes, solicitudes de campaña, contenido, aprobaciones, publicaciones, activos, informes, socios y propuestas.",
+      "primaryCta": "Automatizar su flujo de trabajo de agencia",
+      "products": [
+        "Recepcionista principal del Organismo",
+        "Portal del cliente",
+        "Sistema de solicitud de campaña",
+        "Índice de flujo de trabajo",
+        "Portal de aprobación",
+        "Integración de la publicación social",
+        "Biblioteca de activos creativos",
+        "Panel de informes",
+        "Influencer and CRM Partner",
+        "Automatización de propuestas"
+      ],
+      "intake": [
+        "Tipo de campaña o proyecto",
+        "Canales",
+        "Calendario",
+        "Propietarios de aprobación"
+      ],
+      "actions": [
+        "Calificar clientes potenciales",
+        "Recopilar informes de campaña",
+        "Asignar tareas creativas",
+        "Contenido de ruta para aprobación",
+        "Contenido aprobado",
+        "Generar resúmenes de rendimiento",
+        "Seguimiento de los comentarios del cliente",
+        "Supervisar los plazos",
+        "Crear oportunidades y proyectos Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de organismo",
+        "Clientes",
+        "Campañas mensuales",
+        "Tamaño del equipo",
+        "Sistema de proyecto actual",
+        "Herramientas de publicación",
+        "Proceso de aprobación",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "La publicación externa requiere aprobación.",
+        "Deben protegerse los bienes de cliente, derechos de autor y derechos de uso.",
+        "AI no publica reclamaciones engañosas."
+      ],
+      "problems": [
+        "Las agencias de marketing y las consultas de medios llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista principal de la agencia y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    },
+    "gaming-entertainment-ai": {
+      "name": "Juegos y entretenimiento",
+      "category": "Tecnología y medios de comunicación",
+      "eyebrow": "AI para juegos y entretenimiento",
+      "headline": "Crear mejores experiencias de reproductor y audiencia",
+      "summary": "Conecte el soporte de reproductores, tickets, eventos, comunidades, recomendaciones, torneos, lealtad, moderación, socios y análisis de compromiso.",
+      "primaryCta": "Construya su plataforma de entretenimiento",
+      "products": [
+        "Recepcionista AI de soporte para jugadores",
+        "Portal de servicio al cliente",
+        "Plataforma de eventos y tickets",
+        "Herramientas de gestión comunitaria",
+        "Recomendación del contenido",
+        "Registro de visitantes",
+        "Plataforma de lealtad y recompensas",
+        "Flujo de trabajo moderado",
+        "Portal creador y socio",
+        "Análisis de compromiso"
+      ],
+      "intake": [
+        "Jugador, asistente o intención de pareja",
+        "Evento o producto",
+        "Límite de la cuenta",
+        "Seguimiento preferido"
+      ],
+      "actions": [
+        "Responder preguntas de evento y cuenta",
+        "Crear entradas de soporte",
+        "Cuestiones técnicas de la ruta",
+        "Registradores o asistentes",
+        "Enviar recordatorios del evento",
+        "Monitore las señales comunitarias aprobadas",
+        "Decisiones de moderación de la ruta para la revisión",
+        "Campaña de seguimiento y conversión de tickets",
+        "Sincronizar asociaciones y ventas con Odoo"
+      ],
+      "qualifyingQuestions": [
+        "Tipo de entretenimiento",
+        "Tamaño de la audiencia",
+        "Billetes mensuales",
+        "Eventos",
+        "Sistema de apoyo actual",
+        "Plataformas comunitarias",
+        "Rango de edad",
+        "Integraciones requeridas"
+      ],
+      "disclosures": [
+        "Se requieren controles adecuados a la edad.",
+        "Las sanciones por cuentas requieren un examen humano.",
+        "Los resultados basados en la oportunidad no están garantizados.",
+        "Las reglas específicas de la jurisdicción se aplican cuando se regula el juego."
+      ],
+      "problems": [
+        "Consultas de juegos y entretenimiento llegan a través de canales desconectados",
+        "Los equipos repiten el trabajo de admisión y estado que puede seguir reglas aprobadas",
+        "Las solicitudes importantes pierden contexto durante los despidos",
+        "Resultado operacional y de campaña es difícil de medir"
+      ],
+      "routing": [
+        "Equipo de servicio calificado",
+        "Operaciones",
+        "Ventas o apoyo",
+        "Escalada humana urgente"
+      ],
+      "integrations": [
+        {
+          "name": "Odoo CRM",
+          "status": "Apoyo"
+        },
+        {
+          "name": "n8n",
+          "status": "Apoyo"
+        },
+        {
+          "name": "Sistemas industriales",
+          "status": "Plan"
+        }
+      ],
+      "scenarios": [
+        {
+          "title": "Nueva investigación",
+          "transcript": "Un visitante pregunta sobre el recepcionista ai compatible con el jugador y proporciona detalles de admisión aprobados.",
+          "outcome": "Solicitud certificada preparada para el equipo correcto."
+        },
+        {
+          "title": "Seguimiento previsto",
+          "transcript": "El visitante selecciona un tiempo, idioma y método de contacto preferidos.",
+          "outcome": "Actividad de seguimiento realizada con contexto completo."
+        },
+        {
+          "title": "Escalada humana",
+          "transcript": "La solicitud llega a una acción restringida o requiere juicio profesional.",
+          "outcome": "El empleado autorizado recibe el contexto de conversación."
+        }
+      ],
+      "faq": [
+        [
+          "¿Puede Codestra trabajar con nuestros sistemas actuales?",
+          "Sí. Cada conexión es confirmada, mapeada y probada antes de la activación."
+        ],
+        [
+          "¿La AI reemplaza el juicio profesional?",
+          "No. Las decisiones restringidas y consiguientes siguen siendo con personas autorizadas."
+        ],
+        [
+          "¿Puede actualizar Odoo?",
+          "Sólo a través del backend controlado después del campo, campaña, equipo y validación de acceso en el estancamiento."
+        ],
+        [
+          "¿Podemos probar antes del lanzamiento?",
+          "Sí. La ingesta, el enrutamiento, los fracasos, las retries, la escalada y el retroceso deben ensayarse primero."
+        ],
+        [
+          "¿Las demostraciones son la actividad real del cliente?",
+          "No. Las demostraciones y los valores de dashboard están claramente etiquetados simulaciones o datos de muestra."
+        ]
+      ]
+    }
+  }
+}

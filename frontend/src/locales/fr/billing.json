@@ -1,0 +1,252 @@
+{
+  "page": {
+    "hero": {
+      "title": "Facturation électronique",
+      "body": "Modernisez la facturation et soutenez la conformité à la loi DGII 32-23."
+    },
+    "contact": "Nous contacter",
+    "craftsmanship": "Le savoir-faire dans chaque ligne de code",
+    "form": {
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Saisissez votre nom complet",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "Saisissez votre adresse e-mail",
+      "phone": "Téléphone",
+      "phonePlaceholder": "Saisissez votre numéro de téléphone",
+      "usesErp": "Utilisez-vous un ERP ?",
+      "consent": "J’accepte d’être contacté par Codestra République dominicaine.",
+      "submit": "Envoyer le message",
+      "consentError": "Veuillez accepter d’être contacté.",
+      "success": "Merci. Un spécialiste Codestra vous contactera.",
+      "error": "Votre demande n’a pas pu être envoyée. Réessayez."
+    },
+    "about": {
+      "title": "Qu’est-ce que la facturation électronique ?",
+      "body": "En République dominicaine, la loi 32-23 prévoit des incitations fiscales afin d’encourager l’adoption anticipée des reçus fiscaux électroniques (e-CF) pendant la période volontaire."
+    },
+    "tax": {
+      "category": "Catégorie de contribuable",
+      "categories": [
+        "Grandes, micro, petites et moyennes entreprises",
+        "Contribuables moyens",
+        "Petits contribuables",
+        "Microentreprises et entreprises non classées"
+      ],
+      "credit": "Crédit fiscal maximal (DOP)",
+      "usage": "Ces crédits peuvent être appliqués pendant le même exercice fiscal à :",
+      "itbis": "Taxe sur les transferts de biens industrialisés et services (ITBIS)",
+      "advance": "Acomptes d’impôt sur le revenu",
+      "income": "Impôt sur le revenu",
+      "asset": "Impôt sur les actifs"
+    },
+    "requirements": {
+      "title": "Exigences",
+      "body": "Les fournisseurs facturant l’État dominicain avec un reçu fiscal électronique (e-CF) peuvent être exonérés de la retenue de 5 %, sous réserve des règles applicables."
+    },
+    "formImageAlt": "Aperçu de la demande de facturation électronique",
+    "formPrompt": "Remplissez le formulaire de facturation électronique",
+    "formCta": "Formulaire de facturation",
+    "benefits": {
+      "title": "Avantages",
+      "items": [
+        {
+          "name": "Conformité simplifiée",
+          "description": "Soutient les exigences approuvées de la DGII."
+        },
+        {
+          "name": "Facturation mobile et agile",
+          "description": "Gérez la facturation sur le web depuis les appareils et lieux pris en charge."
+        },
+        {
+          "name": "Intégration comptable",
+          "description": "Synchronisez les données approuvées avec les processus comptables."
+        },
+        {
+          "name": "Numérisation précise",
+          "description": "Réduisez les erreurs manuelles en numérisant les formulaires approuvés."
+        },
+        {
+          "name": "Audits internes efficaces",
+          "description": "Organisez les documents pour des audits internes contrôlés."
+        },
+        {
+          "name": "Meilleure expérience client",
+          "description": "Offrez un service de facturation plus clair et rapide."
+        },
+        {
+          "name": "Engagement environnemental",
+          "description": "Réduisez le papier et son impact environnemental."
+        }
+      ]
+    },
+    "benefitImageAlt": "Interface des avantages de la facturation électronique",
+    "plans": {
+      "title": "Offres et tarifs",
+      "note": "Les prix affichés sont exonérés d’ITBIS.",
+      "request": "Demander",
+      "more": "En savoir plus sur la facturation électronique Claro Cloud",
+      "cards": [
+        {
+          "title": "Gestion d’entreprise ERP",
+          "implementation": "Mise en œuvre RD$13 800",
+          "tiers": [
+            "Jusqu’à 1 000 transactions : RD$210",
+            "1 001 à 5 000 transactions : RD$545",
+            "5 001 à 10 000 transactions : RD$915",
+            "10 001 à 25 000 transactions : RD$1 840",
+            "25 001 à 50 000 transactions : RD$2 775",
+            "50 001 à 100 000 transactions : RD$3 860"
+          ]
+        },
+        {
+          "title": "ERP autonome",
+          "implementation": "Mise en œuvre RD$68 500",
+          "tiers": [
+            "Jusqu’à 1 000 transactions : RD$830",
+            "1 001 à 5 000 transactions : RD$2 180",
+            "5 001 à 10 000 transactions : RD$3 650",
+            "10 001 à 25 000 transactions : RD$7 350",
+            "25 001 à 50 000 transactions : RD$11 100",
+            "50 001 à 100 000 transactions : RD$15 425"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "body": "Nous sommes là pour vous aider.",
+      "items": [
+        {
+          "question": "Qu’est-ce que la facturation électronique ?",
+          "answer": "Elle crée et échange des documents fiscaux approuvés au format numérique."
+        },
+        {
+          "question": "Comment Codestra accompagne-t-elle la mise en œuvre ?",
+          "answer": "Codestra examine les processus, intégrations, données, tests et étapes d’activation contrôlée."
+        },
+        {
+          "question": "Comment les tests sont-ils réalisés ?",
+          "answer": "La mise en œuvre est répétée en préproduction avant toute activation approuvée."
+        },
+        {
+          "question": "Qu’est-ce qu’un reçu fiscal électronique (e-CF) ?",
+          "answer": "Un e-CF est un document fiscal électronique régi par les exigences dominicaines applicables."
+        },
+        {
+          "question": "Où demander plus d’informations ?",
+          "answer": "Contactez les ventes pour examiner votre organisation, ERP, volume et exigences."
+        }
+      ]
+    }
+  },
+  "form": {
+    "title": "Demande d’inscription du contribuable",
+    "sections": {
+      "taxpayerAddress": "Adresse du contribuable",
+      "representative": "Représentant légal",
+      "warehouse": "Données du local ou entrepôt (le cas échéant)"
+    },
+    "fields": {
+      "taxpayerRnc": {
+        "label": "RNC du contribuable",
+        "placeholder": "Saisissez le RNC"
+      },
+      "taxpayerName": {
+        "label": "Nom du contribuable",
+        "placeholder": "Saisissez le nom du contribuable"
+      },
+      "tradeName": {
+        "label": "Nom commercial",
+        "placeholder": "Saisissez le nom de l’entreprise"
+      },
+      "taxpayerTelephone": {
+        "label": "Téléphone du contribuable"
+      },
+      "taxpayerCell": {
+        "label": "Téléphone mobile du contribuable"
+      },
+      "taxpayerEmail": {
+        "label": "E-mail du contribuable"
+      },
+      "telephonePlaceholder": "Saisissez le numéro de téléphone",
+      "cellPlaceholder": "Saisissez le numéro mobile",
+      "emailPlaceholder": "Saisissez l’adresse e-mail",
+      "number": {
+        "label": "Numéro",
+        "placeholder": "Saisissez le numéro"
+      },
+      "sector": {
+        "label": "Secteur",
+        "placeholder": "Saisissez le secteur"
+      },
+      "province": {
+        "label": "Province",
+        "placeholder": "Saisissez la province"
+      },
+      "visitingHours": {
+        "label": "Heures de visite",
+        "placeholder": "Saisissez les heures de visite"
+      },
+      "representativeRnc": {
+        "label": "RNC du représentant"
+      },
+      "representativeName": {
+        "label": "Nom du représentant ou demandeur",
+        "placeholder": "Saisissez le nom"
+      },
+      "representativePhone": {
+        "label": "Téléphone du représentant"
+      },
+      "representativeCell": {
+        "label": "Téléphone mobile du représentant"
+      },
+      "representativeEmail": {
+        "label": "E-mail du représentant"
+      },
+      "alternatePremise": {
+        "label": "Exercez-vous dans un autre local ou entrepôt ?",
+        "placeholder": "Sélectionnez oui ou non"
+      },
+      "warehouseStreet": {
+        "label": "Rue du local ou entrepôt",
+        "placeholder": "Saisissez la rue"
+      },
+      "warehouseNumber": {
+        "label": "Numéro du local ou entrepôt"
+      },
+      "warehouseSector": {
+        "label": "Secteur du local ou entrepôt"
+      },
+      "warehouseProvince": {
+        "label": "Province du local ou entrepôt"
+      },
+      "warehouseReference": {
+        "label": "Référence du local ou entrepôt",
+        "placeholder": "Saisissez un repère d’adresse"
+      },
+      "localAdministration": {
+        "label": "Administration locale",
+        "placeholder": "Saisissez les informations administratives"
+      }
+    },
+    "upload": {
+      "title": "Téléversement de documents",
+      "help": "Ajoutez jusqu’à cinq documents.",
+      "limitError": "Vous ne pouvez téléverser que cinq fichiers.",
+      "selected_one": "{{count}} fichier sélectionné",
+      "selected_other": "{{count}} fichiers sélectionnés",
+      "drag": "Déposez les fichiers ici pour commencer",
+      "or": "Ou",
+      "browse": "Parcourir les fichiers",
+      "cancel": "Annuler"
+    },
+    "yes": "Oui",
+    "no": "Non",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Envoyer les données",
+    "previousStep": "Étape précédente",
+    "nextStep": "Étape suivante",
+    "step": "Étape {{step}}"
+  }
+}

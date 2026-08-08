@@ -1,0 +1,46 @@
+{
+  "language": "Language",
+  "languagePrompt": "We detected that you may prefer {{language}}. Would you like to view this page in {{language}}?",
+  "viewLanguage": "View in {{language}}",
+  "keepEnglish": "Keep English",
+  "close": "Close",
+  "continue": "Continue",
+  "carousel": { "previous": "Previous slide", "next": "Next slide" },
+  "status": {
+    "dataSent": "Data was sent successfully.",
+    "messageSent": "Message Sent!",
+    "messageSentBody": "Your message has been sent successfully.",
+    "sentSuccessfully": "Sent Successfully!"
+  },
+  "loading": "Loading",
+  "codestraHome": "Codestra home",
+  "copyright": "© {{year}} Codestra",
+  "office": "Offices",
+  "services": "Services",
+  "industries": "Industries",
+  "company": "Company",
+  "dashboard": {"title": "Dashboard", "logout": "Log out", "home": "Home", "webhooks": "Webhooks"},
+  "webhooks": {"eyebrow":"Authenticated operations","title":"Webhook subscriptions","body":"Create, control, test, and audit signed webhook deliveries.","loadError":"Could not load webhook data.","created":"Subscription created.","saveError":"Could not save the subscription.","secretOnce":"Copy this signing secret now. It will not be shown again:","add":"Add subscription","name":"Name","url":"Receiver URL","events":"Events","create":"Create subscription","subscriptions":"Your subscriptions","empty":"No webhook subscriptions yet.","enabled":"Enabled","disabled":"Disabled","sendTest":"Send test webhook","testQueued":"Test delivery queued.","testError":"Test delivery could not be queued.","disable":"Disable","enable":"Enable","delete":"Delete","confirmDelete":"Delete this subscription?","history":"Delivery history","event_type":"Event","status":"Status","attempts":"Attempts","response_code":"Response code","error":"Failure","retryHistory":"Retry history"},
+  "footer": {
+    "craftsmanship": "Craftsmanship in Every Line of Code.",
+    "reliableProducts": "We turn ideas into reliable digital products.",
+    "ourWork": "Our Work",
+    "services": {
+      "softwareDevelopment": "Software Development",
+      "mobileDevelopment": "Mobile App Development",
+      "aiDevelopment": "AI Development",
+      "softwareConsulting": "Software Consulting",
+      "uiUx": "UI/UX Design",
+      "webDesign": "Web Design",
+      "branding": "Branding"
+    },
+    "industries": {
+      "finance": "Finance",
+      "healthcare": "Healthcare",
+      "gaming": "iGaming",
+      "realEstate": "Real Estate",
+      "education": "Education",
+      "web3": "Web3 & Blockchain"
+    }
+  }
+}

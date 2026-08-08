@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "title": "Présentations de projets Codestra",
+    "body": "Découvrez les systèmes que Codestra peut concevoir et développer. Les exemples restent clairement identifiés jusqu’à l’approbation des preuves client."
+  },
+  "filterLabel": "Filtrer les présentations de projets",
+  "categories": [
+    "Tous les projets",
+    "Systèmes produit",
+    "Automatisation"
+  ],
+  "cases": [
+    {
+      "title": "Espace d’opérations connecté",
+      "category": "Systèmes produit",
+      "summary": "Concept de démonstration réunissant la réception, l’état des processus et les rapports dans une application contrôlée.",
+      "details": [
+        "Concept d’espace fondé sur les rôles",
+        "Tableau de bord opérationnel adaptatif",
+        "Limite d’intégration préparée pour les systèmes approuvés"
+      ],
+      "status": "Espace réservé aux preuves — en attente d’approbation"
+    },
+    {
+      "title": "Processus d’accueil multilingue",
+      "category": "Automatisation",
+      "summary": "Concept de démonstration pour qualifier les demandes, les acheminer et préserver l’escalade humaine.",
+      "details": [
+        "Accueil tenant compte de la langue",
+        "Règles d’acheminement configurables",
+        "Transfert humain auditable"
+      ],
+      "status": "Espace réservé aux preuves — en attente d’approbation"
+    },
+    {
+      "title": "Portail libre-service client",
+      "category": "Systèmes produit",
+      "summary": "Concept de démonstration pour les demandes sécurisées, les statuts, les documents et l’assistance.",
+      "details": [
+        "Parcours client accessible",
+        "Échange contrôlé de documents",
+        "Aperçu analytique du service"
+      ],
+      "status": "Espace réservé aux preuves — en attente d’approbation"
+    }
+  ],
+  "viewDetails": "Voir les détails",
+  "close": "Fermer les détails du projet",
+  "faq": {
+    "title": "Questions sur les projets",
+    "notice": "Les noms, citations, résultats et liens client ne seront publiés qu’après réception et approbation des preuves.",
+    "items": [
+      {
+        "question": "S’agit-il d’études de cas client vérifiées ?",
+        "answer": "Non. Ce sont des démonstrations de capacités clairement identifiées, et non des affirmations client."
+      },
+      {
+        "question": "Codestra peut-elle préparer une démonstration adaptée ?",
+        "answer": "Oui. Contactez l’équipe pour discuter d’une démonstration contrôlée fondée sur vos exigences approuvées."
+      }
+    ]
+  },
+  "design": {
+    "title": "Conçu selon vos exigences opérationnelles",
+    "body": "Codestra peut réunir conception produit, ingénierie logicielle, automatisation, intégrations, analytique et processus IA contrôlés dans un plan de mise en œuvre."
+  },
+  "final": {
+    "title": "Parlons de votre prochain système",
+    "body": "Présentez le processus à améliorer et Codestra vous aidera à définir un périmètre pratique et vérifiable.",
+    "start": "Créer un compte",
+    "sales": "Contacter les ventes"
+  }
+}

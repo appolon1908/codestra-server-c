@@ -1,0 +1,64 @@
+{
+  "overview": {
+    "title": "Comment pouvons-nous vous aider ?",
+    "body": "Contactez nos équipes commerciales et d’assistance pour une démonstration, l’intégration ou une question produit."
+  },
+  "sales": {
+    "title": "Ventes",
+    "description": "Contactez l’équipe commerciale pour les offres, tarifs, accords entreprise ou une démonstration.",
+    "cta": "Parler aux ventes",
+    "contactTitle": "Contacter les ventes",
+    "supportQuestion": "Problème technique ou question produit ?",
+    "supportCta": "Contacter l’assistance",
+    "emailAlternative": "Vous pouvez aussi écrire à sales@codestra.co"
+  },
+  "support": {
+    "title": "Assistance",
+    "description": "Contactez-nous pour une question produit, signaler un problème ou donner votre avis.",
+    "cta": "Parler à l’assistance",
+    "contactTitle": "Contacter l’assistance",
+    "salesQuestion": "Des questions sur les offres, tarifs ou une démonstration ?",
+    "docsBody": "Consultez les fonctionnalités, intégrations et guides d’utilisation Codestra.",
+    "docsCta": "Voir la documentation API",
+    "loginBody": "Connectez-vous à votre compte Codestra pour obtenir une aide plus rapide :",
+    "login": "Se connecter",
+    "emailAlternative": "ou écrivez à info@codestra.co"
+  },
+  "benefits": {
+    "demo": "Demander une démonstration",
+    "plan": "Trouver l’offre adaptée à votre équipe",
+    "onboarding": "Obtenir de l’aide pour l’intégration"
+  },
+  "community": {
+    "title": "Rejoindre la communauté",
+    "body": "Rejoignez la communauté Codestra sur Slack pour partager, poser des questions et découvrir de bonnes pratiques.",
+    "cta": "Rejoindre Slack"
+  },
+  "general": {
+    "title": "Communication générale",
+    "body": "Pour toute autre question, contactez-nous par e-mail."
+  },
+  "documentation": {
+    "title": "Documentation",
+    "body": "Explorez les fonctionnalités et intégrations Codestra et apprenez à les utiliser.",
+    "cta": "Documentation Codestra"
+  },
+  "developers": {
+    "title": "Développeurs",
+    "body": "Apprenez à utiliser nos outils pour étendre les produits numériques.",
+    "cta": "Schéma API Codestra"
+  },
+  "status": "Tous les systèmes sont opérationnels",
+  "form": {
+    "fullName": "Nom complet",
+    "fullNamePlaceholder": "Saisissez votre nom complet",
+    "workEmail": "E-mail professionnel",
+    "emailPlaceholder": "Saisissez votre e-mail professionnel",
+    "companySize": "Taille de l’entreprise",
+    "selectSize": "Sélectionner une taille",
+    "message": "Comment pouvons-nous vous aider ?",
+    "messagePlaceholder": "Saisissez votre message",
+    "send": "Envoyer le message",
+    "unexpectedError": "Une erreur inattendue s’est produite"
+  }
+}

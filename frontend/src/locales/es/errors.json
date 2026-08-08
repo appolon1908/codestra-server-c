@@ -1,0 +1,8 @@
+{
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "No se encontró la página solicitada.",
+    "home": "Volver al inicio"
+  },
+  "generic": "Algo salió mal. Inténtalo de nuevo."
+}

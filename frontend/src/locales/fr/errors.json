@@ -1,0 +1,8 @@
+{
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page demandée est introuvable.",
+    "home": "Retour à l’accueil"
+  },
+  "generic": "Une erreur s’est produite. Veuillez réessayer."
+}

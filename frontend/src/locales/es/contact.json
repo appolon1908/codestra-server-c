@@ -1,0 +1,64 @@
+{
+  "overview": {
+    "title": "¿Cómo podemos ayudarte?",
+    "body": "Contacta a nuestros equipos de ventas y soporte para demostraciones, incorporación o preguntas de producto."
+  },
+  "sales": {
+    "title": "Ventas",
+    "description": "Contacta al equipo de ventas para planes, precios, acuerdos empresariales o una demostración.",
+    "cta": "Hablar con ventas",
+    "contactTitle": "Contactar a ventas",
+    "supportQuestion": "¿Problema técnico o pregunta de producto?",
+    "supportCta": "Contactar a soporte",
+    "emailAlternative": "También puedes escribir a sales@codestra.co"
+  },
+  "support": {
+    "title": "Soporte",
+    "description": "Contáctanos con consultas de producto, informes de problemas o comentarios.",
+    "cta": "Hablar con soporte",
+    "contactTitle": "Contactar a soporte",
+    "salesQuestion": "¿Preguntas sobre planes, precios o una demostración?",
+    "docsBody": "Consulta las funciones, integraciones y guías de uso de Codestra.",
+    "docsCta": "Visitar documentación de la API",
+    "loginBody": "Inicia sesión en tu cuenta Codestra para que podamos ayudarte más rápido:",
+    "login": "Iniciar sesión",
+    "emailAlternative": "o escribe a info@codestra.co"
+  },
+  "benefits": {
+    "demo": "Solicitar una demostración",
+    "plan": "Descubrir el plan adecuado para tu equipo",
+    "onboarding": "Obtener ayuda de incorporación"
+  },
+  "community": {
+    "title": "Únete a la comunidad",
+    "body": "Únete a la comunidad de Codestra en Slack para compartir ideas, hacer preguntas y conocer buenas prácticas.",
+    "cta": "Unirse a Slack"
+  },
+  "general": {
+    "title": "Comunicación general",
+    "body": "Para preguntas adicionales, contáctanos por correo electrónico."
+  },
+  "documentation": {
+    "title": "Documentación",
+    "body": "Explora las funciones e integraciones de Codestra y aprende a utilizarlas.",
+    "cta": "Documentación de Codestra"
+  },
+  "developers": {
+    "title": "Desarrolladores",
+    "body": "Aprende a usar nuestras herramientas para ampliar productos digitales.",
+    "cta": "Esquema de API de Codestra"
+  },
+  "status": "Todos los sistemas funcionan",
+  "form": {
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "Escribe tu nombre completo",
+    "workEmail": "Correo de trabajo",
+    "emailPlaceholder": "Escribe tu correo de trabajo",
+    "companySize": "Tamaño de empresa",
+    "selectSize": "Seleccionar tamaño",
+    "message": "¿Cómo podemos ayudarte?",
+    "messagePlaceholder": "Escribe tu mensaje",
+    "send": "Enviar mensaje",
+    "unexpectedError": "Ocurrió un error inesperado"
+  }
+}

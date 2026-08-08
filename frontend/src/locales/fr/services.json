@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "title": "Renforcez vos processus avec des agents IA",
+    "body": "Automatisez les tâches, optimisez les processus et libérez du temps pour les activités importantes.",
+    "cta": "Construire avec Codestra"
+  },
+  "sections": [
+    {
+      "title": "Activez l’automatisation IA dans votre entreprise",
+      "body": "Codestra crée une automatisation contrôlée qui réduit le travail répétitif, relie les systèmes approuvés et améliore les opérations."
+    },
+    {
+      "title": "Que sont les agents d’automatisation IA ?",
+      "body": "Ce sont des systèmes qui exécutent des tâches configurées : répondre, traiter des données approuvées, acheminer le travail et assister les décisions humaines."
+    },
+    {
+      "title": "Pourquoi utiliser des agents IA ?",
+      "body": "Utilisez l’automatisation lorsqu’elle apporte une valeur opérationnelle claire :",
+      "items": [
+        "Améliorer l’efficacité en automatisant les tâches répétitives.",
+        "Réduire les coûts manuels évitables.",
+        "Fournir une assistance rapide avec des réponses approuvées.",
+        "Adapter les processus configurés à la demande.",
+        "Utiliser l’analytique opérationnelle pour mieux décider."
+      ]
+    },
+    {
+      "title": "Comment fonctionnent les agents IA",
+      "body": "Codestra relie les agents à des systèmes et limites approuvés :",
+      "items": [
+        "Traitement du langage naturel pour les conversations configurées.",
+        "Apprentissage automatique lorsque les données et la supervision le permettent.",
+        "Automatisation de la saisie au routage des prospects.",
+        "Intégration multicanale sur les plateformes approuvées.",
+        "Analytique opérationnelle pour une aide à la décision contrôlée."
+      ]
+    },
+    {
+      "title": "Secteurs accompagnés",
+      "body": "L’IA peut soutenir de nombreux processus contrôlés :",
+      "items": [
+        "Planification et administration dans la santé.",
+        "Service, stock et assistance d’achat dans le commerce.",
+        "Collecte financière et processus sous contrôle humain.",
+        "Relation client sur plusieurs canaux.",
+        "Soutien éducatif et coordination administrative."
+      ]
+    },
+    {
+      "title": "Avantages des agents IA",
+      "items": [
+        "Libérer les équipes des tâches routinières.",
+        "Fournir des expériences configurées à grande échelle.",
+        "Réduire les erreurs manuelles et améliorer la cohérence.",
+        "Soutenir les tâches approuvées en permanence."
+      ]
+    },
+    {
+      "title": "Pourquoi choisir Codestra ?",
+      "items": [
+        "Solutions sur mesure selon vos exigences.",
+        "Intégration aux systèmes existants approuvés.",
+        "Accompagnement de la découverte à l’optimisation contrôlée.",
+        "Architecture conçue pour évoluer avec vos opérations."
+      ]
+    },
+    {
+      "title": "Commencez par une automatisation contrôlée",
+      "body": "Examinez les processus, risques, intégrations et objectifs mesurables avec Codestra avant la mise en œuvre."
+    },
+    {
+      "title": "Contacter Codestra",
+      "body": "Demandez une consultation pour explorer une automatisation adaptée à votre entreprise."
+    }
+  ]
+}

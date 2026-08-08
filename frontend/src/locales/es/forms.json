@@ -1,0 +1,84 @@
+{
+  "fullName": {
+    "label": "Nombre completo",
+    "required": "El nombre completo es obligatorio."
+  },
+  "businessName": {
+    "label": "Empresa",
+    "required": "El nombre de la empresa es obligatorio."
+  },
+  "email": {
+    "label": "Correo de trabajo",
+    "required": "El correo de trabajo es obligatorio.",
+    "invalid": "Ingresa un correo de trabajo válido."
+  },
+  "phone": {
+    "label": "Teléfono",
+    "required": "El teléfono es obligatorio.",
+    "invalid": "Ingresa un teléfono válido."
+  },
+  "country": {
+    "label": "País",
+    "required": "El país es obligatorio.",
+    "select": "Selecciona un país",
+    "us": "Estados Unidos",
+    "do": "República Dominicana",
+    "ca": "Canadá",
+    "ht": "Haití",
+    "mx": "México",
+    "other": "Otro"
+  },
+  "preferredLanguage": {
+    "label": "Idioma preferido"
+  },
+  "industry": {
+    "label": "Industria",
+    "select": "Selecciona una industria",
+    "required": "Selecciona una industria."
+  },
+  "employees": {
+    "label": "Empleados o agentes",
+    "select": "Selecciona un rango",
+    "required": "Selecciona un rango de empleados."
+  },
+  "monthlyVolume": {
+    "label": "Volumen mensual de llamadas",
+    "select": "Selecciona un rango",
+    "required": "Selecciona un rango mensual de llamadas.",
+    "under500": "Menos de 500"
+  },
+  "productInterest": {
+    "label": "Producto de interés"
+  },
+  "demoDate": {
+    "label": "Fecha preferida para la demo"
+  },
+  "demoTime": {
+    "label": "Hora preferida para la demo"
+  },
+  "message": {
+    "label": "Mensaje"
+  },
+  "consent": {
+    "label": "Acepto la Política de privacidad y autorizo a Codestra a contactarme sobre esta solicitud.",
+    "required": "El consentimiento es obligatorio."
+  },
+  "submit": "Reservar una demo en vivo",
+  "submitting": "Enviando…",
+  "success": "Recibimos correctamente tu solicitud de demo.",
+  "duplicate": "Ya recibimos esta solicitud. Nuestro equipo se pondrá en contacto.",
+  "rateLimit": "Se recibieron demasiadas solicitudes. Espera antes de intentarlo otra vez.",
+  "serverError": "No pudimos enviar tu solicitud. Inténtalo de nuevo o contacta a ventas.",
+  "networkError": "No fue posible conectar con el servidor. Inténtalo de nuevo o contacta a ventas.",
+  "products": {
+    "receptionist": "Recepcionista de IA",
+    "receptionistOdoo": "Recepcionista de IA + Odoo",
+    "callCenter": "Automatización de centro de llamadas",
+    "customVoice": "IA de voz personalizada"
+  },
+  "qualification": {
+    "legend": "Ayúdanos a adaptar la conversación",
+    "help": "Preguntas opcionales según la solución seleccionada para tu industria."
+  },
+  "honeypot": "Deja este campo vacío"
+}

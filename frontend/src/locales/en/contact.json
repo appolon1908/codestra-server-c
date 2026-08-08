@@ -1,0 +1,64 @@
+{
+  "overview": {
+    "title": "How can we help?",
+    "body": "Contact our sales and support teams for demonstrations, onboarding support, or product questions."
+  },
+  "sales": {
+    "title": "Sales",
+    "description": "Contact our sales team for plans, pricing, enterprise agreements, or a demonstration.",
+    "cta": "Talk to sales",
+    "contactTitle": "Contact sales",
+    "supportQuestion": "Technical issue or product question?",
+    "supportCta": "Contact support",
+    "emailAlternative": "You can also email us at sales@codestra.co"
+  },
+  "support": {
+    "title": "Support",
+    "description": "Contact us with product inquiries, issue reports, or feedback.",
+    "cta": "Talk to support",
+    "contactTitle": "Contact support",
+    "salesQuestion": "Questions about plans, pricing, or a demonstration?",
+    "docsBody": "Review Codestra features, integrations, and usage guidance.",
+    "docsCta": "Visit API documentation",
+    "loginBody": "Log in to your Codestra account so we can help you faster:",
+    "login": "Log in",
+    "emailAlternative": "or email us at info@codestra.co"
+  },
+  "benefits": {
+    "demo": "Request a demonstration",
+    "plan": "Learn which plan fits your team",
+    "onboarding": "Get onboarding help"
+  },
+  "community": {
+    "title": "Join the community",
+    "body": "Join the Codestra Slack community to share insights, ask questions, and explore good practices.",
+    "cta": "Join Slack"
+  },
+  "general": {
+    "title": "General communication",
+    "body": "For additional questions, contact us by email."
+  },
+  "documentation": {
+    "title": "Documentation",
+    "body": "Explore Codestra features and integrations and learn how to use them.",
+    "cta": "Codestra Docs"
+  },
+  "developers": {
+    "title": "Developers",
+    "body": "Learn how to use our tools to extend digital product functionality.",
+    "cta": "Codestra API Schema"
+  },
+  "status": "All systems operational",
+  "form": {
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Enter your full name",
+    "workEmail": "Work email",
+    "emailPlaceholder": "Enter your work email",
+    "companySize": "Company size",
+    "selectSize": "Select size",
+    "message": "How can we help?",
+    "messagePlaceholder": "Enter your message",
+    "send": "Send message",
+    "unexpectedError": "An unexpected error occurred"
+  }
+}

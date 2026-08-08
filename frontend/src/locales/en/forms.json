@@ -1,0 +1,40 @@
+{
+  "fullName": { "label": "Full name", "required": "Full name is required." },
+  "businessName": {
+    "label": "Business name",
+    "required": "Business name is required."
+  },
+  "email": {
+    "label": "Work email",
+    "required": "Work email is required.",
+    "invalid": "Enter a valid work email."
+  },
+  "phone": {
+    "label": "Phone number",
+    "required": "Phone number is required.",
+    "invalid": "Enter a valid phone number."
+  },
+  "country": { "label": "Country", "required": "Country is required.", "select": "Select country", "us": "United States", "do": "Dominican Republic", "ca": "Canada", "ht": "Haiti", "mx": "Mexico", "other": "Other" },
+  "preferredLanguage": { "label": "Preferred language" },
+  "industry": { "label": "Industry", "select": "Select industry", "required": "Choose an industry." },
+  "employees": { "label": "Employees or agents", "select": "Select range", "required": "Choose an employee range." },
+  "monthlyVolume": { "label": "Monthly call volume", "select": "Select range", "required": "Choose a monthly call range.", "under500": "Under 500" },
+  "productInterest": { "label": "Product interest" },
+  "demoDate": { "label": "Preferred demo date" },
+  "demoTime": { "label": "Preferred demo time" },
+  "message": { "label": "Message" },
+  "consent": {
+    "label": "I agree to the Privacy Policy and consent to Codestra contacting me about this request.",
+    "required": "Consent is required."
+  },
+  "submit": "Book a Live Demo",
+  "submitting": "Submitting…",
+  "success": "Your demo request was received successfully.",
+  "duplicate": "We already received this request. Our team will follow up.",
+  "rateLimit": "Too many requests were received. Please wait before trying again.",
+  "serverError": "We could not submit your request. Please try again or contact sales.",
+  "networkError": "The server could not be reached. Please try again or contact sales.",
+  "products": { "receptionist": "AI Receptionist", "receptionistOdoo": "AI Receptionist + Odoo", "callCenter": "Call Center Automation", "customVoice": "Custom Voice AI" },
+  "qualification": { "legend": "Help us tailor the conversation", "help": "Optional questions based on the selected industry solution." },
+  "honeypot": "Leave this field empty"
+}

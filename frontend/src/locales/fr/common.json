@@ -1,0 +1,52 @@
+{
+  "language": "Langue",
+  "continue": "Continuer",
+  "carousel": {
+    "previous": "Diapositive précédente",
+    "next": "Diapositive suivante"
+  },
+  "status": {
+    "dataSent": "Les données ont bien été envoyées.",
+    "messageSent": "Message envoyé !",
+    "messageSentBody": "Votre message a bien été envoyé.",
+    "sentSuccessfully": "Envoi réussi !"
+  },
+  "languagePrompt": "Nous avons détecté que vous préférez peut-être {{language}}. Souhaitez-vous afficher cette page en {{language}} ?",
+  "viewLanguage": "Afficher en {{language}}",
+  "keepEnglish": "Garder l’anglais",
+  "close": "Fermer",
+  "loading": "Chargement",
+  "codestraHome": "Accueil Codestra",
+  "copyright": "© {{year}} Codestra",
+  "office": "Bureaux",
+  "services": "Services",
+  "industries": "Secteurs",
+  "company": "Entreprise",
+  "dashboard": {
+    "title": "Tableau de bord",
+    "logout": "Se déconnecter",
+    "home": "Accueil"
+  },
+  "footer": {
+    "craftsmanship": "Le savoir-faire dans chaque ligne de code.",
+    "reliableProducts": "Nous transformons les idées en produits numériques fiables.",
+    "ourWork": "Nos réalisations",
+    "services": {
+      "softwareDevelopment": "Développement logiciel",
+      "mobileDevelopment": "Développement d’applications mobiles",
+      "aiDevelopment": "Développement IA",
+      "softwareConsulting": "Conseil logiciel",
+      "uiUx": "Conception UI/UX",
+      "webDesign": "Conception web",
+      "branding": "Image de marque"
+    },
+    "industries": {
+      "finance": "Financement",
+      "healthcare": "Santé",
+      "gaming": "iGAMING",
+      "realEstate": "Immobilier",
+      "education": "Éducation",
+      "web3": "Web3 et blockchain"
+    }
+  }
+}

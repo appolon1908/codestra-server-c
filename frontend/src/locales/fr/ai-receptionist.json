@@ -1,0 +1,241 @@
+{
+  "hero": {
+    "eyebrow": "Voix et messagerie IA 24 h/24, 7 j/7",
+    "headline": "Ne manquez plus aucun appel client",
+    "body": "Codestra AI Receptionist répond aux appels et messages, traite les questions courantes, recueille les prospects, planifie les rendez-vous et dirige les conversations importantes vers la bonne personne, 24 heures sur 24."
+  },
+  "modal": {
+    "close": "Fermer le formulaire de démonstration",
+    "eyebrow": "Consultation produit en direct",
+    "body": "Décrivez-nous votre flux d’appels. Un spécialiste Codestra préparera la démonstration adaptée."
+  },
+  "proof": {
+    "available": "Toujours disponible",
+    "languages": "Quatre langues prévues",
+    "routing": "Routage contextuel"
+  },
+  "preview": {
+    "imageAlt": "Réseau vocal doré abstrait reliant appels, planification, employés et dossiers clients",
+    "label": "Aperçu de l’interface AI Receptionist",
+    "activeCall": "Appel entrant actif",
+    "customer": "María Santos",
+    "detectedSpanish": "Langue détectée : espagnol",
+    "caller": "Appelant",
+    "callerLine": "Necesito programme una consulta.",
+    "aiLine": "Claro. Tengo disponibiidad mañana.",
+    "intent": "Intention",
+    "bookDemo": "Réserver une démo",
+    "lead": "Prospect",
+    "qualified": "Qualifié",
+    "appointment": "Rendez-vous",
+    "booked": "Réservé",
+    "queued": "En attente"
+  },
+  "integrationStatus": {
+    "supported": "Pris en charge",
+    "planned": "Planifié"
+  },
+  "integrations": {
+    "disclaimer": "La disponibilité de chaque intégration est confirmée lors de la mise en œuvre. « Planifié » n’implique ni approbation ni prise en charge actuelle en production."
+  },
+  "benefitsEyebrow": "Chaque conversation compte",
+  "demo": {
+    "placeholder": "Démonstration locale temporaire",
+    "audioUnsupported": "Votre navigateur ne prend pas en charge la lecture audio.",
+    "detectedLanguage": "Langue détectée",
+    "detectedIntent": "Intention détectée",
+    "actionPerformed": "Action effectuée",
+    "crmOutcome": "Résultat CRM"
+  },
+  "benefits": {
+    "items": [
+      {
+        "title": "Disponible 24 h/24",
+        "body": "Répondez aux appels et messages pendant et hors horaires, les week-ends et jours fériés."
+      },
+      {
+        "title": "Conversations multilingues naturelles",
+        "body": "Communiquez naturellement en anglais, espagnol et français."
+      },
+      {
+        "title": "Routage intelligent",
+        "body": "Acheminez par service, employé, site, langue, campagne, intention ou urgence."
+      },
+      {
+        "title": "Configuration rapide et contrôlée",
+        "body": "Formez l’IA avec du contenu, des documents, FAQ, politiques et consignes approuvés."
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Fonctionnalités",
+    "items": [
+      {
+        "title": "Répondre à chaque appel",
+        "body": "Utilisez des accueils et horaires approuvés sans faire attendre les appelants."
+      },
+      {
+        "title": "Répondre aux questions courantes",
+        "body": "Répondez depuis les sites, documents, politiques, services et FAQ approuvés."
+      },
+      {
+        "title": "Recueillir et qualifier les prospects",
+        "body": "Posez les questions configurées et préparez un contexte complet."
+      },
+      {
+        "title": "Planifier et déplacer les rendez-vous",
+        "body": "Utilisez les disponibilités et règles de planification approuvées."
+      },
+      {
+        "title": "Envoyer des confirmations",
+        "body": "Confirmez les étapes suivantes par les canaux configurés."
+      },
+      {
+        "title": "Acheminer avec tout le contexte",
+        "body": "Transférez selon l’intention, l’équipe, la langue, la disponibilité ou l’urgence."
+      },
+      {
+        "title": "Mettre à jour Odoo CRM",
+        "body": "Mettez en file les mappages approuvés via le backend sécurisé."
+      },
+      {
+        "title": "Générer enregistrements et transcriptions",
+        "body": "Appliquez des règles configurables de consentement et de conservation."
+      },
+      {
+        "title": "Suivre les analyses et résultats",
+        "body": "Examinez résultats, questions, langues et attribution des campagnes."
+      },
+      {
+        "title": "Escalader les appels complexes",
+        "body": "Transférez en sécurité face à une action restreinte ou une réponse inconnue."
+      }
+    ]
+  },
+  "setup": {
+    "eyebrow": "Mise en œuvre",
+    "steps": {
+      "information": {
+        "title": "Ajoutez les informations de votre entreprise",
+        "body": "Importez les services approuvés, horaires, sites, politiques, documents et FAQ."
+      },
+      "personalize": {
+        "title": "Personnalisez votre AI Receptionist",
+        "body": "Configurez la voix, la personnalité, la langue, l’accueil, les questions, la planification, le routage et l’escalade."
+      },
+      "launch": {
+        "title": "Connectez, testez et lancez",
+        "body": "Connectez téléphone, CRM, calendrier et automatisations. Testez chaque parcours avant les appels réels."
+      }
+    },
+    "create": "Créer votre AI Receptionist",
+    "specialist": "Parler à un spécialiste de la mise en œuvre"
+  },
+  "industry": {
+    "intake": "Questions de qualification",
+    "actions": "Actions de l’IA",
+    "routing": "Règles de routage"
+  },
+  "dashboard": {
+    "languageDistribution": "Répartition linguistique",
+    "recentTranscripts": "Transcriptions récentes",
+    "campaignAttribution": "Attribution de campagne",
+    "unansweredQuestions": "Questions sans réponse",
+    "languages": {
+      "english": "Anglais 58 %",
+      "spanish": "Espagnol 29 %",
+      "frenchCreole": "Français et créole 13 %"
+    },
+    "calls": {
+      "salesInquiry": "Demande commerciale",
+      "leadCaptured": "Prospect recueilli",
+      "pickupScheduling": "Planification d’un enlèvement",
+      "appointmentBooked": "Rendez-vous réservé",
+      "unknownPolicy": "Question inconnue sur une politique",
+      "humanFollowUp": "Suivi humain"
+    },
+    "attributionSample": "Site web 46 % · Référence 24 % · Campagne 18 % · Direct 12 %"
+  },
+  "results": {
+    "placeholder": "Contenu temporaire — en attente de preuves approuvées",
+    "title": "Le nom du client et le résultat vérifié apparaîtront ici",
+    "submit": "Proposer une étude de cas approuvée"
+  },
+  "pricing": {
+    "includedMinutes": "Minutes incluses",
+    "additionalMinutes": "Minutes supplémentaires",
+    "receptionists": "Réceptionnistes IA",
+    "concurrentCalls": "Appels simultanés",
+    "languages": "Langues",
+    "integrations": "Intégrations",
+    "analytics": "Analytique",
+    "support": "Assistance"
+  },
+  "final": {
+    "eyebrow": "Prêts lorsque vos clients appellent"
+  },
+  "consent": {
+    "decline": "Refuser",
+    "allow": "Autoriser l’analytique"
+  },
+  "ui": {
+    "calculatorIntro": "Ajustez les hypothèses pour estimer les opportunités potentiellement manquées. Ces chiffres sont des estimations, pas des promesses de performance.",
+    "demoScenarios": "Scénarios de démonstration",
+    "demoPlay": "Lire la démonstration locale temporaire",
+    "demoCarousel": "Commandes du carrousel d’appels",
+    "demoPrevious": "Appel précédent",
+    "demoNext": "Appel suivant",
+    "demoDisclaimer": "Ce ton et cette transcription sont des exemples, et non l’enregistrement d’un vrai client ou d’une voix déployée.",
+    "industryLabel": "Solutions par secteur",
+    "dashboardSample": "Tous les chiffres sont des données d’exemple utilisées uniquement pour présenter l’interface.",
+    "unansweredSample": "7 questions d’exemple attendent des sources approuvées.",
+    "securityBody": "Configurez ce que l’accueil peut connaître, dire, conserver et faire. Cette page n’implique aucune certification ni conformité réglementaire.",
+    "resultsBody": "Le composant accepte un logo, client, secteur, défi, solution, résultat, citation et lien approuvés. Aucune identité ni performance n’a été inventée.",
+    "pricingNote": "Les valeurs finales sont configurées après confirmation du volume, de la simultanéité, des intégrations et de l’assistance.",
+    "planLabel": "{{cta}} — offre {{name}} AI Receptionist",
+    "planName": "offre {{name}} AI Receptionist",
+    "finalBody": "Recueillez les prospects, planifiez les rendez-vous et servez vos clients à toute heure sans agrandir l’équipe d’accueil.",
+    "consentBody": "Autoriser les analyses internes respectueuses de la vie privée ? Aucun nom, e-mail, téléphone ou transcription n’est inclus."
+  },
+  "cta": {
+    "call": "Appeler l’IA maintenant",
+    "demo": "Réserver une démo en direct",
+    "pricing": "Voir les offres et tarifs",
+    "sample": "Écouter un exemple de conversation",
+    "calculate": "Calculer le coût des appels manqués",
+    "listen": "Écouter des exemples d’appels",
+    "analytics": "Voir le tableau de bord analytique",
+    "security": "Consulter la sécurité et la confidentialité",
+    "requestPricing": "Demander les tarifs"
+  },
+  "sections": {
+    "integrations": "Se connecte aux outils déjà utilisés par votre entreprise",
+    "benefits": "Transformez chaque appel entrant en opportunité",
+    "calculatorEyebrow": "Calculateur d’appels manqués",
+    "calculator": "Le coût d’un appel manqué dépasse celui d’une conversation manquée",
+    "demoEyebrow": "Démonstration interactive",
+    "demo": "Découvrez l’IA avant de l’acheter",
+    "capabilities": "Votre accueil virtuel toujours disponible",
+    "setup": "Lancez-vous sans reconstruire votre système téléphonique",
+    "industriesEyebrow": "Solutions par secteur",
+    "industries": "Adaptez l’accueil au fonctionnement de votre entreprise",
+    "dashboardEyebrow": "Tableau de bord de démonstration",
+    "dashboard": "Comprenez chaque conversation client",
+    "securityEyebrow": "Sécurité et contrôle",
+    "security": "Une IA qui respecte les règles de votre entreprise",
+    "resultsEyebrow": "Résultats clients",
+    "results": "Des preuves avant les affirmations",
+    "pricingEyebrow": "Tarification configurable",
+    "pricing": "Choisissez le niveau de couverture nécessaire",
+    "faqEyebrow": "Questions fréquentes",
+    "faq": "Ce que les entreprises demandent avant le lancement",
+    "final": "Chaque appel mérite une réponse"
+  },
+  "calculator": {
+    "missedCalls": "Appels manqués estimés",
+    "missedOpportunities": "Opportunités manquées estimées",
+    "monthlyRevenue": "Revenus mensuels perdus estimés",
+    "annualRevenue": "Revenus annuels perdus estimés",
+    "note": "Estimation fondée uniquement sur les valeurs saisies."
+  }
+}

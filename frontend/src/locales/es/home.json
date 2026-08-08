@@ -1,0 +1,155 @@
+{
+  "typing": {
+    "craftsmanship": "Artesanía en cada línea de código",
+    "ideas": "Convertimos ideas en realidad",
+    "excellence": "Entregamos excelencia"
+  },
+  "hero": {
+    "body": "El desarrollo solía ser mágico: un arte que inspiraba innovación y transformaba ideas en realidad.",
+    "cta": "Contáctanos",
+    "customers": "Conoce algunos de nuestros más de 100 clientes"
+  },
+  "teams": {
+    "title": "Creado para equipos de productos modernos",
+    "body": "Desde empresas emergentes hasta organizaciones consolidadas",
+    "development": "Desarrollo frontend y backend",
+    "design": "Sistema de diseño",
+    "marketing": "Marketing en redes sociales"
+  },
+  "development": {
+    "title": "Nuestros servicios de desarrollo",
+    "body": "Ofrecemos servicios integrales de desarrollo web con tecnologías backend y frontend modernas para crear soluciones escalables, seguras y de alto rendimiento.",
+    "backendTitle": "Tecnologías de desarrollo backend:",
+    "backendBody": "Creamos soluciones confiables y escalables con tecnologías modernas, alto rendimiento y seguridad de datos.",
+    "backendPairs": [
+      {
+        "name": "Node.js y Django",
+        "description": "Tecnologías ligeras y eficientes para aplicaciones escalables y seguras."
+      },
+      {
+        "name": "Flask y Ruby en Rails",
+        "description": "Tecnologías flexibles para aplicaciones específicas y desarrollo rápido."
+      },
+      {
+        "name": "Spring Boot y Express.js",
+        "description": "Java empresarial y Node.js simplificado para API y aplicaciones web."
+      },
+      {
+        "name": "Laravel y ASP.NET",
+        "description": "Tecnologías maduras de PHP y Microsoft para sistemas backend robustos."
+      },
+      {
+        "name": "Koa.js y FastAPI",
+        "description": "Tecnologías modernas y ligeras de Node.js y Python para API."
+      }
+    ],
+    "frontendTools": [
+      {
+        "name": "Next.js",
+        "description": "Framework basado en React con renderizado en servidor."
+      },
+      {
+        "name": "React",
+        "description": "Biblioteca basada en componentes para interfaces flexibles."
+      },
+      {
+        "name": "Gatsby",
+        "description": "Framework basado en React para sitios orientados a contenido."
+      },
+      {
+        "name": "Angular",
+        "description": "Framework completo para aplicaciones."
+      },
+      {
+        "name": "Vue.js",
+        "description": "Framework accesible para aplicaciones interactivas."
+      },
+      {
+        "name": "Bootstrap",
+        "description": "Framework CSS para diseños adaptables."
+      },
+      {
+        "name": "Flutter",
+        "description": "Kit de interfaces multiplataforma basado en Dart."
+      },
+      {
+        "name": "Svelte",
+        "description": "Framework de compilación para aplicaciones eficientes."
+      },
+      {
+        "name": "Tailwind CSS",
+        "description": "Framework CSS basado en utilidades."
+      }
+    ]
+  },
+  "design": {
+    "title": "Soluciones UI/UX integrales con sistemas de diseño líderes",
+    "body": "Diseñamos interfaces accesibles, atractivas y funcionales con sistemas de diseño modernos."
+  },
+  "marketing": {
+    "title": "Marketing en redes sociales",
+    "body": "Creamos soluciones visuales estratégicas que atraen a la audiencia y fortalecen la presencia de la marca.",
+    "tools": [
+      {
+        "name": "Hootsuite",
+        "description": "Programa y administra publicaciones en varias plataformas."
+      },
+      {
+        "name": "Buffer",
+        "description": "Planifica, colabora y publica contenido."
+      },
+      {
+        "name": "Sprout Social",
+        "description": "Planifica, colabora y publica contenido."
+      },
+      {
+        "name": "Canva",
+        "description": "Crea diseños para publicaciones y banners."
+      },
+      {
+        "name": "Loomly",
+        "description": "Administra calendarios de contenido y aprobaciones."
+      },
+      {
+        "name": "Loomly",
+        "description": "Conecta la gestión de redes sociales con flujos de CRM."
+      },
+      {
+        "name": "Loomly",
+        "description": "Coordina calendarios y aprobaciones de contenido."
+      },
+      {
+        "name": "Loomly",
+        "description": "Organiza flujos de publicación y aprobación."
+      }
+    ]
+  },
+  "automation": {
+    "title": "Bots de IA y extracción de datos",
+    "body": "Desarrollamos bots de IA y herramientas eficientes para automatizar interacciones y recopilación de datos."
+  },
+  "crm": {
+    "title": "Desarrollo de CRM",
+    "body": "Implementamos CRM de código abierto y personalizados para clientes potenciales, automatización, soporte, ventas e integraciones."
+  },
+  "productCards": [
+    {
+      "title": "Diseño web",
+      "body": "Creamos aplicaciones iOS y Android escalables y optimizadas para un alto rendimiento."
+    },
+    {
+      "title": "Desarrollo personalizado",
+      "body": "Nuestras soluciones web funcionales cubren necesidades diversas en múltiples sectores."
+    },
+    {
+      "title": "Soluciones fintech",
+      "body": "Creamos soluciones financieras digitales adaptadas a operaciones y experiencias controladas."
+    },
+    {
+      "title": "Desarrollo de plataformas de trading",
+      "body": "Creamos software personalizado de cualquier complejidad para empresas emergentes y consolidadas."
+    }
+  ],
+  "products": "Nuestros productos",
+  "testimonials": "Nuestros testimonios"
+}

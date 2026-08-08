@@ -1,0 +1,8 @@
+{
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you requested could not be found.",
+    "home": "Return home"
+  },
+  "generic": "Something went wrong. Please try again."
+}

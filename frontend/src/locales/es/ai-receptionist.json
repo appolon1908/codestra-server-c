@@ -1,0 +1,241 @@
+{
+  "hero": {
+    "eyebrow": "Voz y mensajería con IA 24/7",
+    "headline": "No vuelvas a perder una llamada de un cliente",
+    "body": "Codestra AI Receptionist responde llamadas y mensajes, atiende preguntas frecuentes, capta clientes potenciales, programa citas y dirige conversaciones importantes a la persona adecuada, las 24 horas."
+  },
+  "modal": {
+    "close": "Cerrar formulario de demostración",
+    "eyebrow": "Consulta de producto en vivo",
+    "body": "Cuéntanos sobre tu flujo de llamadas. Un especialista de Codestra preparará la demostración adecuada."
+  },
+  "proof": {
+    "available": "Siempre disponible",
+    "languages": "Cuatro idiomas previstos",
+    "routing": "Enrutamiento según el contexto"
+  },
+  "preview": {
+    "imageAlt": "Red de voz dorada abstracta que conecta llamadas, agenda, empleados y registros de clientes",
+    "label": "Vista previa de la interfaz de AI Receptionist",
+    "activeCall": "Llamada entrante activa",
+    "customer": "María Santos",
+    "detectedSpanish": "Idioma detectado: español",
+    "caller": "Cliente",
+    "callerLine": "Necesito programar una consulta.",
+    "aiLine": "Claro. Tengo disponibilidad mañana.",
+    "intent": "Intención",
+    "bookDemo": "Reservar demo",
+    "lead": "Cliente potencial",
+    "qualified": "Calificado",
+    "appointment": "Cita",
+    "booked": "Reservada",
+    "queued": "En cola"
+  },
+  "integrationStatus": {
+    "supported": "Compatible",
+    "planned": "Planificado"
+  },
+  "integrations": {
+    "disclaimer": "La disponibilidad de cada integración se confirma durante la implementación. «Planificado» no implica respaldo ni compatibilidad actual en producción."
+  },
+  "benefitsEyebrow": "Cada conversación importa",
+  "demo": {
+    "placeholder": "Demostración local de ejemplo",
+    "audioUnsupported": "Tu navegador no admite la reproducción de audio.",
+    "detectedLanguage": "Idioma detectado",
+    "detectedIntent": "Intención detectada",
+    "actionPerformed": "Acción realizada",
+    "crmOutcome": "Resultado en CRM"
+  },
+  "benefits": {
+    "items": [
+      {
+        "title": "Disponible 24/7",
+        "body": "Responde llamadas y mensajes durante y fuera del horario, fines de semana y festivos."
+      },
+      {
+        "title": "Conversaciones multilingües naturales",
+        "body": "Comunícate de forma natural en inglés, español y francés."
+      },
+      {
+        "title": "Enrutamiento inteligente",
+        "body": "Dirige por departamento, empleado, ubicación, idioma, campaña, intención o urgencia."
+      },
+      {
+        "title": "Configuración rápida y controlada",
+        "body": "Entrena la IA con contenido, documentos, preguntas, políticas e instrucciones aprobados."
+      }
+    ]
+  },
+  "capabilities": {
+    "eyebrow": "Capacidades",
+    "items": [
+      {
+        "title": "Responder cada llamada",
+        "body": "Usa saludos y reglas de horario aprobados sin dejar esperando al cliente."
+      },
+      {
+        "title": "Responder preguntas frecuentes",
+        "body": "Responde desde sitios, documentos, políticas, servicios y preguntas aprobados."
+      },
+      {
+        "title": "Captar y calificar clientes potenciales",
+        "body": "Formula preguntas configuradas y prepara el contexto completo."
+      },
+      {
+        "title": "Reservar y reprogramar citas",
+        "body": "Usa disponibilidad y reglas de agenda aprobadas."
+      },
+      {
+        "title": "Enviar confirmaciones",
+        "body": "Confirma los próximos pasos por canales configurados."
+      },
+      {
+        "title": "Dirigir llamadas con contexto",
+        "body": "Transfiere por intención, equipo, idioma, disponibilidad o urgencia."
+      },
+      {
+        "title": "Actualizar Odoo CRM",
+        "body": "Encola mapeos aprobados mediante el backend seguro."
+      },
+      {
+        "title": "Generar grabaciones y transcripciones",
+        "body": "Aplica consentimiento y retención configurables."
+      },
+      {
+        "title": "Supervisar analítica y resultados",
+        "body": "Revisa resultados, preguntas, idiomas y atribución de campañas."
+      },
+      {
+        "title": "Escalar llamadas complejas",
+        "body": "Transfiere de forma segura ante acciones restringidas o respuestas desconocidas."
+      }
+    ]
+  },
+  "setup": {
+    "eyebrow": "Implementación",
+    "steps": {
+      "information": {
+        "title": "Añade la información de tu empresa",
+        "body": "Importa servicios aprobados, horarios, ubicaciones, políticas, documentos y preguntas frecuentes."
+      },
+      "personalize": {
+        "title": "Personaliza tu AI Receptionist",
+        "body": "Configura la voz, personalidad, idioma, saludo, preguntas, agenda, rutas y escalado."
+      },
+      "launch": {
+        "title": "Conecta, prueba y lanza",
+        "body": "Conecta teléfono, CRM, calendario y automatizaciones. Prueba cada flujo antes de activar llamadas."
+      }
+    },
+    "create": "Crear tu AI Receptionist",
+    "specialist": "Hablar con un especialista de implementación"
+  },
+  "industry": {
+    "intake": "Preguntas de admisión",
+    "actions": "Acciones de IA",
+    "routing": "Reglas de enrutamiento"
+  },
+  "dashboard": {
+    "languageDistribution": "Distribución por idioma",
+    "recentTranscripts": "Transcripciones recientes",
+    "campaignAttribution": "Atribución de campaña",
+    "unansweredQuestions": "Preguntas sin respuesta",
+    "languages": {
+      "english": "Inglés 58%",
+      "spanish": "Español 29%",
+      "frenchCreole": "Francés y criollo 13%"
+    },
+    "calls": {
+      "salesInquiry": "Consulta comercial",
+      "leadCaptured": "Cliente potencial captado",
+      "pickupScheduling": "Programación de recogida",
+      "appointmentBooked": "Cita reservada",
+      "unknownPolicy": "Pregunta de política desconocida",
+      "humanFollowUp": "Seguimiento humano"
+    },
+    "attributionSample": "Sitio web 46% · Referido 24% · Campaña 18% · Directo 12%"
+  },
+  "results": {
+    "placeholder": "Marcador de posición — pendiente de evidencia aprobada",
+    "title": "Aquí aparecerán el nombre del cliente y el resultado verificado",
+    "submit": "Enviar un caso de estudio aprobado"
+  },
+  "pricing": {
+    "includedMinutes": "Minutos incluidos",
+    "additionalMinutes": "Minutos adicionales",
+    "receptionists": "Recepcionistas de IA",
+    "concurrentCalls": "Llamadas simultáneas",
+    "languages": "Idiomas",
+    "integrations": "Integraciones",
+    "analytics": "Analítica",
+    "support": "Soporte"
+  },
+  "final": {
+    "eyebrow": "Listos cuando llamen tus clientes"
+  },
+  "consent": {
+    "decline": "Rechazar",
+    "allow": "Permitir analítica"
+  },
+  "ui": {
+    "calculatorIntro": "Ajusta los supuestos para estimar posibles oportunidades perdidas. Las cifras son estimaciones, no promesas de rendimiento.",
+    "demoScenarios": "Escenarios de demostración",
+    "demoPlay": "Reproducir demostración local de ejemplo",
+    "demoCarousel": "Controles del carrusel de llamadas",
+    "demoPrevious": "Llamada anterior",
+    "demoNext": "Llamada siguiente",
+    "demoDisclaimer": "Este tono y transcripción son ejemplos, no una grabación de un cliente real ni una voz desplegada.",
+    "industryLabel": "Soluciones por industria",
+    "dashboardSample": "Todas las cifras son datos de muestra usados únicamente para demostrar la interfaz.",
+    "unansweredSample": "7 preguntas de muestra pendientes de conocimiento aprobado.",
+    "securityBody": "Configura lo que la recepcionista puede conocer, decir, almacenar y hacer. Esta página no implica certificaciones ni cumplimiento normativo.",
+    "resultsBody": "El componente admite logotipo, cliente, industria, reto, solución, resultado, cita y enlace aprobados. No se ha inventado ninguna identidad ni resultado.",
+    "pricingNote": "Los valores finales se configuran tras confirmar volumen, simultaneidad, integraciones y soporte.",
+    "planLabel": "{{cta}} — plan {{name}} de AI Receptionist",
+    "planName": "plan {{name}} de AI Receptionist",
+    "finalBody": "Capta clientes potenciales, programa citas y atiende todo el día sin ampliar el personal de recepción.",
+    "consentBody": "¿Permitir analítica propia respetuosa con la privacidad? No incluye nombres, correos, teléfonos ni transcripciones."
+  },
+  "cta": {
+    "call": "Llama a la IA ahora",
+    "demo": "Reservar una demo en vivo",
+    "pricing": "Ver planes y precios",
+    "sample": "Escuchar una conversación de muestra",
+    "calculate": "Calcular el costo de llamadas perdidas",
+    "listen": "Escuchar llamadas de muestra",
+    "analytics": "Ver el panel de analítica",
+    "security": "Revisar seguridad y privacidad",
+    "requestPricing": "Solicitar precios"
+  },
+  "sections": {
+    "integrations": "Se conecta con las herramientas que tu empresa ya utiliza",
+    "benefits": "Convierte cada llamada entrante en una oportunidad",
+    "calculatorEyebrow": "Calculadora de llamadas perdidas",
+    "calculator": "El costo de una llamada perdida supera la conversación perdida",
+    "demoEyebrow": "Demostración interactiva",
+    "demo": "Prueba la IA antes de comprar",
+    "capabilities": "Tu recepción virtual siempre disponible",
+    "setup": "Activa el servicio sin reconstruir tu sistema telefónico",
+    "industriesEyebrow": "Soluciones por industria",
+    "industries": "Adapta la recepción a la forma de trabajar de tu empresa",
+    "dashboardEyebrow": "Panel de demostración",
+    "dashboard": "Comprende cada conversación con clientes",
+    "securityEyebrow": "Seguridad y control",
+    "security": "IA que opera dentro de las reglas de tu empresa",
+    "resultsEyebrow": "Resultados de clientes",
+    "results": "Evidencia antes que afirmaciones",
+    "pricingEyebrow": "Precios configurables",
+    "pricing": "Elige el nivel de cobertura que necesitas",
+    "faqEyebrow": "Preguntas frecuentes",
+    "faq": "Lo que preguntan las empresas antes de comenzar",
+    "final": "Cada llamada merece una respuesta"
+  },
+  "calculator": {
+    "missedCalls": "Llamadas perdidas estimadas",
+    "missedOpportunities": "Oportunidades perdidas estimadas",
+    "monthlyRevenue": "Ingresos mensuales perdidos estimados",
+    "annualRevenue": "Ingresos anuales perdidos estimados",
+    "note": "Estimación basada únicamente en los valores ingresados."
+  }
+}

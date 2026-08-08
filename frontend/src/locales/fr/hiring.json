@@ -1,0 +1,47 @@
+{
+  "title": "Nous recrutons",
+  "intro": "Rejoignez notre équipe professionnelle.",
+  "apply": "Postuler maintenant",
+  "roles": [
+    {
+      "title": "Développeur Python",
+      "requirements": [
+        "Deux à trois ans d’expérience pertinente",
+        "Expérience avec Django, Flask ou FastAPI",
+        "Expérience pratique des bases de données SQL et NoSQL",
+        "Compréhension de la conception orientée objet et des principes SOLID",
+        "Utilisation assurée de Git pour le développement collaboratif"
+      ]
+    },
+    {
+      "title": "Designer UI/UX",
+      "requirements": [
+        "Deux à trois ans d’expérience pertinente",
+        "Expérience dans la création d’interfaces accessibles et adaptatives",
+        "Maîtrise des systèmes de conception et des outils de prototypage",
+        "Compréhension de la recherche utilisateur et du design d’interaction",
+        "Collaboration efficace avec les équipes produit et ingénierie"
+      ]
+    },
+    {
+      "title": "Ingénieur DevOps",
+      "requirements": [
+        "Deux à trois ans d’expérience pertinente",
+        "Expérience des conteneurs et de la livraison automatisée",
+        "Expérience pratique de Linux et des infrastructures cloud",
+        "Compréhension de la supervision, de la sécurité et de la reprise",
+        "Utilisation assurée de Git pour le développement collaboratif"
+      ]
+    },
+    {
+      "title": "Développeur React",
+      "requirements": [
+        "Deux à trois ans d’expérience pertinente",
+        "Expérience avec React, TypeScript et le CSS moderne",
+        "Expérience pratique des interfaces accessibles et adaptatives",
+        "Compréhension de l’architecture des composants et des tests",
+        "Utilisation assurée de Git pour le développement collaboratif"
+      ]
+    }
+  ]
+}

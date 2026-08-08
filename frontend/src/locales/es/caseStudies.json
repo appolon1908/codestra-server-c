@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "title": "Muestras de proyectos de Codestra",
+    "body": "Explore los sistemas que Codestra puede diseñar y construir. Los ejemplos publicados permanecen claramente etiquetados hasta que se aprueben las pruebas del cliente."
+  },
+  "filterLabel": "Filtrar muestras de proyectos",
+  "categories": [
+    "Todos los trabajos",
+    "Sistemas de producto",
+    "Automatización"
+  ],
+  "cases": [
+    {
+      "title": "Espacio de operaciones conectado",
+      "category": "Sistemas de producto",
+      "summary": "Concepto demostrativo para unificar recepción, estado de flujos e informes en una aplicación controlada.",
+      "details": [
+        "Concepto de espacio con acceso por roles",
+        "Panel operativo adaptable",
+        "Límite de integración preparado para sistemas aprobados"
+      ],
+      "status": "Marcador de evidencia — pendiente de aprobación"
+    },
+    {
+      "title": "Flujo de recepción multilingüe",
+      "category": "Automatización",
+      "summary": "Concepto demostrativo para calificar consultas, dirigir solicitudes y mantener la escalación humana.",
+      "details": [
+        "Recepción sensible al idioma",
+        "Reglas de enrutamiento configurables",
+        "Transferencia humana auditable"
+      ],
+      "status": "Marcador de evidencia — pendiente de aprobación"
+    },
+    {
+      "title": "Portal de autoservicio del cliente",
+      "category": "Sistemas de producto",
+      "summary": "Concepto demostrativo para solicitudes seguras, estados, documentos y comunicación de soporte.",
+      "details": [
+        "Flujo accesible para clientes",
+        "Intercambio controlado de documentos",
+        "Vista previa de analítica de servicio"
+      ],
+      "status": "Marcador de evidencia — pendiente de aprobación"
+    }
+  ],
+  "viewDetails": "Ver detalles",
+  "close": "Cerrar detalles del proyecto",
+  "faq": {
+    "title": "Preguntas sobre proyectos",
+    "notice": "Los nombres, citas, resultados y enlaces de clientes solo se publicarán después de recibir pruebas y aprobación.",
+    "items": [
+      {
+        "question": "¿Son casos verificados de clientes?",
+        "answer": "No. Son demostraciones de capacidades claramente etiquetadas, no afirmaciones sobre clientes."
+      },
+      {
+        "question": "¿Puede Codestra preparar una demostración personalizada?",
+        "answer": "Sí. Contacte al equipo para hablar de una demostración controlada basada en sus requisitos aprobados."
+      }
+    ]
+  },
+  "design": {
+    "title": "Creado según sus requisitos operativos",
+    "body": "Codestra puede combinar diseño de producto, ingeniería de software, automatización, integraciones, analítica y flujos de IA controlados en un plan de implementación."
+  },
+  "final": {
+    "title": "Hablemos de su próximo sistema",
+    "body": "Comparta el flujo que desea mejorar y Codestra le ayudará a definir un alcance práctico y comprobable.",
+    "start": "Crear una cuenta",
+    "sales": "Contactar a ventas"
+  }
+}

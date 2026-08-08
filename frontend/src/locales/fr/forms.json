@@ -1,0 +1,84 @@
+{
+  "fullName": {
+    "label": "Nom complet",
+    "required": "Le nom complet est obligatoire."
+  },
+  "businessName": {
+    "label": "Entreprise",
+    "required": "Le nom de l’entreprise est obligatoire."
+  },
+  "email": {
+    "label": "E-mail professionnel",
+    "required": "L’e-mail professionnel est obligatoire.",
+    "invalid": "Saisissez une adresse professionnelle valide."
+  },
+  "phone": {
+    "label": "Téléphone",
+    "required": "Le téléphone est obligatoire.",
+    "invalid": "Saisissez un numéro valide."
+  },
+  "country": {
+    "label": "Pays",
+    "required": "Le pays est obligatoire.",
+    "select": "Sélectionnez un pays",
+    "us": "États-Unis",
+    "do": "République dominicaine",
+    "ca": "Canada",
+    "ht": "Haïti",
+    "mx": "Mexique",
+    "other": "Autre"
+  },
+  "preferredLanguage": {
+    "label": "Langue préférée"
+  },
+  "industry": {
+    "label": "Secteur",
+    "select": "Sélectionnez un secteur",
+    "required": "Sélectionnez un secteur."
+  },
+  "employees": {
+    "label": "Employés ou agents",
+    "select": "Sélectionnez une plage",
+    "required": "Sélectionnez une plage d’effectif."
+  },
+  "monthlyVolume": {
+    "label": "Volume mensuel d’appels",
+    "select": "Sélectionnez une plage",
+    "required": "Sélectionnez une plage mensuelle d’appels.",
+    "under500": "Moins de 500"
+  },
+  "productInterest": {
+    "label": "Produit souhaité"
+  },
+  "demoDate": {
+    "label": "Date de démo préférée"
+  },
+  "demoTime": {
+    "label": "Heure de démo préférée"
+  },
+  "message": {
+    "label": "Message"
+  },
+  "consent": {
+    "label": "J’accepte la Politique de confidentialité et autorise Codestra à me contacter au sujet de cette demande.",
+    "required": "Le consentement est obligatoire."
+  },
+  "submit": "Réserver une démo en direct",
+  "submitting": "Envoi…",
+  "success": "Votre demande de démo a bien été reçue.",
+  "duplicate": "Nous avons déjà reçu cette demande. Notre équipe vous contactera.",
+  "rateLimit": "Trop de demandes ont été reçues. Veuillez patienter avant de réessayer.",
+  "serverError": "Impossible d’envoyer votre demande. Réessayez ou contactez le service commercial.",
+  "networkError": "Impossible de joindre le serveur. Réessayez ou contactez le service commercial.",
+  "products": {
+    "receptionist": "Réceptionniste IA",
+    "receptionistOdoo": "Réceptionniste IA + Odoo",
+    "callCenter": "Automatisation de centre d’appels",
+    "customVoice": "IA vocale personnalisée"
+  },
+  "qualification": {
+    "legend": "Aidez-nous à adapter l’échange",
+    "help": "Questions facultatives selon la solution sectorielle sélectionnée."
+  },
+  "honeypot": "Laissez ce champ vide"
+}

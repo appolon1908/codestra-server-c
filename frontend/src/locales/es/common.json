@@ -1,0 +1,52 @@
+{
+  "language": "Idioma",
+  "continue": "Continuar",
+  "carousel": {
+    "previous": "Diapositiva anterior",
+    "next": "Diapositiva siguiente"
+  },
+  "status": {
+    "dataSent": "Los datos se enviaron correctamente.",
+    "messageSent": "¡Mensaje enviado!",
+    "messageSentBody": "Tu mensaje se envió correctamente.",
+    "sentSuccessfully": "¡Enviado correctamente!"
+  },
+  "languagePrompt": "Detectamos que quizá prefieras {{language}}. ¿Quieres ver esta página en {{language}}?",
+  "viewLanguage": "Ver en {{language}}",
+  "keepEnglish": "Mantener inglés",
+  "close": "Cerrar",
+  "loading": "Cargando",
+  "codestraHome": "Inicio de Codestra",
+  "copyright": "© {{year}} Codestra",
+  "office": "Oficinas",
+  "services": "Servicios",
+  "industries": "Industrias",
+  "company": "Empresa",
+  "dashboard": {
+    "title": "Panel",
+    "logout": "Cerrar sesión",
+    "home": "Inicio"
+  },
+  "footer": {
+    "craftsmanship": "Artesanía en cada línea de código.",
+    "reliableProducts": "Convertimos ideas en productos digitales confiables.",
+    "ourWork": "Nuestro trabajo",
+    "services": {
+      "softwareDevelopment": "Desarrollo de software",
+      "mobileDevelopment": "Desarrollo de aplicaciones móviles",
+      "aiDevelopment": "Desarrollo de IA",
+      "softwareConsulting": "Consultoría de software",
+      "uiUx": "Diseño UI/UX",
+      "webDesign": "Diseño web",
+      "branding": "Marca"
+    },
+    "industries": {
+      "finance": "Finanzas",
+      "healthcare": "Salud",
+      "gaming": "iGAMING",
+      "realEstate": "Bienes raíces",
+      "education": "Educación",
+      "web3": "Web3 y blockchain"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "default": {
+    "title": "Codestra | Solutions d’IA, logiciels et automatisation",
+    "description": "Codestra développe des systèmes d’IA, des logiciels, des automatisations et des plateformes métier connectées."
+  },
+  "aiReceptionist": {
+    "title": "Codestra AI Receptionist | Voix et messagerie 24 h/24",
+    "description": "Répondez aux appels, recueillez les prospects, planifiez les rendez-vous et acheminez les conversations avec Codestra AI Receptionist."
+  },
+  "industries": {
+    "title": "Solutions IA Codestra par secteur",
+    "description": "Découvrez les solutions Codestra d’IA, de logiciels et d’automatisation pour 25 secteurs.",
+    "detailTitle": "Solutions IA pour {{industry}} | Codestra"
+  }
+}

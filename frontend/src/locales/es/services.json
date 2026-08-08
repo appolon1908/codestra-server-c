@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "title": "Potencia tu flujo de trabajo con agentes de IA",
+    "body": "Automatiza tareas, optimiza procesos y da a tu equipo más tiempo para trabajo valioso.",
+    "cta": "Crear con Codestra"
+  },
+  "sections": [
+    {
+      "title": "Activa la automatización con IA en tu empresa",
+      "body": "Codestra crea automatización controlada que reduce trabajo repetitivo, conecta sistemas aprobados y mejora las operaciones."
+    },
+    {
+      "title": "¿Qué son los agentes de automatización con IA?",
+      "body": "Son sistemas que realizan tareas configuradas como responder preguntas, procesar datos aprobados, dirigir trabajo y apoyar decisiones humanas."
+    },
+    {
+      "title": "¿Por qué usar agentes de IA?",
+      "body": "Utiliza automatización donde genere valor operativo claro:",
+      "items": [
+        "Aumenta la eficiencia automatizando tareas repetitivas.",
+        "Reduce costos manuales evitables.",
+        "Ofrece soporte oportuno con respuestas aprobadas.",
+        "Amplía flujos configurados según la demanda.",
+        "Usa analítica operativa para mejorar decisiones."
+      ]
+    },
+    {
+      "title": "Cómo funcionan los agentes de IA",
+      "body": "Codestra conecta agentes con sistemas y límites aprobados:",
+      "items": [
+        "Procesamiento de lenguaje natural para conversaciones configuradas.",
+        "Aprendizaje automático cuando los datos y la supervisión lo permiten.",
+        "Automatización desde entrada de datos hasta rutas de clientes potenciales.",
+        "Integración multicanal en plataformas aprobadas.",
+        "Analítica operativa para apoyo controlado a decisiones."
+      ]
+    },
+    {
+      "title": "Industrias que atendemos",
+      "body": "La IA puede apoyar numerosos flujos controlados:",
+      "items": [
+        "Agenda y administración de salud.",
+        "Servicio, inventario y asistencia de compra en retail.",
+        "Admisión financiera y procesos bajo control humano.",
+        "Interacción con clientes en varios canales.",
+        "Soporte educativo y coordinación administrativa."
+      ]
+    },
+    {
+      "title": "Beneficios de los agentes de IA",
+      "items": [
+        "Libera al equipo de trabajo rutinario.",
+        "Ofrece experiencias configuradas a escala.",
+        "Reduce errores manuales y mejora la consistencia.",
+        "Apoya tareas aprobadas las 24 horas."
+      ]
+    },
+    {
+      "title": "¿Por qué elegir Codestra?",
+      "items": [
+        "Soluciones personalizadas según tus requisitos.",
+        "Integración con sistemas existentes aprobados.",
+        "Soporte desde descubrimiento hasta optimización controlada.",
+        "Arquitectura preparada para evolucionar con tus operaciones."
+      ]
+    },
+    {
+      "title": "Comienza con automatización controlada",
+      "body": "Revisa flujos, riesgos, integraciones y objetivos medibles con Codestra antes de implementar."
+    },
+    {
+      "title": "Contacta a Codestra",
+      "body": "Solicita una consulta para explorar la automatización adecuada para tu empresa."
+    }
+  ]
+}

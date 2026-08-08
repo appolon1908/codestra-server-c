@@ -1,0 +1,15 @@
+{
+  "default": {
+    "title": "Codestra | Soluciones de IA, software y automatización",
+    "description": "Codestra desarrolla sistemas de IA, software, automatización y plataformas empresariales conectadas."
+  },
+  "aiReceptionist": {
+    "title": "Codestra AI Receptionist | Voz y mensajería 24/7",
+    "description": "Responde llamadas, capta clientes potenciales, programa citas y dirige conversaciones con Codestra AI Receptionist."
+  },
+  "industries": {
+    "title": "Soluciones de IA por industria de Codestra",
+    "description": "Explora soluciones de IA, software y automatización de Codestra para 25 industrias.",
+    "detailTitle": "Soluciones de IA para {{industry}} | Codestra"
+  }
+}

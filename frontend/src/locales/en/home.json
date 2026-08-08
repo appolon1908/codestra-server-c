@@ -1,0 +1,130 @@
+{
+  "typing": {
+    "craftsmanship": "Craftsmanship in Every Line of Code",
+    "ideas": "Turning Ideas into Reality",
+    "excellence": "Delivering Excellence"
+  },
+  "hero": {
+    "body": "Development used to be magical—an art that inspired innovation and transformed ideas into reality.",
+    "cta": "Get in touch",
+    "customers": "Meet some of our 100+ Customers"
+  },
+  "teams": {
+    "title": "Made for modern product teams",
+    "body": "From next-gen startups to established enterprises",
+    "development": "Frontend & Backend Dev",
+    "design": "Design System",
+    "marketing": "Social Media Marketing"
+  },
+  "development": {
+    "title": "Our development services",
+    "body": "We provide comprehensive web development services using advanced backend and frontend frameworks to deliver scalable, secure, and high-performance web solutions.",
+    "backendTitle": "Backend Development Frameworks:",
+    "backendBody": "We build reliable and scalable solutions using modern frameworks, ensuring high performance and data security.",
+    "frontendTitle": "Frontend frameworks and tools",
+    "frontendBody": "Interfaces and products designed for people and operations.",
+    "backendPairs": [
+      {
+        "name": "Node.js and Django",
+        "description": "Lightweight and efficient for scalable and secure applications."
+      },
+      {
+        "name": "Flask and Ruby on Rails",
+        "description": "Flexible frameworks for focused applications and rapid development."
+      },
+      {
+        "name": "Spring Boot and Express.js",
+        "description": "Enterprise Java and streamlined Node.js development for APIs and web applications."
+      },
+      {
+        "name": "Laravel and ASP.NET",
+        "description": "Mature PHP and Microsoft frameworks for robust backend systems."
+      },
+      {
+        "name": "Koa.js and FastAPI",
+        "description": "Modern, lightweight Node.js and Python frameworks for APIs."
+      }
+    ],
+    "frontendTools": [
+      {"name":"Next.js","description":"React-based framework with server rendering support."},
+      {"name":"React","description":"Component-based library for flexible interfaces."},
+      {"name":"Gatsby","description":"React-based framework focused on content-driven sites."},
+      {"name":"Angular","description":"Full-featured application framework."},
+      {"name":"Vue.js","description":"Approachable framework for interactive applications."},
+      {"name":"Bootstrap","description":"CSS framework for responsive layouts."},
+      {"name":"Flutter","description":"Cross-platform interface toolkit based on Dart."},
+      {"name":"Svelte","description":"Compile-time framework for efficient applications."},
+      {"name":"Tailwind CSS","description":"Utility-first CSS framework."}
+    ]
+  },
+  "design": {
+    "title": "Comprehensive UI/UX Solutions with Leading Design Systems",
+    "body": "We design interfaces using advanced design systems and frameworks to create user-friendly, stylish, and functional solutions for any project."
+  },
+  "marketing": {
+    "title": "Social Media Marketing",
+    "body": "We create strategic visual solutions that engage audiences and strengthen brand presence on social media.",
+    "tools": [
+      {
+        "name": "Hootsuite",
+        "description": "Schedule and manage posts across platforms."
+      },
+      {
+        "name": "Buffer",
+        "description": "Plan, collaborate, and publish posts."
+      },
+      {
+        "name": "Sprout Social",
+        "description": "Plan, collaborate, and publish posts."
+      },
+      {
+        "name": "Canva",
+        "description": "Create designs for posts and banners."
+      },
+      {
+        "name": "Loomly",
+        "description": "Manage content calendars and approval workflows."
+      },
+      {
+        "name": "CRM workflows",
+        "description": "Connect campaign inquiries with approved follow-up workflows."
+      },
+      {
+        "name": "Analytics",
+        "description": "Measure campaign activity with privacy-aware reporting."
+      },
+      {
+        "name": "Content operations",
+        "description": "Coordinate publishing, approvals, and reusable content systems."
+      }
+    ]
+  },
+  "automation": {
+    "title": "AI Bots & Scrapers",
+    "body": "We develop intelligent AI bots and efficient web scrapers to automate interactions and data collection."
+  },
+  "crm": {
+    "title": "CRM Development",
+    "body": "We implement open-source and custom CRM systems for lead management, marketing automation, customer support, sales dashboards, and third-party integrations."
+  },
+  "productCards": [
+    {
+      "title": "Web Design",
+      "body": "We craft scalable iOS and Android applications optimized for high performance."
+    },
+    {
+      "title": "Custom Development",
+      "body": "Our functional web solutions cover a diverse spectrum of needs in various niches."
+    },
+    {
+      "title": "Fintech Solutions",
+      "body": "Our functional web solutions cover a diverse spectrum of needs in various niches."
+    },
+    {
+      "title": "Trading Platform Development",
+      "body": "We build custom software solutions of any complexity for startups and enterprises."
+    }
+  ],
+  "products": "Our Products",
+  "testimonials": "Our Testimonials"
+}

@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "Soluciones digitales y automatización inteligente para empresas en crecimiento",
+    "imageAlt": "Interfaz de producto digital de Codestra"
+  },
+  "story": {
+    "title": "Creamos soluciones digitales y automatización para empresas que valoran la calidad y el crecimiento",
+    "paragraphs": [
+      "Las herramientas ineficientes y los procesos fragmentados frenan a los equipos. Codestra crea sistemas enfocados que las personas pueden usar con confianza.",
+      "Codestra representa desarrollo y progreso. Nuestro trabajo conecta procesos, automatización y software en flujos operativos confiables.",
+      "Tratamos el software como una forma práctica de mejorar una empresa. Ayudamos a los equipos a concentrarse en productos y servicios con valor duradero."
+    ]
+  },
+  "team": {
+    "title": "Damos gran importancia a la calidad de nuestro trabajo.",
+    "body": "Codestra trabaja en Norteamérica, Latinoamérica y el Caribe. Nuestro equipo comparte un enfoque en ejecución cuidadosa, artesanía digital útil y atención al detalle.",
+    "hiring": "Estamos contratando",
+    "imageAlt": "Equipo de Codestra colaborando en productos digitales",
+    "empty": "No hay perfiles de empleados disponibles actualmente."
+  },
+  "investors": {
+    "eyebrow": "Inversionistas",
+    "title": "La calidad y las relaciones a largo plazo nos importan",
+    "body": "Esta sección está reservada para información aprobada de inversionistas. Los nombres y afiliaciones deben verificarse antes de publicarse.",
+    "founder": "Fundador y director ejecutivo",
+    "partner": "Socio",
+    "profileAlt": "Retrato de {{name}}",
+    "organizationAlt": "Logotipo de la organización inversora"
+  },
+  "news": {
+    "eyebrow": "Noticias",
+    "items": [
+      {
+        "title": "Contenido de noticias pendiente",
+        "body": "A la espera de un anuncio aprobado.",
+        "source": "Codestra"
+      },
+      {
+        "title": "Contenido de noticias pendiente",
+        "body": "A la espera de un anuncio aprobado.",
+        "source": "Codestra"
+      },
+      {
+        "title": "Contenido de noticias pendiente",
+        "body": "A la espera de un anuncio aprobado.",
+        "source": "Codestra"
+      }
+    ]
+  },
+  "vision": {
+    "eyebrow": "Visión",
+    "success": {
+      "title": "Impulsar el éxito duradero",
+      "body": "Codestra crea relaciones a largo plazo alrededor de experiencias digitales significativas y progreso operativo medible."
+    },
+    "ideas": {
+      "title": "Convertir ideas en realidad",
+      "body": "Nuestro trabajo de diseño y desarrollo ayuda a lograr objetivos actuales y adaptarse a desafíos futuros."
+    },
+    "ctaBody": "Conoce nuestro trabajo con más detalle.",
+    "cta": "Nuestro trabajo"
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "page": {
+    "hero": {
+      "title": "Electronic Billing",
+      "body": "Modernize billing processes and support compliance with DGII Law 32-23."
+    },
+    "contact": "Contact us",
+    "craftsmanship": "Craftsmanship in Every Line of Code",
+    "form": {
+      "fullName": "Full name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your telephone number",
+      "usesErp": "Do you use an ERP?",
+      "consent": "I agree to be contacted by Codestra Dominican Republic.",
+      "submit": "Send message",
+      "consentError": "Please consent to being contacted.",
+      "success": "Thank you. A Codestra specialist will contact you.",
+      "error": "We could not submit your request. Please try again."
+    },
+    "about": {
+      "title": "What is electronic billing?",
+      "body": "In the Dominican Republic, Electronic Invoicing Law 32-23 offers tax incentives to encourage early adoption of electronic fiscal receipts (e-CF) during the voluntary period."
+    },
+    "tax": {
+      "category": "Contributor category",
+      "categories": [
+        "Large, micro, small, and medium-sized enterprises",
+        "Medium taxpayers",
+        "Small taxpayers",
+        "Micro and unclassified enterprises"
+      ],
+      "credit": "Maximum tax credit (DOP)",
+      "usage": "These tax credits can be applied within the same fiscal year against:",
+      "itbis": "Tax on Transfers of Industrialized Goods and Services (ITBIS)",
+      "advance": "Advance income-tax payments",
+      "income": "Income tax",
+      "asset": "Asset tax"
+    },
+    "requirements": {
+      "title": "Requirements",
+      "body": "Suppliers that invoice the Dominican government using an electronic fiscal receipt (e-CF) may be exempt from the 5% withholding on payments received, subject to applicable rules."
+    },
+    "formImageAlt": "Electronic billing application preview",
+    "formPrompt": "Complete the electronic billing form",
+    "formCta": "Billing form",
+    "benefits": {
+      "title": "Benefits",
+      "items": [
+        {
+          "name": "Simplified regulatory compliance",
+          "description": "Supports approved DGII requirements."
+        },
+        {
+          "name": "Agile mobile billing",
+          "description": "Manage billing through the web from supported devices and locations."
+        },
+        {
+          "name": "Accounting integration",
+          "description": "Synchronize approved invoice data with accounting workflows."
+        },
+        {
+          "name": "Accurate digitization",
+          "description": "Reduce manual errors by digitizing approved DGII forms."
+        },
+        {
+          "name": "Efficient internal audits",
+          "description": "Organize records for controlled internal audits."
+        },
+        {
+          "name": "Improved customer experience",
+          "description": "Provide clearer and faster billing service."
+        },
+        {
+          "name": "Environmental commitment",
+          "description": "Reduce paper use and related environmental impact."
+        }
+      ]
+    },
+    "benefitImageAlt": "Electronic billing benefits interface",
+    "plans": {
+      "title": "Plans and prices",
+      "note": "Prices shown are exempt from ITBIS.",
+      "request": "Request",
+      "more": "Learn more about Claro Cloud Electronic Billing",
+      "cards": [
+        {
+          "title": "ERP business management",
+          "implementation": "RD$13,800 implementation",
+          "tiers": [
+            "Up to 1,000 transactions: RD$210",
+            "1,001 to 5,000 transactions: RD$545",
+            "5,001 to 10,000 transactions: RD$915",
+            "10,001 to 25,000 transactions: RD$1,840",
+            "25,001 to 50,000 transactions: RD$2,775",
+            "50,001 to 100,000 transactions: RD$3,860"
+          ]
+        },
+        {
+          "title": "Standalone ERP",
+          "implementation": "RD$68,500 implementation",
+          "tiers": [
+            "Up to 1,000 transactions: RD$830",
+            "1,001 to 5,000 transactions: RD$2,180",
+            "5,001 to 10,000 transactions: RD$3,650",
+            "10,001 to 25,000 transactions: RD$7,350",
+            "25,001 to 50,000 transactions: RD$11,100",
+            "50,001 to 100,000 transactions: RD$15,425"
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "body": "We are here to help.",
+      "items": [
+        {
+          "question": "What is electronic billing?",
+          "answer": "Electronic billing creates and exchanges approved fiscal documents in a digital format."
+        },
+        {
+          "question": "How does Codestra support implementation?",
+          "answer": "Codestra reviews the required workflows, integrations, data, testing, and controlled activation steps."
+        },
+        {
+          "question": "How is testing handled?",
+          "answer": "The implementation is rehearsed in staging before any approved production activation."
+        },
+        {
+          "question": "What is an electronic fiscal receipt (e-CF)?",
+          "answer": "An e-CF is an electronic fiscal document governed by the applicable Dominican tax requirements."
+        },
+        {
+          "question": "Where can I request more information?",
+          "answer": "Contact Codestra sales to review your organization, ERP, transaction volume, and implementation requirements."
+        }
+      ]
+    }
+  },
+  "form": {
+    "title": "Taxpayer Registration Application",
+    "sections": {
+      "taxpayerAddress": "Taxpayer address",
+      "representative": "Legal representative",
+      "warehouse": "Store or warehouse data (if applicable)"
+    },
+    "fields": {
+      "taxpayerRnc": {
+        "label": "Taxpayer RNC",
+        "placeholder": "Enter the RNC"
+      },
+      "taxpayerName": {
+        "label": "Taxpayer name",
+        "placeholder": "Enter the taxpayer name"
+      },
+      "tradeName": {
+        "label": "Trade name",
+        "placeholder": "Enter the business name"
+      },
+      "taxpayerTelephone": { "label": "Taxpayer telephone" },
+      "taxpayerCell": { "label": "Taxpayer mobile telephone" },
+      "taxpayerEmail": { "label": "Taxpayer email" },
+      "telephonePlaceholder": "Enter the telephone number",
+      "cellPlaceholder": "Enter the mobile number",
+      "emailPlaceholder": "Enter the email address",
+      "number": { "label": "Number", "placeholder": "Enter the number" },
+      "sector": { "label": "Sector", "placeholder": "Enter the sector" },
+      "province": { "label": "Province", "placeholder": "Enter the province" },
+      "visitingHours": {
+        "label": "Visiting hours",
+        "placeholder": "Enter the visiting hours"
+      },
+      "representativeRnc": { "label": "Representative RNC" },
+      "representativeName": {
+        "label": "Representative or applicant name",
+        "placeholder": "Enter the name"
+      },
+      "representativePhone": { "label": "Representative telephone" },
+      "representativeCell": { "label": "Representative mobile telephone" },
+      "representativeEmail": { "label": "Representative email" },
+      "alternatePremise": {
+        "label": "Do you operate from premises or a warehouse at another address?",
+        "placeholder": "Select yes or no"
+      },
+      "warehouseStreet": {
+        "label": "Street of the premises or warehouse",
+        "placeholder": "Enter the street"
+      },
+      "warehouseNumber": { "label": "Premises or warehouse number" },
+      "warehouseSector": { "label": "Premises or warehouse sector" },
+      "warehouseProvince": { "label": "Province of the premises or warehouse" },
+      "warehouseReference": {
+        "label": "Premises or warehouse reference",
+        "placeholder": "Enter an address reference"
+      },
+      "localAdministration": {
+        "label": "Local administration",
+        "placeholder": "Enter administration details"
+      }
+    },
+    "upload": {
+      "title": "Document upload",
+      "help": "Add up to five documents.",
+      "limitError": "You can upload no more than five files.",
+      "selected_one": "{{count}} file selected",
+      "selected_other": "{{count}} files selected",
+      "drag": "Drag files here to begin uploading",
+      "or": "Or",
+      "browse": "Browse files",
+      "cancel": "Cancel"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit data",
+    "previousStep": "Previous step",
+    "nextStep": "Next step",
+    "step": "Step {{step}}"
+  }
+}

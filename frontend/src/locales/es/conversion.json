@@ -1,0 +1,30 @@
+{
+  "demo": {
+    "eyebrow": "Consulta de producto en vivo",
+    "title": "Reservar una demo en vivo",
+    "body": "Cuéntanos sobre tus llamadas, enrutamiento, calendarios y CRM. Adaptaremos la demostración a tu flujo de trabajo."
+  },
+  "pricing": {
+    "eyebrow": "Precios configurados",
+    "title": "Solicitar precios",
+    "body": "Cuéntanos sobre el volumen, los flujos, idiomas, integraciones y soporte. Codestra preparará una estimación con alcance definido."
+  },
+  "thanks": {
+    "eyebrow": "Solicitud recibida",
+    "title": "Gracias",
+    "body": "Tu solicitud fue aceptada para entrega simulada. El seguimiento de producción solo comienza después de activar el adaptador de Odoo aprobado.",
+    "return": "Volver a AI Receptionist"
+  },
+  "security": {
+    "eyebrow": "Seguridad y privacidad",
+    "title": "Controlado por las reglas de tu empresa",
+    "body": "El límite del servicio admite conexiones cifradas, acciones restringidas, límites de solicitudes, protección contra bots, gestión de secretos, historial de auditoría, controles de consentimiento, retención configurable y escalamiento humano. No se afirman certificaciones.",
+    "contact": "Contactar a ventas"
+  },
+  "terms": {
+    "eyebrow": "Derecho",
+    "title": "Términos",
+    "body": "Los términos de productos, el consentimiento de registro, la retención de datos, los niveles de servicio y el alcance de integración se confirman en el acuerdo firmado aplicable. Contact Codestra para los términos aprobados.",
+    "contact": "Contacto Codestra"
+  }
+}

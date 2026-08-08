@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "Digital Solutions and Intelligent Automation for Growing Businesses",
+    "imageAlt": "Codestra digital product interface"
+  },
+  "story": {
+    "title": "We build digital solutions and automation for businesses that value quality and growth",
+    "paragraphs": [
+      "Inefficient tools and fragmented processes slow teams down. Codestra builds focused digital systems that people can use confidently.",
+      "Codestra represents development and progress. Our work connects business processes, automation, and software into reliable operating workflows.",
+      "We treat software as a practical way to improve business. Our goal is to help teams focus on products and services that create lasting value."
+    ]
+  },
+  "team": {
+    "title": "We place great importance on the quality of our work.",
+    "body": "Codestra works across North America, Latin America, and the Caribbean. Our team shares a focus on careful execution, useful digital craftsmanship, and attention to detail.",
+    "hiring": "We’re hiring",
+    "imageAlt": "Codestra team collaborating on digital products",
+    "empty": "No employee profiles are currently available."
+  },
+  "investors": {
+    "eyebrow": "Investors",
+    "title": "Quality and long-term partnerships matter to us",
+    "body": "This section is reserved for approved investor information. Names and affiliations must be verified before publication.",
+    "founder": "Founder and CEO",
+    "partner": "Partner",
+    "profileAlt": "Portrait of {{name}}",
+    "organizationAlt": "Investor organization logo"
+  },
+  "news": {
+    "eyebrow": "News",
+    "items": [
+      {
+        "title": "News placeholder",
+        "body": "Awaiting an approved announcement.",
+        "source": "Codestra"
+      },
+      {
+        "title": "News placeholder",
+        "body": "Awaiting an approved announcement.",
+        "source": "Codestra"
+      },
+      {
+        "title": "News placeholder",
+        "body": "Awaiting an approved announcement.",
+        "source": "Codestra"
+      }
+    ]
+  },
+  "vision": {
+    "eyebrow": "Vision",
+    "success": {
+      "title": "Enable lasting success",
+      "body": "Codestra builds long-term partnerships around meaningful digital experiences and measurable operational progress."
+    },
+    "ideas": {
+      "title": "Turn ideas into reality",
+      "body": "Our design and development work helps organizations meet current goals and adapt to future challenges."
+    },
+    "ctaBody": "Get to know our work in more detail.",
+    "cta": "Our work"
+  }
+}
