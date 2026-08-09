@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'payment_app',
     'lead_capture',
     'server_c',
+    'sales_scraper',
 ]
 
 # Server C is a presentation and request-preparation boundary. Privileged
@@ -103,6 +104,15 @@ SERVER_C_FEATURE_FLAGS = {
     "UNRESTRICTED_SCRAPING_ENABLED": False,
     "GLOBAL_PRODUCTION_ACTIVATION_ENABLED": False,
 }
+
+# The crawler is isolated and read-only with respect to every external system.
+SCRAPER_WORKER_ENABLED = config("SCRAPER_WORKER_ENABLED", cast=bool, default=False)
+SCRAPER_MIDDLEWARE_DELIVERY_ENABLED = False
+SCRAPER_ODOO_WRITES_ENABLED = False
+SCRAPER_VICIDIAL_WRITES_ENABLED = False
+SCRAPER_N8N_WRITES_ENABLED = False
+SCRAPER_POSTLY_WRITES_ENABLED = False
+SCRAPER_OUTREACH_WRITES_ENABLED = False
 
 APPEND_SLASH = False
 

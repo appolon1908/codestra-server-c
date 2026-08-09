@@ -68,6 +68,7 @@ urlpatterns = [
     path('api/payment/', include('payment_app.urls')),
     path('api/v1/', include('lead_capture.urls')),
     path('api/v1/', include('server_c.urls')),
+    path('api/v1/scraper/', include('sales_scraper.urls')),
     path('internal/v1/', include('lead_capture.internal_urls')),
     path('api/career/', include('career_app.urls')),
     path(
