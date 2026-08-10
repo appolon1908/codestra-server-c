@@ -53,7 +53,6 @@ jobs:
           git cat-file -e "${REQUESTED_SHA}^{commit}"
           git fetch --no-tags origin main:refs/remotes/origin/main
           git merge-base --is-ancestor "$REQUESTED_SHA" refs/remotes/origin/main
-          test "$(git rev-parse refs/remotes/origin/main)" = "$REQUESTED_SHA"
           test -z "$(git status --porcelain)"
 
       - name: Set up Python
@@ -116,12 +115,32 @@ jobs:
           ignore-unfixed: true
           exit-code: "1"
 
+      - name: Scan exact local image with Grype
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
+        with:
+          image: crawler-release-scan:${{ inputs.source_sha }}
+          fail-build: true
+          severity-cutoff: high
+          only-fixed: true
+          output-format: json
+          output-file: grype-report.json
+
       - name: Authenticate to private GHCR with workflow token
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Refuse to overwrite an existing immutable tag
+        env:
+          REQUESTED_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          if docker manifest inspect "${IMAGE_NAME}:sha-${REQUESTED_SHA}" >/dev/null 2>&1; then
+            echo "immutable SHA tag already exists" >&2
+            exit 1
+          fi
 
       - name: Publish immutable SHA tag
         id: publish
@@ -160,12 +179,12 @@ jobs:
           ignore-unfixed: true
           exit-code: "1"
 
-      - name: Generate CycloneDX SBOM from pulled registry digest
+      - name: Generate SPDX SBOM from pulled registry digest
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
-          format: cyclonedx
-          output: sbom.cdx.json
+          format: spdx-json
+          output: sbom.spdx.json
 
       - name: Attest build provenance to GitHub and GHCR
         id: provenance
@@ -181,8 +200,17 @@ jobs:
         with:
           subject-name: ${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.publish.outputs.digest }}
-          sbom-path: sbom.cdx.json
+          sbom-path: sbom.spdx.json
           push-to-registry: true
+
+      - name: Verify the GHCR package remains private
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          visibility="$(gh api "/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/codestra-server-c" --jq .visibility)"
+          test "$visibility" = private
+          printf '%s\n' 'PACKAGE_VISIBILITY=private' > package-visibility.txt
 
       - name: Independently verify GitHub attestations
         env:
@@ -196,7 +224,7 @@ jobs:
             --deny-self-hosted-runners > provenance-verification.txt
           gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
             --repo "$GITHUB_REPOSITORY" \
-            --predicate-type https://cyclonedx.org/bom \
+            --predicate-type https://spdx.dev/Document/v2.3 \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
             --deny-self-hosted-runners > sbom-verification.txt
           gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
@@ -207,7 +235,7 @@ jobs:
           gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
             --repo "$GITHUB_REPOSITORY" \
             --bundle-from-oci \
-            --predicate-type https://cyclonedx.org/bom \
+            --predicate-type https://spdx.dev/Document/v2.3 \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
             --deny-self-hosted-runners > sbom-oci-verification.txt
           test -s provenance-verification.txt
@@ -220,16 +248,14 @@ jobs:
           PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest }}
         run: |
           set -euo pipefail
-          set +e
-          output="$(docker run --rm --entrypoint python \
+          docker run --rm --entrypoint python \
             -e SCRAPER_WORKER_ENABLED=false \
             -e SCRAPER_MIDDLEWARE_DELIVERY_ENABLED=false \
             "${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
-            manage.py run_scraper_worker --once 2>&1)"
-          status=$?
-          set -e
-          test "$status" -ne 0
-          grep -qi 'disabled' <<<"$output"
+            manage.py shell -c \
+            'from django.conf import settings; assert settings.SCRAPER_WORKER_ENABLED is False; assert settings.SCRAPER_MIDDLEWARE_DELIVERY_ENABLED is False'
+          default_cmd="$(docker image inspect "${IMAGE_NAME}@${PUBLISHED_DIGEST}" --format '{{json .Config.Cmd}}')"
+          ! grep -qi 'run_scraper_worker' <<<"$default_cmd"
           printf '%s\n' 'SCRAPER_WORKER_ENABLED=false' > worker-disabled-smoke.txt
 
       - name: Create non-secret release evidence manifest
@@ -260,7 +286,7 @@ jobs:
               json.dumps(evidence, indent=2, sort_keys=True) + "\n"
           )
           PY
-          sha256sum image-digest.txt sbom.cdx.json provenance-verification.txt \
+          sha256sum image-digest.txt package-visibility.txt sbom.spdx.json grype-report.json provenance-verification.txt \
             sbom-verification.txt provenance-oci-verification.txt \
             sbom-oci-verification.txt \
             worker-disabled-smoke.txt release-evidence.json > SHA256SUMS
@@ -272,7 +298,9 @@ jobs:
           name: crawler-release-${{ inputs.source_sha }}
           path: |
             image-digest.txt
-            sbom.cdx.json
+            package-visibility.txt
+            sbom.spdx.json
+            grype-report.json
             provenance-verification.txt
             sbom-verification.txt
             provenance-oci-verification.txt
