@@ -43,6 +43,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Check out authoritative protected main without persisted credentials
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+          path: protected-main
+
       - name: Verify commit exists and is reachable from protected main
         shell: bash
         env:
@@ -51,9 +59,10 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$REQUESTED_SHA"
           git cat-file -e "${REQUESTED_SHA}^{commit}"
-          git fetch --no-tags origin main:refs/remotes/origin/main
-          git merge-base --is-ancestor "$REQUESTED_SHA" refs/remotes/origin/main
-          test -z "$(git status --porcelain)"
+          test "$(git -C protected-main rev-parse --abbrev-ref HEAD)" = main
+          git -C protected-main merge-base --is-ancestor "$REQUESTED_SHA" HEAD
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test -z "$(git -C protected-main status --porcelain)"
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
@@ -112,7 +121,6 @@ jobs:
         with:
           image-ref: crawler-release-scan:${{ inputs.source_sha }}
           severity: CRITICAL,HIGH
-          ignore-unfixed: true
           exit-code: "1"
 
       - name: Scan exact local image with Grype
@@ -121,9 +129,8 @@ jobs:
           image: crawler-release-scan:${{ inputs.source_sha }}
           fail-build: true
           severity-cutoff: high
-          only-fixed: true
           output-format: json
-          output-file: grype-report.json
+          output-file: grype-prepublish-report.json
 
       - name: Authenticate to private GHCR with workflow token
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
@@ -176,8 +183,16 @@ jobs:
         with:
           image-ref: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
           severity: CRITICAL,HIGH
-          ignore-unfixed: true
           exit-code: "1"
+
+      - name: Scan pulled registry digest with Grype
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
+        with:
+          image: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          fail-build: true
+          severity-cutoff: high
+          output-format: json
+          output-file: grype-report.json
 
       - name: Generate SPDX SBOM from pulled registry digest
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
@@ -286,7 +301,8 @@ jobs:
               json.dumps(evidence, indent=2, sort_keys=True) + "\n"
           )
           PY
-          sha256sum image-digest.txt package-visibility.txt sbom.spdx.json grype-report.json provenance-verification.txt \
+          sha256sum image-digest.txt package-visibility.txt sbom.spdx.json \
+            grype-prepublish-report.json grype-report.json provenance-verification.txt \
             sbom-verification.txt provenance-oci-verification.txt \
             sbom-oci-verification.txt \
             worker-disabled-smoke.txt release-evidence.json > SHA256SUMS
@@ -300,6 +316,7 @@ jobs:
             image-digest.txt
             package-visibility.txt
             sbom.spdx.json
+            grype-prepublish-report.json
             grype-report.json
             provenance-verification.txt
             sbom-verification.txt
