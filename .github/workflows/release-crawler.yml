@@ -43,6 +43,14 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Check out authoritative protected main without persisted credentials
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+          path: protected-main
+
       - name: Verify commit exists and is reachable from protected main
         shell: bash
         env:
@@ -51,9 +59,10 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$REQUESTED_SHA"
           git cat-file -e "${REQUESTED_SHA}^{commit}"
-          git fetch --no-tags origin main:refs/remotes/origin/main
-          git merge-base --is-ancestor "$REQUESTED_SHA" refs/remotes/origin/main
-          test -z "$(git status --porcelain)"
+          test "$(git -C protected-main rev-parse --abbrev-ref HEAD)" = main
+          git -C protected-main merge-base --is-ancestor "$REQUESTED_SHA" HEAD
+          test -z "$(git status --porcelain --untracked-files=no)"
+          test -z "$(git -C protected-main status --porcelain)"
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
