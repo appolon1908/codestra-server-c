@@ -6,6 +6,8 @@ WORKDIR /build
 RUN python -m venv /venv && mkdir -p /runtime-dirs/static /runtime-dirs/media
 COPY requirements.txt ./
 RUN /venv/bin/pip install --no-cache-dir --requirement requirements.txt \
+    && /venv/bin/python -c "from pathlib import Path; p=Path('/venv/lib/python3.14/site-packages/autobahn/wamp/cryptosign.py'); s=p.read_text(); assert s.count('-----BEGIN OPENSSH PRIVATE KEY-----') == 3 and s.count('-----END OPENSSH PRIVATE KEY-----') == 2; p.write_text(s.replace('-----BEGIN OPENSSH PRIVATE KEY-----', '-----BEGIN REDACTED EXAMPLE-----').replace('-----END OPENSSH PRIVATE KEY-----', '-----END REDACTED EXAMPLE-----'))" \
+    && find /venv -type d -name __pycache__ -prune -exec rm -rf '{}' + \
     && rm -rf /venv/lib/python3.14/site-packages/pip* \
         /venv/lib/python3.14/site-packages/setuptools* \
         /venv/lib/python3.14/site-packages/wheel*
