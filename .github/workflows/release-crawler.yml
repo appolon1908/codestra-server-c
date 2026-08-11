@@ -260,7 +260,7 @@ jobs:
             output="$1"
             shift
             for attempt in 1 2 3 4 5 6; do
-              if gh attestation verify "$@" > "$output"; then
+              if gh attestation verify "$@" --format json > "$output"; then
                 test -s "$output"
                 return
               fi
