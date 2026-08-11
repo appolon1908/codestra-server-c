@@ -98,9 +98,21 @@ jobs:
           pip-audit -r requirements.txt
 
       - name: Scan exact Git history for secrets
-        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_VERSION: 8.30.1
+          GITLEAKS_LINUX_X64_SHA256: 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb
+        run: |
+          set -euo pipefail
+          archive="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl --fail --location --proto '=https' --tlsv1.2 \
+            --output "${RUNNER_TEMP}/${archive}" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${archive}"
+          echo "${GITLEAKS_LINUX_X64_SHA256}  ${RUNNER_TEMP}/${archive}" | sha256sum -c -
+          tar -xzf "${RUNNER_TEMP}/${archive}" -C "${RUNNER_TEMP}" gitleaks
+          chmod 0755 "${RUNNER_TEMP}/gitleaks"
+          test "$("${RUNNER_TEMP}/gitleaks" version)" = "$GITLEAKS_VERSION"
+          "${RUNNER_TEMP}/gitleaks" git --redact --verbose .
 
       - name: Set up Buildx
         uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
@@ -270,7 +282,10 @@ jobs:
             manage.py shell -c \
             'from django.conf import settings; assert settings.SCRAPER_WORKER_ENABLED is False; assert settings.SCRAPER_MIDDLEWARE_DELIVERY_ENABLED is False'
           default_cmd="$(docker image inspect "${IMAGE_NAME}@${PUBLISHED_DIGEST}" --format '{{json .Config.Cmd}}')"
-          ! grep -qi 'run_scraper_worker' <<<"$default_cmd"
+          if grep -qi 'run_scraper_worker' <<<"$default_cmd"; then
+            echo "crawler worker found in default image command" >&2
+            exit 1
+          fi
           printf '%s\n' 'SCRAPER_WORKER_ENABLED=false' > worker-disabled-smoke.txt
 
       - name: Create non-secret release evidence manifest
