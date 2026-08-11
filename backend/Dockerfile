@@ -1,31 +1,30 @@
-FROM python:3.11-slim-bookworm
+ARG PYTHON_BUILDER=cgr.dev/chainguard/python@sha256:4c58eb78b47d5a7cee9ffe0d1df16c56778ee40b067d983fb48d677a035abf8c
+ARG PYTHON_RUNTIME=cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5
 
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
+FROM ${PYTHON_BUILDER} AS builder
+USER 0
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+WORKDIR /build
+COPY requirements.txt requirements.lock ./
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && /opt/venv/bin/pip install --no-cache-dir --require-hashes --requirement requirements.lock \
+    && /opt/venv/bin/pip uninstall --yes pip setuptools wheel
 
+FROM ${PYTHON_RUNTIME} AS runtime
+ENV PATH=/opt/venv/bin:/usr/bin \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 WORKDIR /app
-
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends curl libpq5 \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir --requirement requirements.txt \
-    && pip uninstall --yes pip setuptools wheel
-
-COPY . .
-RUN chmod 0755 docker-entrypoint.sh \
-    && mkdir -p /app/static /app/media \
-    && chown -R 10001:10001 /app/static /app/media
-
-USER 10001:10001
+USER 0
+RUN ["python", "-c", "import os; [os.makedirs(path, exist_ok=True) for path in ('/app/static', '/app/media')]; [os.chown(path, 65532, 65532) for path in ('/app', '/app/static', '/app/media')]"]
+COPY --from=builder /opt/venv /opt/venv
+COPY --chown=65532:65532 . .
+USER 65532:65532
 EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-    CMD curl --fail --silent -H "Host: ${HEALTHCHECK_HOST:-localhost}" http://127.0.0.1:8000/healthz/ >/dev/null || exit 1
+    CMD ["python", "container_healthcheck.py"]
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["python", "container_entrypoint.py"]
 CMD ["gunicorn", "CORE.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--threads", "2", "--timeout", "120", "--access-logfile", "-", "--error-logfile", "-"]

@@ -114,7 +114,7 @@ jobs:
 
       - name: Scan exact Git history for secrets
         shell: bash
-        run: "$RUNNER_TEMP/bin-gitleaks detect --source . --no-banner --redact --verbose"
+        run: '"$RUNNER_TEMP/bin-gitleaks" detect --source . --no-banner --redact --verbose'
 
       - name: Set up Buildx
         uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
@@ -141,6 +141,7 @@ jobs:
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         with:
           image: crawler-release-scan:${{ inputs.source_sha }}
+          vex: security/crawler-runtime.openvex.json
           fail-build: true
           severity-cutoff: high
           output-format: json
@@ -203,6 +204,7 @@ jobs:
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         with:
           image: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          vex: security/crawler-runtime.openvex.json
           fail-build: true
           severity-cutoff: high
           output-format: json
@@ -284,7 +286,10 @@ jobs:
             manage.py shell -c \
             'from django.conf import settings; assert settings.SCRAPER_WORKER_ENABLED is False; assert settings.SCRAPER_MIDDLEWARE_DELIVERY_ENABLED is False'
           default_cmd="$(docker image inspect "${IMAGE_NAME}@${PUBLISHED_DIGEST}" --format '{{json .Config.Cmd}}')"
-          ! grep -qi 'run_scraper_worker' <<<"$default_cmd"
+          if grep -qi 'run_scraper_worker' <<<"$default_cmd"; then
+            echo "crawler worker found in default image command" >&2
+            exit 1
+          fi
           printf '%s\n' 'SCRAPER_WORKER_ENABLED=false' > worker-disabled-smoke.txt
 
       - name: Create non-secret release evidence manifest

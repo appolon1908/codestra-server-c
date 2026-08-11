@@ -1,0 +1,27 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/Codestra-SRL/codestra-server-c/security/vex/cve-2026-54876",
+  "author": "Codestra SRL Security",
+  "role": "Security evidence generated for independent review",
+  "timestamp": "2026-08-11T07:40:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "@id": "https://nvd.nist.gov/vuln/detail/CVE-2026-54876",
+        "name": "CVE-2026-54876"
+      },
+      "products": [
+        {
+          "@id": "pkg:apk/wolfi/libcrypto3@3.6.3-r3?arch=x86_64&distro=wolfi-20230201&upstream=openssl"
+        },
+        {
+          "@id": "pkg:apk/wolfi/libssl3@3.6.3-r3?arch=x86_64&distro=wolfi-20230201&upstream=openssl"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_in_execute_path",
+      "impact_statement": "The crawler uses Python and Requests default TLS verification and never enables X509_V_FLAG_OCSP_RESP_CHECK or X509_V_FLAG_OCSP_RESP_CHECK_ALL. The OpenSSL advisory states that only clients explicitly enabling those flags reach the affected path. The finding remains documented until OpenSSL 3.6.4 is available in the pinned runtime image."
+    }
+  ]
+}
