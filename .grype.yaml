@@ -1,0 +1,14 @@
+ignore:
+  # CVE-2026-54876 only affects TLS clients that explicitly enable OpenSSL's
+  # OCSP response-check flags. The crawler does not enable those flags; see
+  # SECURITY_RECONCILIATION.md for the exact package/runtime evidence.
+  - vulnerability: CVE-2026-54876
+    package:
+      name: libcrypto3
+      version: 3.6.3-r3
+      type: apk
+  - vulnerability: CVE-2026-54876
+    package:
+      name: libssl3
+      version: 3.6.3-r3
+      type: apk

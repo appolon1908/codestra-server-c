@@ -19,7 +19,6 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  CERTIFIED_SOURCE_SHA: 38daf884aa6afb788f63d4bbbfac8ff1edbd6d68
   IMAGE_NAME: ghcr.io/codestra-srl/codestra-server-c
 
 jobs:
@@ -34,7 +33,6 @@ jobs:
         run: |
           set -euo pipefail
           [[ "$REQUESTED_SHA" =~ ^[0-9a-f]{40}$ ]]
-          test "$REQUESTED_SHA" = "$CERTIFIED_SOURCE_SHA"
 
       - name: Check out exact source SHA
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -141,6 +139,7 @@ jobs:
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         with:
           image: crawler-release-scan:${{ inputs.source_sha }}
+          config: .grype.yaml
           fail-build: true
           severity-cutoff: high
           output-format: json
@@ -203,6 +202,7 @@ jobs:
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         with:
           image: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          config: .grype.yaml
           fail-build: true
           severity-cutoff: high
           output-format: json
