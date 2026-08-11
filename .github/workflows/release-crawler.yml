@@ -112,7 +112,7 @@ jobs:
 
       - name: Scan exact Git history for secrets
         shell: bash
-        run: "$RUNNER_TEMP/bin-gitleaks detect --source . --no-banner --redact --verbose"
+        run: '"$RUNNER_TEMP/bin-gitleaks" detect --source . --no-banner --redact --verbose'
 
       - name: Set up Buildx
         uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
@@ -152,18 +152,24 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Refuse to overwrite an existing immutable tag
+      - name: Resolve immutable SHA tag without overwriting it
+        id: registry
         env:
           REQUESTED_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
-          if docker manifest inspect "${IMAGE_NAME}:sha-${REQUESTED_SHA}" >/dev/null 2>&1; then
-            echo "immutable SHA tag already exists" >&2
-            exit 1
+          image_ref="${IMAGE_NAME}:sha-${REQUESTED_SHA}"
+          if inspection="$(docker buildx imagetools inspect "$image_ref" 2>/dev/null)"; then
+            digest="$(awk '$1 == "Digest:" { print $2; exit }' <<<"$inspection")"
+            [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]
+            printf 'exists=true\ndigest=%s\n' "$digest" >> "$GITHUB_OUTPUT"
+          else
+            printf 'exists=false\ndigest=\n' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Publish immutable SHA tag
         id: publish
+        if: steps.registry.outputs.exists != 'true'
         uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
         with:
           context: backend
@@ -181,11 +187,12 @@ jobs:
         id: digest
         shell: bash
         env:
-          PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest }}
+          PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest || steps.registry.outputs.digest }}
           REQUESTED_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
           [[ "$PUBLISHED_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
+          printf 'digest=%s\n' "$PUBLISHED_DIGEST" >> "$GITHUB_OUTPUT"
           printf '%s\n' "$PUBLISHED_DIGEST" > image-digest.txt
           docker pull "${IMAGE_NAME}@${PUBLISHED_DIGEST}"
           revision="$(docker image inspect "${IMAGE_NAME}@${PUBLISHED_DIGEST}" --format '{{ index .Config.Labels "org.opencontainers.image.revision" }}')"
@@ -194,14 +201,14 @@ jobs:
       - name: Scan pulled registry digest
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
         with:
-          image-ref: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          image-ref: ${{ env.IMAGE_NAME }}@${{ steps.digest.outputs.digest }}
           severity: CRITICAL,HIGH
           exit-code: "1"
 
       - name: Scan pulled registry digest with Grype
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
         with:
-          image: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          image: ${{ env.IMAGE_NAME }}@${{ steps.digest.outputs.digest }}
           config: .grype.yaml
           fail-build: true
           severity-cutoff: high
@@ -211,24 +218,26 @@ jobs:
       - name: Generate SPDX SBOM from pulled registry digest
         uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # 0.35.0
         with:
-          image-ref: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
+          image-ref: ${{ env.IMAGE_NAME }}@${{ steps.digest.outputs.digest }}
           format: spdx-json
           output: sbom.spdx.json
 
       - name: Attest build provenance to GitHub and GHCR
         id: provenance
+        if: steps.registry.outputs.exists != 'true'
         uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3
         with:
           subject-name: ${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.publish.outputs.digest }}
+          subject-digest: ${{ steps.digest.outputs.digest }}
           push-to-registry: true
 
       - name: Attest SBOM to GitHub and GHCR
         id: sbom
+        if: steps.registry.outputs.exists != 'true'
         uses: actions/attest-sbom@51e74621a501c89df81fc1391c5a8f4cfc9fab2f # v3
         with:
           subject-name: ${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.publish.outputs.digest }}
+          subject-digest: ${{ steps.digest.outputs.digest }}
           sbom-path: sbom.spdx.json
           push-to-registry: true
 
@@ -244,37 +253,48 @@ jobs:
       - name: Independently verify GitHub attestations
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest }}
+          PUBLISHED_DIGEST: ${{ steps.digest.outputs.digest }}
         run: |
           set -euo pipefail
-          gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
+          verify_with_retry() {
+            output="$1"
+            shift
+            for attempt in 1 2 3 4 5 6; do
+              if gh attestation verify "$@" > "$output"; then
+                test -s "$output"
+                return
+              fi
+              if [ "$attempt" -eq 6 ]; then
+                return 1
+              fi
+              sleep 10
+            done
+          }
+          image="oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}"
+          verify_with_retry provenance-verification.txt "$image" \
             --repo "$GITHUB_REPOSITORY" \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
-            --deny-self-hosted-runners > provenance-verification.txt
-          gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
+            --deny-self-hosted-runners
+          verify_with_retry sbom-verification.txt "$image" \
             --repo "$GITHUB_REPOSITORY" \
             --predicate-type https://spdx.dev/Document/v2.3 \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
-            --deny-self-hosted-runners > sbom-verification.txt
-          gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
+            --deny-self-hosted-runners
+          verify_with_retry provenance-oci-verification.txt "$image" \
             --repo "$GITHUB_REPOSITORY" \
             --bundle-from-oci \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
-            --deny-self-hosted-runners > provenance-oci-verification.txt
-          gh attestation verify "oci://${IMAGE_NAME}@${PUBLISHED_DIGEST}" \
+            --deny-self-hosted-runners
+          verify_with_retry sbom-oci-verification.txt "$image" \
             --repo "$GITHUB_REPOSITORY" \
             --bundle-from-oci \
             --predicate-type https://spdx.dev/Document/v2.3 \
             --signer-workflow "${GITHUB_REPOSITORY}/.github/workflows/release-crawler.yml" \
-            --deny-self-hosted-runners > sbom-oci-verification.txt
-          test -s provenance-verification.txt
-          test -s sbom-verification.txt
-          test -s provenance-oci-verification.txt
-          test -s sbom-oci-verification.txt
+            --deny-self-hosted-runners
 
       - name: Prove the crawler worker remains disabled
         env:
-          PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest }}
+          PUBLISHED_DIGEST: ${{ steps.digest.outputs.digest }}
         run: |
           set -euo pipefail
           docker run --rm --entrypoint python \
@@ -284,12 +304,15 @@ jobs:
             manage.py shell -c \
             'from django.conf import settings; assert settings.SCRAPER_WORKER_ENABLED is False; assert settings.SCRAPER_MIDDLEWARE_DELIVERY_ENABLED is False'
           default_cmd="$(docker image inspect "${IMAGE_NAME}@${PUBLISHED_DIGEST}" --format '{{json .Config.Cmd}}')"
-          ! grep -qi 'run_scraper_worker' <<<"$default_cmd"
+          if grep -qi 'run_scraper_worker' <<<"$default_cmd"; then
+            echo "crawler worker found in default image command" >&2
+            exit 1
+          fi
           printf '%s\n' 'SCRAPER_WORKER_ENABLED=false' > worker-disabled-smoke.txt
 
       - name: Create non-secret release evidence manifest
         env:
-          PUBLISHED_DIGEST: ${{ steps.publish.outputs.digest }}
+          PUBLISHED_DIGEST: ${{ steps.digest.outputs.digest }}
           REQUESTED_SHA: ${{ inputs.source_sha }}
           PROVENANCE_URL: ${{ steps.provenance.outputs.attestation-url }}
           SBOM_URL: ${{ steps.sbom.outputs.attestation-url }}
