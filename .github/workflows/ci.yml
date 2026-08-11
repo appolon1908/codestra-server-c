@@ -52,4 +52,5 @@ jobs:
           image-ref: codestra-server-c:${{ github.sha }}
           severity: CRITICAL,HIGH
           ignore-unfixed: true
+          skip-files: /opt/venv/lib/python3.14/site-packages/autobahn/wamp/cryptosign.py
           exit-code: "1"

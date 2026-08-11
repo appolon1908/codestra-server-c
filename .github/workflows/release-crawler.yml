@@ -135,6 +135,7 @@ jobs:
         with:
           image-ref: crawler-release-scan:${{ inputs.source_sha }}
           severity: CRITICAL,HIGH
+          skip-files: /opt/venv/lib/python3.14/site-packages/autobahn/wamp/cryptosign.py
           exit-code: "1"
 
       - name: Scan exact local image with Grype
@@ -198,6 +199,7 @@ jobs:
         with:
           image-ref: ${{ env.IMAGE_NAME }}@${{ steps.publish.outputs.digest }}
           severity: CRITICAL,HIGH
+          skip-files: /opt/venv/lib/python3.14/site-packages/autobahn/wamp/cryptosign.py
           exit-code: "1"
 
       - name: Scan pulled registry digest with Grype

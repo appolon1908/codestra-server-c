@@ -9,7 +9,8 @@ COPY requirements.txt requirements.lock ./
 RUN python -m venv /opt/venv \
     && /opt/venv/bin/pip install --no-cache-dir --upgrade pip setuptools wheel \
     && /opt/venv/bin/pip install --no-cache-dir --require-hashes --requirement requirements.lock \
-    && /opt/venv/bin/pip uninstall --yes pip setuptools wheel
+    && /opt/venv/bin/pip uninstall --yes pip setuptools wheel \
+    && /opt/venv/bin/python -c "import pathlib, shutil; [shutil.rmtree(path) for path in pathlib.Path('/opt/venv').rglob('__pycache__')]"
 
 FROM ${PYTHON_RUNTIME} AS runtime
 ENV PATH=/opt/venv/bin:/usr/bin \
