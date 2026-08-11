@@ -1,0 +1,4 @@
+# False-positive marker text used only to sanitize an Autobahn documentation
+# example from the production image. The finding contains no private-key body.
+f96cc408d312696d988296bea0da9b3d1b4849a1:backend/Dockerfile:private-key:9
+01ec7c8d2268844ad69195a2cf21c6820c65c113:backend/Dockerfile:private-key:9
