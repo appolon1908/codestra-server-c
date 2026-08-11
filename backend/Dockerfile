@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bookworm
+FROM python:3.13-alpine@sha256:540c7d91f98ff6880174c40e99067bf5941eb54d818a7a5e094d188b196a934d
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -6,10 +6,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends curl libpq5 \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk upgrade --no-cache \
+    && apk add --no-cache curl libpq
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
