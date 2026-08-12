@@ -365,6 +365,9 @@ class OutboxDeliveryTests(TestCase):
 
     def test_claim_is_exclusive_and_expired_lease_recovers(self):
         event = self.make_event()
+        self.assertIsNone(claim_event("worker-zero", 30))
+        event.compliance_state = "eligible"
+        event.save(update_fields=["compliance_state"])
         claimed = claim_event("worker-one", 30)
         self.assertEqual(claimed.pk, event.pk)
         self.assertIsNone(claim_event("worker-two", 30))
@@ -429,9 +432,18 @@ class OutboxDeliveryTests(TestCase):
         self.assertEqual(ScraperDeliveryAttempt.objects.filter(event=event).count(), 2)
         with self.assertRaises(ValueError):
             redrive_event(event.event_id, "")
-        redrive_event(event.event_id, "operator@example.invalid")
+        redrive_event(event.event_id, "operator@example.invalid", retry_allowance=3)
         event.refresh_from_db()
         self.assertEqual(event.state, ScraperOutboxEvent.State.PENDING)
+        self.assertEqual(event.max_attempts, 5)
+        event.compliance_state = "eligible"
+        event.save(update_fields=["compliance_state"])
+        claimed = claim_event("redrive-worker", 30)
+        self.assertEqual(claimed.pk, event.pk)
+        complete_attempt(claimed, retry, jitter=lambda *_: 0)
+        event.refresh_from_db()
+        self.assertEqual(event.attempt_count, 3)
+        self.assertEqual(event.state, ScraperOutboxEvent.State.RETRY_WAIT)
 
     def test_signature_binds_timestamp_event_and_body(self):
         first = signature("secret", "100", "event", b"body")

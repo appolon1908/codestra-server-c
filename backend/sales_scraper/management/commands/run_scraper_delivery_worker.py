@@ -2,6 +2,7 @@ import os
 import socket
 import time
 
+from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from sales_scraper.delivery import (
@@ -18,6 +19,8 @@ class Command(BaseCommand):
         parser.add_argument("--once", action="store_true")
 
     def handle(self, *args, **options):
+        if not settings.SCRAPER_MIDDLEWARE_DELIVERY_ENABLED:
+            raise CommandError("scraper_middleware_delivery_disabled")
         try:
             require_contract()
         except DeliveryConfigurationError as exc:

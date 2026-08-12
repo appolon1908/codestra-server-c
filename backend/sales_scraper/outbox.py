@@ -60,6 +60,7 @@ def claim_event(owner: str, lease_seconds: int) -> ScraperOutboxEvent | None:
     with transaction.atomic():
         event = (
             ScraperOutboxEvent.objects.select_for_update(skip_locked=True)
+            .filter(compliance_state="eligible")
             .filter(
                 Q(state=ScraperOutboxEvent.State.PENDING)
                 | Q(state=ScraperOutboxEvent.State.RETRY_WAIT, next_attempt_at__lte=now)
@@ -79,9 +80,11 @@ def claim_event(owner: str, lease_seconds: int) -> ScraperOutboxEvent | None:
         return event
 
 
-def redrive_event(event_id, actor: str) -> ScraperOutboxEvent:
+def redrive_event(event_id, actor: str, retry_allowance: int = 8) -> ScraperOutboxEvent:
     if not actor.strip():
         raise ValueError("audit_actor_required")
+    if retry_allowance < 1:
+        raise ValueError("retry_allowance_must_be_positive")
     with transaction.atomic():
         event = ScraperOutboxEvent.objects.select_for_update().get(event_id=event_id)
         if event.state != ScraperOutboxEvent.State.DEAD_LETTER:
@@ -90,6 +93,9 @@ def redrive_event(event_id, actor: str) -> ScraperOutboxEvent:
         event.next_attempt_at = None
         event.lease_owner = None
         event.lease_expires_at = None
+        # Attempt numbers remain monotonic for an immutable ledger. A reviewed
+        # re-drive grants a bounded new budget instead of resetting history.
+        event.max_attempts = event.attempt_count + retry_allowance
         event.last_error_class = (
             f"redriven_by:{hashlib.sha256(actor.encode()).hexdigest()[:16]}"
         )

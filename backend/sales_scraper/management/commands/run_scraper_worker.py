@@ -1,6 +1,7 @@
 import time
 
-from django.core.management.base import BaseCommand
+from django.conf import settings
+from django.core.management.base import BaseCommand, CommandError
 
 from sales_scraper.worker import run_once
 
@@ -13,6 +14,8 @@ class Command(BaseCommand):
         parser.add_argument("--poll-seconds", type=float, default=2.0)
 
     def handle(self, *args, **options):
+        if not settings.SCRAPER_WORKER_ENABLED:
+            raise CommandError("scraper_worker_disabled")
         while True:
             found = run_once()
             if options["once"]:
