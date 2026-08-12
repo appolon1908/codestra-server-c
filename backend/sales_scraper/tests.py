@@ -20,8 +20,16 @@ from .crawler import (
     claim_job,
     process_job,
 )
+from .delivery import (
+    DeliveryConfigurationError,
+    complete_attempt,
+    deliver_once,
+    send_event,
+    signature,
+)
 from .extraction import extract_lead
-from .models import CrawlJob, LeadCandidate
+from .models import CrawlJob, LeadCandidate, ScraperDeliveryAttempt, ScraperOutboxEvent
+from .outbox import claim_event, redrive_event
 from .security import (
     ResolvedURL,
     UnsafeURL,
@@ -256,6 +264,9 @@ class JobTests(TestCase):
         )
         self.assertLessEqual(job.pages.count(), 2)
         self.assertEqual(LeadCandidate.objects.filter(job=job).count(), 1)
+        candidate = LeadCandidate.objects.get(job=job)
+        self.assertEqual(candidate.outbox_event.state, ScraperOutboxEvent.State.PENDING)
+        self.assertEqual(len(candidate.outbox_event.payload_hash), 64)
 
     def test_content_type_executable_and_size_rejection(self):
         for content_type in ("application/x-msdownload", "application/pdf"):
@@ -327,3 +338,142 @@ class JobTests(TestCase):
         self.assertFalse(settings.SCRAPER_N8N_WRITES_ENABLED)
         self.assertFalse(settings.SCRAPER_POSTLY_WRITES_ENABLED)
         self.assertFalse(settings.SCRAPER_OUTREACH_WRITES_ENABLED)
+
+
+class OutboxDeliveryTests(TestCase):
+    def make_event(self):
+        job = CrawlJob.objects.create(
+            tenant_id=uuid.uuid4(),
+            campaign_id=uuid.uuid4(),
+            start_urls=[PUBLIC_URL],
+            idempotency_key_hash=uuid.uuid4().hex,
+        )
+        process_job(
+            job,
+            JobTests().fetcher(),
+            robots=Mock(allowed=Mock(return_value=True)),
+            limiter=Mock(),
+        )
+        return ScraperOutboxEvent.objects.get(candidate__job=job)
+
+    def test_atomic_event_idempotency_and_tenant_binding(self):
+        event = self.make_event()
+        self.assertEqual(str(event.event_id), event.payload["event_id"])
+        self.assertEqual(str(event.tenant_id), event.payload["tenant_id"])
+        self.assertEqual(event.idempotency_key, f"scraper:{event.event_id}")
+        self.assertEqual(event.compliance_state, "review_required")
+
+    def test_claim_is_exclusive_and_expired_lease_recovers(self):
+        event = self.make_event()
+        claimed = claim_event("worker-one", 30)
+        self.assertEqual(claimed.pk, event.pk)
+        self.assertIsNone(claim_event("worker-two", 30))
+        event.refresh_from_db()
+        event.lease_expires_at = timezone.now() - timedelta(seconds=1)
+        event.save(update_fields=["lease_expires_at"])
+        recovered = claim_event("worker-two", 30)
+        self.assertEqual(recovered.pk, event.pk)
+        self.assertEqual(recovered.lease_owner, "worker-two")
+
+    @patch.multiple(
+        settings,
+        SCRAPER_DELIVERY_URL="https://middleware.example/scraper",
+        SCRAPER_DELIVERY_SCHEMA_CHECKSUM="PLACEHOLDER",
+        SCRAPER_DELIVERY_HMAC_KEY_ID="scraper-prod",
+        SCRAPER_DELIVERY_HMAC_SECRET="test-signing-secret",
+        SCRAPER_DELIVERY_BEARER_TOKEN="test-jwt",
+        SCRAPER_DELIVERY_CA_BUNDLE="",
+        SCRAPER_DELIVERY_CLIENT_CERT="",
+        SCRAPER_DELIVERY_CONNECT_TIMEOUT=1.0,
+        SCRAPER_DELIVERY_READ_TIMEOUT=2.0,
+        SCRAPER_DELIVERY_ACCEPTED_STATUSES=(202, 208),
+        SCRAPER_DELIVERY_ACK_FIELD="acknowledgement_id",
+    )
+    def test_signed_delivery_and_duplicate_ack(self):
+        event = self.make_event()
+        settings.SCRAPER_DELIVERY_SCHEMA_CHECKSUM = event.schema_checksum
+        response = Mock(status_code=208, headers={})
+        response.json.return_value = {"acknowledgement_id": "already-seen"}
+        session = Mock()
+        session.post.return_value = response
+        result = send_event(event, session=session)
+        self.assertEqual(result.outcome, "delivered")
+        headers = session.post.call_args.kwargs["headers"]
+        self.assertEqual(headers["Idempotency-Key"], event.idempotency_key)
+        self.assertEqual(headers["X-Codestra-Event-ID"], str(event.event_id))
+        self.assertTrue(headers["X-Codestra-Signature"].startswith("sha256="))
+
+    def test_retry_dead_letter_and_authorized_redrive(self):
+        event = self.make_event()
+        event.max_attempts = 2
+        event.save(update_fields=["max_attempts"])
+        retry = type(
+            "R",
+            (),
+            {
+                "outcome": "retry",
+                "status": 503,
+                "acknowledgement": "",
+                "retry_after": 0,
+                "error_class": "http_503",
+            },
+        )()
+        complete_attempt(event, retry, jitter=lambda *_: 0)
+        event.refresh_from_db()
+        self.assertEqual(event.state, ScraperOutboxEvent.State.RETRY_WAIT)
+        event.state = ScraperOutboxEvent.State.INFLIGHT
+        event.save(update_fields=["state"])
+        complete_attempt(event, retry, jitter=lambda *_: 0)
+        event.refresh_from_db()
+        self.assertEqual(event.state, ScraperOutboxEvent.State.DEAD_LETTER)
+        self.assertEqual(ScraperDeliveryAttempt.objects.filter(event=event).count(), 2)
+        with self.assertRaises(ValueError):
+            redrive_event(event.event_id, "")
+        redrive_event(event.event_id, "operator@example.invalid")
+        event.refresh_from_db()
+        self.assertEqual(event.state, ScraperOutboxEvent.State.PENDING)
+
+    def test_signature_binds_timestamp_event_and_body(self):
+        first = signature("secret", "100", "event", b"body")
+        self.assertNotEqual(first, signature("secret", "101", "event", b"body"))
+        self.assertNotEqual(first, signature("secret", "100", "other", b"body"))
+        self.assertNotEqual(first, signature("secret", "100", "event", b"changed"))
+
+    def test_delivery_is_disabled_by_default_and_missing_contract_fails_closed(self):
+        self.make_event()
+        self.assertFalse(deliver_once("worker"))
+        with self.assertRaises(DeliveryConfigurationError):
+            send_event(ScraperOutboxEvent.objects.get())
+
+    @patch.multiple(
+        settings,
+        SCRAPER_DELIVERY_URL="https://middleware.example/scraper",
+        SCRAPER_DELIVERY_SCHEMA_CHECKSUM="PLACEHOLDER",
+        SCRAPER_DELIVERY_HMAC_KEY_ID="scraper-prod",
+        SCRAPER_DELIVERY_HMAC_SECRET="test-signing-secret",
+        SCRAPER_DELIVERY_BEARER_TOKEN="test-jwt",
+        SCRAPER_DELIVERY_CA_BUNDLE="",
+        SCRAPER_DELIVERY_CLIENT_CERT="",
+        SCRAPER_DELIVERY_CONNECT_TIMEOUT=1.0,
+        SCRAPER_DELIVERY_READ_TIMEOUT=2.0,
+        SCRAPER_DELIVERY_ACCEPTED_STATUSES=(202, 208),
+        SCRAPER_DELIVERY_ACK_FIELD="acknowledgement_id",
+    )
+    def test_tls_429_permanent_rejection_and_missing_ack_are_classified(self):
+        event = self.make_event()
+        settings.SCRAPER_DELIVERY_SCHEMA_CHECKSUM = event.schema_checksum
+        session = Mock()
+        session.post.side_effect = __import__("requests").exceptions.SSLError("tls")
+        self.assertEqual(send_event(event, session).outcome, "retry")
+        session.post.side_effect = None
+        session.post.return_value = Mock(status_code=429, headers={"Retry-After": "7"})
+        limited = send_event(event, session)
+        self.assertEqual((limited.outcome, limited.retry_after), ("retry", 7.0))
+        session.post.return_value = Mock(status_code=422, headers={})
+        self.assertEqual(send_event(event, session).outcome, "permanent_failure")
+        accepted = Mock(status_code=202, headers={})
+        accepted.json.return_value = {}
+        session.post.return_value = accepted
+        self.assertEqual(
+            send_event(event, session).error_class, "invalid_acknowledgement"
+        )

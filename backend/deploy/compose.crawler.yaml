@@ -1,0 +1,82 @@
+name: codestra-controlled-scraper
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: ["${SCRAPER_ENV_FILE:?protected environment file required}"]
+    volumes: ["scraper_db:/var/lib/postgresql/data"]
+    expose: ["5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    networks: [private]
+
+  api:
+    image: ${SCRAPER_IMAGE:?immutable digest required}
+    restart: unless-stopped
+    init: true
+    env_file: ["${SCRAPER_ENV_FILE:?protected environment file required}"]
+    command: ["gunicorn", "CORE.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2", "--threads", "2", "--timeout", "120"]
+    expose: ["8000"]
+    read_only: true
+    tmpfs: ["/tmp:size=32m,noexec,nosuid,nodev"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    user: "65532:65532"
+    mem_limit: 1g
+    cpus: 1.0
+    pids_limit: 256
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [private]
+
+  crawl-worker:
+    image: ${SCRAPER_IMAGE:?immutable digest required}
+    profiles: ["crawl-enabled"]
+    restart: unless-stopped
+    init: true
+    env_file: ["${SCRAPER_ENV_FILE:?protected environment file required}"]
+    command: ["python", "manage.py", "run_scraper_worker"]
+    read_only: true
+    tmpfs: ["/tmp:size=32m,noexec,nosuid,nodev"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    user: "65532:65532"
+    mem_limit: 1g
+    cpus: 1.0
+    pids_limit: 128
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [private, egress]
+
+  delivery-worker:
+    image: ${SCRAPER_IMAGE:?immutable digest required}
+    profiles: ["delivery-enabled"]
+    restart: unless-stopped
+    init: true
+    env_file: ["${SCRAPER_ENV_FILE:?protected environment file required}"]
+    command: ["python", "manage.py", "run_scraper_delivery_worker"]
+    read_only: true
+    tmpfs: ["/tmp:size=32m,noexec,nosuid,nodev"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    user: "65532:65532"
+    mem_limit: 512m
+    cpus: 0.5
+    pids_limit: 128
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [private, egress]
+
+networks:
+  private:
+    internal: true
+  egress:
+
+volumes:
+  scraper_db:
