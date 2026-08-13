@@ -14,6 +14,7 @@ from django.utils import timezone
 
 from .extraction import extract_lead
 from .models import CrawlDomainState, CrawlJob, CrawlPage, LeadCandidate
+from .outbox import enqueue_candidate
 from .security import UnsafeURL, validate_dns_pin, validate_public_url
 
 ALLOWED_CONTENT_TYPES = {"text/html", "application/xhtml+xml"}
@@ -307,16 +308,19 @@ def process_job(job: CrawlJob, fetcher=None, robots=None, limiter=None):
                         },
                     }
                 )
-                LeadCandidate.objects.update_or_create(
-                    tenant_id=job.tenant_id,
-                    campaign_id=job.campaign_id,
-                    normalized_identity_hash=identity_hash,
-                    defaults={
-                        "job": job,
-                        "company_domain": domain,
-                        "contract": contract,
-                    },
-                )
+                with transaction.atomic():
+                    candidate, created = LeadCandidate.objects.update_or_create(
+                        tenant_id=job.tenant_id,
+                        campaign_id=job.campaign_id,
+                        normalized_identity_hash=identity_hash,
+                        defaults={
+                            "job": job,
+                            "company_domain": domain,
+                            "contract": contract,
+                        },
+                    )
+                    if created:
+                        enqueue_candidate(candidate)
                 if depth < policy["max_depth"]:
                     queue.extend(
                         (link, depth + 1)
