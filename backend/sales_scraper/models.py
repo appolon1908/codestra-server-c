@@ -1,6 +1,21 @@
 import uuid
 
+from django.conf import settings
 from django.db import models
+
+
+class ScraperTenantPrincipal(models.Model):
+    """Server-side mapping from an authenticated middleware principal to a tenant."""
+
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.PROTECT,
+        related_name="scraper_tenant_principal",
+    )
+    tenant_id = models.UUIDField(db_index=True)
+    active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class CrawlJob(models.Model):
@@ -23,6 +38,7 @@ class CrawlJob(models.Model):
         max_length=20, choices=State.choices, default=State.QUEUED, db_index=True
     )
     idempotency_key_hash = models.CharField(max_length=64)
+    request_payload_hash = models.CharField(max_length=64, default="")
     lease_owner = models.CharField(max_length=128, null=True, blank=True)
     lease_expires_at = models.DateTimeField(null=True, blank=True, db_index=True)
     next_attempt_at = models.DateTimeField(null=True, blank=True)
@@ -38,8 +54,8 @@ class CrawlJob(models.Model):
     class Meta:
         constraints = [  # noqa: RUF012 - Django Meta declarative API
             models.UniqueConstraint(
-                fields=["tenant_id", "campaign_id", "idempotency_key_hash"],
-                name="crawler_job_tenant_campaign_idempotency",
+                fields=["tenant_id", "idempotency_key_hash"],
+                name="crawler_job_tenant_idempotency",
             )
         ]
         indexes = [  # noqa: RUF012 - Django Meta declarative API
