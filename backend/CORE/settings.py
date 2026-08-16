@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-import os
 import json
 from pathlib import Path
 from decouple import config
@@ -24,56 +23,57 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool, default=False)
 ENVIRONMENT = config("ENV", default="dev")
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config(
+    "ALLOWED_HOSTS", cast=lambda v: [s.strip() for s in v.split(",")]
+)
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sitemaps',
-
-    
+    "daphne",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
     # Third party apps
-    'drf_yasg',
-    'corsheaders',
-    'rest_framework',
-    'django_celery_beat',
-    'django_user_agents',
-    'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
-    
+    "drf_yasg",
+    "corsheaders",
+    "rest_framework",
+    "django_celery_beat",
+    "django_user_agents",
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     # Local apps
-    'blog_app',
-    'auth_app',
-    'employee',
-    'calendar_app',
-    'cms',
-    'hero',
-    'customers',
-    'career_app',
-    'payment_app',
-    'lead_capture',
-    'server_c',
-    'sales_scraper',
+    "blog_app",
+    "auth_app",
+    "employee",
+    "calendar_app",
+    "cms",
+    "hero",
+    "customers",
+    "career_app",
+    "payment_app",
+    "lead_capture",
+    "server_c",
+    "sales_scraper",
 ]
 
 # Server C is a presentation and request-preparation boundary. Privileged
 # business mutations must fail closed unless the middleware gateway is set.
 MIDDLEWARE_GATEWAY_URL = config("MIDDLEWARE_GATEWAY_URL", default="")
-MIDDLEWARE_GATEWAY_TIMEOUT = config("MIDDLEWARE_GATEWAY_TIMEOUT", cast=float, default=8.0)
+MIDDLEWARE_GATEWAY_TIMEOUT = config(
+    "MIDDLEWARE_GATEWAY_TIMEOUT", cast=float, default=8.0
+)
 AI_GATEWAY_URL = config("AI_GATEWAY_URL", default="")
 SERVER_C_PLATFORM_VERSION = config("SERVER_C_PLATFORM_VERSION", default="1.0")
 SERVER_C_FEATURE_FLAGS = {
@@ -107,20 +107,45 @@ SERVER_C_FEATURE_FLAGS = {
 
 # The crawler is isolated and read-only with respect to every external system.
 SCRAPER_WORKER_ENABLED = config("SCRAPER_WORKER_ENABLED", cast=bool, default=False)
-SCRAPER_MIDDLEWARE_DELIVERY_ENABLED = config("SCRAPER_MIDDLEWARE_DELIVERY_ENABLED", cast=bool, default=False)
+SCRAPER_GLOBAL_CONCURRENCY = config("SCRAPER_GLOBAL_CONCURRENCY", cast=int, default=8)
+SCRAPER_TENANT_CONCURRENCY = config("SCRAPER_TENANT_CONCURRENCY", cast=int, default=2)
+SCRAPER_TENANT_HOURLY_QUOTA = config(
+    "SCRAPER_TENANT_HOURLY_QUOTA", cast=int, default=100
+)
+SCRAPER_TENANT_DAILY_QUOTA = config("SCRAPER_TENANT_DAILY_QUOTA", cast=int, default=500)
+SCRAPER_MIDDLEWARE_DELIVERY_ENABLED = config(
+    "SCRAPER_MIDDLEWARE_DELIVERY_ENABLED", cast=bool, default=False
+)
 SCRAPER_DELIVERY_URL = config("SCRAPER_DELIVERY_URL", default="")
-SCRAPER_DELIVERY_SCHEMA_CHECKSUM = config("SCRAPER_DELIVERY_SCHEMA_CHECKSUM", default="")
+SCRAPER_DELIVERY_SCHEMA_CHECKSUM = config(
+    "SCRAPER_DELIVERY_SCHEMA_CHECKSUM", default=""
+)
 SCRAPER_DELIVERY_HMAC_KEY_ID = config("SCRAPER_DELIVERY_HMAC_KEY_ID", default="")
 SCRAPER_DELIVERY_HMAC_SECRET = config("SCRAPER_DELIVERY_HMAC_SECRET", default="")
 SCRAPER_DELIVERY_BEARER_TOKEN = config("SCRAPER_DELIVERY_BEARER_TOKEN", default="")
 SCRAPER_DELIVERY_CA_BUNDLE = config("SCRAPER_DELIVERY_CA_BUNDLE", default="")
 SCRAPER_DELIVERY_CLIENT_CERT = config("SCRAPER_DELIVERY_CLIENT_CERT", default="")
-SCRAPER_DELIVERY_CONNECT_TIMEOUT = config("SCRAPER_DELIVERY_CONNECT_TIMEOUT", cast=float, default=3.0)
-SCRAPER_DELIVERY_READ_TIMEOUT = config("SCRAPER_DELIVERY_READ_TIMEOUT", cast=float, default=8.0)
-SCRAPER_DELIVERY_LEASE_SECONDS = config("SCRAPER_DELIVERY_LEASE_SECONDS", cast=int, default=60)
-SCRAPER_DELIVERY_MAX_BACKOFF = config("SCRAPER_DELIVERY_MAX_BACKOFF", cast=int, default=300)
-SCRAPER_DELIVERY_ACCEPTED_STATUSES = tuple(int(item) for item in config("SCRAPER_DELIVERY_ACCEPTED_STATUSES", default="202,208").split(","))
-SCRAPER_DELIVERY_ACK_FIELD = config("SCRAPER_DELIVERY_ACK_FIELD", default="acknowledgement_id")
+SCRAPER_DELIVERY_CONNECT_TIMEOUT = config(
+    "SCRAPER_DELIVERY_CONNECT_TIMEOUT", cast=float, default=3.0
+)
+SCRAPER_DELIVERY_READ_TIMEOUT = config(
+    "SCRAPER_DELIVERY_READ_TIMEOUT", cast=float, default=8.0
+)
+SCRAPER_DELIVERY_LEASE_SECONDS = config(
+    "SCRAPER_DELIVERY_LEASE_SECONDS", cast=int, default=60
+)
+SCRAPER_DELIVERY_MAX_BACKOFF = config(
+    "SCRAPER_DELIVERY_MAX_BACKOFF", cast=int, default=300
+)
+SCRAPER_DELIVERY_ACCEPTED_STATUSES = tuple(
+    int(item)
+    for item in config("SCRAPER_DELIVERY_ACCEPTED_STATUSES", default="202,208").split(
+        ","
+    )
+)
+SCRAPER_DELIVERY_ACK_FIELD = config(
+    "SCRAPER_DELIVERY_ACK_FIELD", default="acknowledgement_id"
+)
 SCRAPER_ODOO_WRITES_ENABLED = False
 SCRAPER_VICIDIAL_WRITES_ENABLED = False
 SCRAPER_N8N_WRITES_ENABLED = False
@@ -130,57 +155,58 @@ SCRAPER_OUTREACH_WRITES_ENABLED = False
 APPEND_SLASH = False
 
 ASGI_APPLICATION = "CORE.asgi.application"
-AUTH_USER_MODEL = 'auth_app.User'
+AUTH_USER_MODEL = "auth_app.User"
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = False
 
 MIDDLEWARE = [
-    
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware',
-    
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_user_agents.middleware.UserAgentMiddleware",
     # custom middleware
-    'middlewares.visitors_details_middleware.VisitorTrackingMiddleware',
-    'middlewares.block_ip_address_middleware.BlockBlacklistedIPsMiddleware',
+    "middlewares.visitors_details_middleware.VisitorTrackingMiddleware",
+    "middlewares.block_ip_address_middleware.BlockBlacklistedIPsMiddleware",
 ]
 
 if ENVIRONMENT == "test":
     MIDDLEWARE = [item for item in MIDDLEWARE if not item.startswith("middlewares.")]
 
-ROOT_URLCONF = 'CORE.urls'
+ROOT_URLCONF = "CORE.urls"
 
 CSRF_TRUSTED_ORIGINS = config(
-    "CSRF_TRUSTED_ORIGINS", cast=lambda v: [s.strip() for s in v.split(',') if s.strip()]
+    "CSRF_TRUSTED_ORIGINS",
+    cast=lambda v: [s.strip() for s in v.split(",") if s.strip()],
 )
 
-CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", cast=lambda v: [s.strip() for s in v.split(',')])
+CORS_ALLOWED_ORIGINS = config(
+    "CORS_ALLOWED_ORIGINS", cast=lambda v: [s.strip() for s in v.split(",")]
+)
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'CORE.wsgi.application'
+WSGI_APPLICATION = "CORE.wsgi.application"
 
 
 # Database
@@ -217,22 +243,21 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False)
 EMAIL_VERIFICATION_URL = config("EMAIL_VERIFICATION_URL", default="")
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -240,9 +265,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -252,13 +277,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 REDIS_CONNECTION_URL = config("REDIS_URL", default="redis://redis:6379/0")
@@ -273,10 +298,10 @@ CACHES = {
 if ENVIRONMENT == "test":
     CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 
-USER_AGENTS_CACHE = 'default'
+USER_AGENTS_CACHE = "default"
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static') ]
 
@@ -285,24 +310,20 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_ALLOW_NONIMAGE_FILES = True
 
 REST_FRAMEWORK = {
-
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
-    'DEFAULT_PERMISSION_CLASSES': (
-        'CORE.permissions.ReadOnlyOrAdmin',
+    "DEFAULT_PERMISSION_CLASSES": ("CORE.permissions.ReadOnlyOrAdmin",),
+    "DEFAULT_THROTTLE_CLASSES": (
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
     ),
-    'DEFAULT_THROTTLE_CLASSES': (
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle',
-    ),
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '60/minute',
-        'user': '300/minute',
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "60/minute",
+        "user": "300/minute",
     },
-
 }
 
 SIMPLE_JWT = {
@@ -331,7 +352,7 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 
-BASE_URL=config("BASE_URL", default="http://localhost:8000")
+BASE_URL = config("BASE_URL", default="http://localhost:8000")
 
 ADMIN_EMAIL = config("ADMIN_EMAIL", default="support@codestra.co")
 EMAIL_FROM = config("EMAIL_FROM", default="sales@codestra.co")
@@ -350,19 +371,27 @@ ODOO_LEAD_MODEL = config("ODOO_LEAD_MODEL", default="crm.lead")
 ODOO_DEFAULT_TEAM_ID = config("ODOO_DEFAULT_TEAM_ID", default="")
 ODOO_DEFAULT_CAMPAIGN_ID = config("ODOO_DEFAULT_CAMPAIGN_ID", default="")
 ODOO_REQUEST_TIMEOUT_MS = config("ODOO_REQUEST_TIMEOUT_MS", default=8000, cast=int)
-ODOO_FIELD_MAPPING_CONFIRMED = config("ODOO_FIELD_MAPPING_CONFIRMED", default=False, cast=bool)
+ODOO_FIELD_MAPPING_CONFIRMED = config(
+    "ODOO_FIELD_MAPPING_CONFIRMED", default=False, cast=bool
+)
 ODOO_ROUTING_MAP = json.loads(config("ODOO_ROUTING_MAP", default="{}"))
 LEAD_DELIVERY_MODE = config("LEAD_DELIVERY_MODE", default="mock")
 PUBLIC_DEMO_PHONE = config("PUBLIC_DEMO_PHONE", default="")
 PUBLIC_SALES_PHONE = config("PUBLIC_SALES_PHONE", default="")
 PUBLIC_SITE_URL = config("PUBLIC_SITE_URL", default="https://codestra.co")
 INTERNAL_SERVICE_SECRET = config("INTERNAL_SERVICE_SECRET", default="")
-INTERNAL_SERVICE_ALLOWLIST = [item.strip() for item in config("INTERNAL_SERVICE_ALLOWLIST", default="").split(",") if item.strip()]
+INTERNAL_SERVICE_ALLOWLIST = [
+    item.strip()
+    for item in config("INTERNAL_SERVICE_ALLOWLIST", default="").split(",")
+    if item.strip()
+]
 
-REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"].update({
-    "lead_submission": "10/hour",
-    "analytics_event": "120/minute",
-})
+REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"].update(
+    {
+        "lead_submission": "10/hour",
+        "analytics_event": "120/minute",
+    }
+)
 
 CELERY_BROKER_URL = config("CELERY_BROKER_URL", default="redis://redis:6379/1")
 CELERY_RESULT_BACKEND = config("CELERY_RESULT_BACKEND", default="redis://redis:6379/2")

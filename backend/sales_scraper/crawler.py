@@ -246,11 +246,14 @@ def process_job(job: CrawlJob, fetcher=None, robots=None, limiter=None):
         limiter or DatabaseDomainLimiter(policy.get("per_domain_delay_seconds", 1.0)),
     )
     queue, seen = [(url, 0) for url in job.start_urls], set[str]()
+    deadline = time.monotonic() + policy.get("max_total_duration_seconds", 300)
     job.state = CrawlJob.State.RUNNING
     job.attempts += 1
     job.save(update_fields=["state", "attempts", "updated_at"])
     try:
         while queue and len(seen) < policy["max_pages"]:
+            if time.monotonic() >= deadline:
+                raise CrawlError("job_duration_limit")
             job.refresh_from_db(fields=["cancel_requested_at"])
             if job.cancel_requested_at:
                 job.state = CrawlJob.State.CANCELLED

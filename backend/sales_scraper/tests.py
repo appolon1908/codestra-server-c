@@ -8,7 +8,9 @@ from unittest.mock import Mock, patch
 from django.conf import settings
 from django.test import SimpleTestCase, TestCase
 from django.utils import timezone
+from rest_framework.test import APIClient
 
+from auth_app.models import User
 from .contracts import create_job
 from .crawler import (
     CrawlError,
@@ -28,7 +30,13 @@ from .delivery import (
     signature,
 )
 from .extraction import extract_lead
-from .models import CrawlJob, LeadCandidate, ScraperDeliveryAttempt, ScraperOutboxEvent
+from .models import (
+    CrawlJob,
+    LeadCandidate,
+    ScraperDeliveryAttempt,
+    ScraperOutboxEvent,
+    ScraperTenantPrincipal,
+)
 from .outbox import claim_event, redrive_event
 from .security import (
     ResolvedURL,
@@ -244,6 +252,24 @@ class JobTests(TestCase):
         self.assertEqual(one.pk, two.pk)
         self.assertNotEqual(one.pk, other.pk)
 
+    def test_same_tenant_key_with_changed_payload_conflicts(self):
+        from .contracts import IdempotencyConflict
+
+        tenant, campaign = uuid.uuid4(), uuid.uuid4()
+        create_job(
+            tenant_id=tenant,
+            campaign_id=campaign,
+            start_urls=[PUBLIC_URL],
+            idempotency_key="same-key",
+        )
+        with self.assertRaises(IdempotencyConflict):
+            create_job(
+                tenant_id=tenant,
+                campaign_id=campaign,
+                start_urls=["https://8.8.8.8/"],
+                idempotency_key="same-key",
+            )
+
     def test_database_backed_rate_limit(self):
         current = timezone.now()
         clock = Mock(return_value=current)
@@ -338,6 +364,91 @@ class JobTests(TestCase):
         self.assertFalse(settings.SCRAPER_N8N_WRITES_ENABLED)
         self.assertFalse(settings.SCRAPER_POSTLY_WRITES_ENABLED)
         self.assertFalse(settings.SCRAPER_OUTREACH_WRITES_ENABLED)
+
+
+class TenantScopedAPITests(TestCase):
+    def setUp(self):
+        self.tenant_a, self.tenant_b = uuid.uuid4(), uuid.uuid4()
+        self.user_a = User.objects.create_user(
+            email="scraper-a@example.invalid", first_name="A", last_name="Client"
+        )
+        self.user_b = User.objects.create_user(
+            email="scraper-b@example.invalid", first_name="B", last_name="Client"
+        )
+        ScraperTenantPrincipal.objects.create(user=self.user_a, tenant_id=self.tenant_a)
+        ScraperTenantPrincipal.objects.create(user=self.user_b, tenant_id=self.tenant_b)
+        self.client = APIClient()
+        self.client.force_authenticate(self.user_a)
+
+    def payload(self):
+        return {
+            "campaign_id": str(uuid.uuid4()),
+            "start_urls": [PUBLIC_URL],
+            "extraction_profile": "public-company-contact-v1",
+            "policy": {"max_pages": 1},
+        }
+
+    def test_tenant_is_server_derived_and_body_override_is_rejected(self):
+        payload = self.payload()
+        payload["tenant_id"] = str(self.tenant_b)
+        response = self.client.post(
+            "/v1/scraper/jobs",
+            payload,
+            format="json",
+            HTTP_IDEMPOTENCY_KEY="idem-key-123",
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(CrawlJob.objects.exists())
+
+    def test_unmapped_authenticated_principal_is_denied(self):
+        unmapped = User.objects.create_user(
+            email="scraper-unmapped@example.invalid",
+            first_name="No",
+            last_name="Tenant",
+        )
+        self.client.force_authenticate(unmapped)
+        response = self.client.post(
+            "/v1/scraper/jobs",
+            self.payload(),
+            format="json",
+            HTTP_IDEMPOTENCY_KEY="idem-key-123",
+        )
+        self.assertEqual(response.status_code, 403)
+
+    def test_create_replay_conflict_and_cross_tenant_denial(self):
+        payload = self.payload()
+        response = self.client.post(
+            "/v1/scraper/jobs",
+            payload,
+            format="json",
+            HTTP_IDEMPOTENCY_KEY="idem-key-123",
+        )
+        self.assertEqual(response.status_code, 201)
+        job_id = response.data["job_id"]
+        replay = self.client.post(
+            "/v1/scraper/jobs",
+            payload,
+            format="json",
+            HTTP_IDEMPOTENCY_KEY="idem-key-123",
+        )
+        self.assertEqual(replay.status_code, 200)
+        changed = {**payload, "start_urls": ["https://8.8.8.8/"]}
+        conflict = self.client.post(
+            "/v1/scraper/jobs",
+            changed,
+            format="json",
+            HTTP_IDEMPOTENCY_KEY="idem-key-123",
+        )
+        self.assertEqual(conflict.status_code, 409)
+
+        self.client.force_authenticate(self.user_b)
+        self.assertEqual(self.client.get(f"/v1/scraper/jobs/{job_id}").status_code, 404)
+        self.assertEqual(
+            self.client.get(f"/v1/scraper/jobs/{job_id}/results").status_code, 404
+        )
+        self.assertEqual(
+            self.client.delete(f"/v1/scraper/jobs/{job_id}").status_code, 404
+        )
 
 
 class OutboxDeliveryTests(TestCase):

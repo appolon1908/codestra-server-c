@@ -1,8 +1,10 @@
 # Controlled crawler API
 
-The production crawler control plane is private and requires an authenticated
-Django admin user for every job endpoint. It must not be exposed directly to
-the public Internet.
+The production crawler control plane is private. Kong authenticates the customer,
+Middleware maps that identity to a dedicated service principal, and the scraper
+derives the tenant from its server-side `ScraperTenantPrincipal` mapping. It must
+not be exposed directly to the public Internet. Customer-supplied `tenant_id`
+and body-supplied idempotency keys are rejected.
 
 ## Health and discovery
 
@@ -18,9 +20,18 @@ the public Internet.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `POST` | `/api/v1/scraper/jobs` | Submit an idempotent, tenant/campaign-scoped job |
-| `GET` | `/api/v1/scraper/jobs/{job_id}` | Read job state and synthetic candidates |
-| `POST` | `/api/v1/scraper/jobs/{job_id}/cancel` | Request bounded cancellation |
+| `POST` | `/v1/scraper/jobs` | Submit an idempotent, tenant-scoped job |
+| `GET` | `/v1/scraper/jobs/{job_id}` | Read bounded job state only |
+| `GET` | `/v1/scraper/jobs/{job_id}/results` | Read authoritative paginated results |
+| `DELETE` | `/v1/scraper/jobs/{job_id}` | Request bounded cancellation |
+
+Creation requires an `Idempotency-Key` header. The same tenant, key, and
+canonical payload return the original job. Reuse with a different payload
+returns HTTP 409. All status, results, and cancellation lookups include the
+server-derived tenant and return 404 for another tenant's identifier.
+
+The only accepted extraction profile is `public-company-contact-v1`; callers
+cannot upload JavaScript, Playwright programs, selectors, or executable code.
 
 Required safe-start flags:
 
