@@ -52,7 +52,9 @@ jobs:
             --build-arg VCS_REF=${{ github.sha }} \
             --build-arg IMAGE_VERSION=sha-${{ github.sha }} \
             -t codestra-server-c:${{ github.sha }} backend
-          test "$(docker image inspect codestra-server-c:${{ github.sha }} --format '{{ index .Config.Labels \"org.opencontainers.image.revision\" }}')" = "${{ github.sha }}"
+          docker image inspect codestra-server-c:${{ github.sha }} \
+            | jq --exit-status --arg sha "${{ github.sha }}" \
+              '.[0].Config.Labels["org.opencontainers.image.revision"] == $sha'
       - uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: codestra-server-c:${{ github.sha }}
@@ -78,7 +80,9 @@ jobs:
             --build-arg VCS_REF=${{ github.sha }} \
             --build-arg IMAGE_VERSION=sha-${{ github.sha }} \
             -t codestra-server-c-frontend:${{ github.sha }} frontend
-          test "$(docker image inspect codestra-server-c-frontend:${{ github.sha }} --format '{{ index .Config.Labels \"org.opencontainers.image.revision\" }}')" = "${{ github.sha }}"
+          docker image inspect codestra-server-c-frontend:${{ github.sha }} \
+            | jq --exit-status --arg sha "${{ github.sha }}" \
+              '.[0].Config.Labels["org.opencontainers.image.revision"] == $sha'
       - uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: codestra-server-c-frontend:${{ github.sha }}
