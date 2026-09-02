@@ -16,6 +16,13 @@ RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:1.29-alpine
 
+ARG VCS_REF=unknown
+ARG IMAGE_VERSION=unknown
+LABEL org.opencontainers.image.source="https://github.com/Codestra-SRL/codestra-server-c" \
+      org.opencontainers.image.revision="${VCS_REF}" \
+      org.opencontainers.image.version="${IMAGE_VERSION}" \
+      org.opencontainers.image.title="Codestra Server C frontend"
+
 USER root
 RUN apk upgrade --no-cache
 

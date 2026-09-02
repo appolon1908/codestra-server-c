@@ -46,10 +46,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: docker build -t codestra-server-c:${{ github.sha }} backend
+      - name: Build traceable backend image
+        run: |
+          docker build \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg IMAGE_VERSION=sha-${{ github.sha }} \
+            -t codestra-server-c:${{ github.sha }} backend
+          test "$(docker image inspect codestra-server-c:${{ github.sha }} --format '{{ index .Config.Labels \"org.opencontainers.image.revision\" }}')" = "${{ github.sha }}"
       - uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: codestra-server-c:${{ github.sha }}
+          severity: CRITICAL,HIGH
+          ignore-unfixed: true
+          exit-code: "1"
+
+  frontend-container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Audit frontend production dependencies
+        working-directory: frontend
+        run: npm audit --omit=dev --audit-level=high
+      - name: Build traceable frontend image
+        run: |
+          docker build \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg IMAGE_VERSION=sha-${{ github.sha }} \
+            -t codestra-server-c-frontend:${{ github.sha }} frontend
+          test "$(docker image inspect codestra-server-c-frontend:${{ github.sha }} --format '{{ index .Config.Labels \"org.opencontainers.image.revision\" }}')" = "${{ github.sha }}"
+      - uses: aquasecurity/trivy-action@0.35.0
+        with:
+          image-ref: codestra-server-c-frontend:${{ github.sha }}
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: "1"
