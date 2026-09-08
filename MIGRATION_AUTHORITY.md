@@ -2,7 +2,7 @@
 
 Canonical repository: appolon1908-hue/codestra-server-c.
 
-The migration preserves all 11 legacy remote branches plus the local agent/scraper-tenant-remediation branch at b2ec94de629ec2a94f05962ead1a47aa41f75e0c. There were no source tags. Ref identities were compared after push; source Git bundles and ref manifests are retained separately. The original Server C checkout origin remains unchanged pending completion of review.
+The migration preserves all 11 legacy remote branches plus the local agent/scraper-tenant-remediation branch at b2ec94de629ec2a94f05962ead1a47aa41f75e0c. There were no source tags. Three additional unpublished local branches were preserved, and the differing local main tip was archived as migration/local-checkout/main. The total preserved source branch tips is 16. Ref identities were compared after push; source Git bundles and ref manifests are retained separately. The original Server C checkout origin remains unchanged pending completion of review.
 
 The old local image sha256:e0fc48f7018ab8eec258704f16c08908075f161ddbf3467be201c8392ecc7a52 is a candidate only. It is not a certified release.
 
