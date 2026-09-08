@@ -16,3 +16,7 @@ The release workflow performs tests, dependency/image scans, SBOM and provenance
 Protected secret names only (no values migrated): DEPLOY_HOST, DEPLOY_USER, DEPLOY_SSH_KEY, DEPLOY_KNOWN_HOSTS, GHCR_USER, GHCR_PULL_TOKEN. GITHUB_TOKEN is provided by GitHub for CI; do not copy it. Secret-name documentation does not create secrets.
 
 Required environments: image-release and production, protected branches only, independent reviewer with self-review prevented. Do not create an unprotected substitute. Deployments remain forbidden until independently approved.
+
+## Supported publication protection
+
+Required-reviewer environments are unavailable on the current plan. The compensating mechanism is documented in release/intents/README.md and enforced by scripts/release/verify_intent.py. Protected main retains independent review, last-push approval, stale-review dismissal and administrator enforcement. A separately merged and independently reviewed exact-source/tree publication intent with a matching canonical JSON hash is mandatory. No executable intent is supplied, no image publication is authorized, and deployment remains separately forbidden. Scraper CI may run while its release workflow remains disabled pending review.

@@ -7,9 +7,19 @@ on:
         description: Full protected-main commit SHA to publish
         required: true
         type: string
+      intent_path:
+        description: Reviewed release/intents JSON path
+        required: true
+        type: string
+      plan_sha256:
+        description: SHA256 of canonical JSON intent
+        required: true
+        type: string
 
 permissions:
   contents: read
+  pull-requests: read
+  checks: read
   packages: write
   attestations: write
   id-token: write
@@ -24,16 +34,22 @@ env:
 jobs:
   release:
     name: Publish and attest exact crawler SHA
-    environment: image-release
     runs-on: ubuntu-latest
     steps:
-      - name: Require independent release environment review
+      - name: Check out protected publication authority
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify reviewed source and publication intent
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          set -Eeuo pipefail
-          gh api "repos/$GITHUB_REPOSITORY/environments/image-release" > "$RUNNER_TEMP/release-environment.json"
-          jq -e '[.protection_rules[] | select(.type == "required_reviewers") | select(.prevent_self_review == true) | select((.reviewers | length) > 0)] | length > 0' "$RUNNER_TEMP/release-environment.json" >/dev/null
+          REQUESTED_SOURCE_SHA: ${{ inputs.source_sha }}
+          RELEASE_INTENT_PATH: ${{ inputs.intent_path }}
+          RELEASE_PLAN_SHA256: ${{ inputs.plan_sha256 }}
+        run: python3 scripts/release/verify_intent.py
 
       - name: Reject anything except the certified full SHA
         shell: bash
@@ -66,6 +82,7 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$REQUESTED_SHA"
           git cat-file -e "${REQUESTED_SHA}^{commit}"
+          cp "$RUNNER_TEMP/reviewed-publication.json" reviewed-publication.json
           git rev-parse "${REQUESTED_SHA}^{tree}" > source-tree.txt
           test "$(git -C protected-main rev-parse --abbrev-ref HEAD)" = main
           git -C protected-main merge-base --is-ancestor "$REQUESTED_SHA" HEAD
@@ -358,7 +375,7 @@ jobs:
               json.dumps(evidence, indent=2, sort_keys=True) + "\n"
           )
           PY
-          sha256sum image-digest.txt package-visibility.txt sbom.spdx.json \
+          sha256sum source-tree.txt reviewed-publication.json image-digest.txt package-visibility.txt sbom.spdx.json \
             grype-prepublish-report.json grype-report.json provenance-verification.txt \
             sbom-verification.txt provenance-oci-verification.txt \
             sbom-oci-verification.txt \
@@ -381,6 +398,8 @@ jobs:
             sbom-oci-verification.txt
             worker-disabled-smoke.txt
             release-evidence.json
+            source-tree.txt
+            reviewed-publication.json
             SHA256SUMS
             crawler-tests.txt
           if-no-files-found: error
