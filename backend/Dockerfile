@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/python@sha256:4c58eb78b47d5a7cee9ffe0d1df16c56778ee40b067d983fb48d677a035abf8c AS builder
+FROM cgr.dev/chainguard/python@sha256:de669347e9c1348d3fb952b1ab93738412bd7207769a882701691825741bfce3 AS builder
 
 USER root
 WORKDIR /build
@@ -12,7 +12,7 @@ RUN /venv/bin/pip install --no-cache-dir --requirement requirements.txt \
         /venv/lib/python3.14/site-packages/setuptools* \
         /venv/lib/python3.14/site-packages/wheel*
 
-FROM cgr.dev/chainguard/python@sha256:69437de912cc3b5d36a2480b8fb0c3f658f151d8bc1978d19a6412be3a4983d5
+FROM cgr.dev/chainguard/python@sha256:1f37785e5cdb70151f36aaa15e1e3cef4571424dbefbf4b0d8a9222535cb13ff
 
 ARG VCS_REF=unknown
 LABEL org.opencontainers.image.source="https://github.com/Codestra-SRL/codestra-server-c" \
