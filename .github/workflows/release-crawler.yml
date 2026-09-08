@@ -7,9 +7,19 @@ on:
         description: Full protected-main commit SHA to publish
         required: true
         type: string
+      intent_path:
+        description: Reviewed release/intents JSON path
+        required: true
+        type: string
+      plan_sha256:
+        description: SHA256 of canonical JSON intent
+        required: true
+        type: string
 
 permissions:
   contents: read
+  pull-requests: read
+  checks: read
   packages: write
   attestations: write
   id-token: write
@@ -19,13 +29,28 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  IMAGE_NAME: ghcr.io/codestra-srl/codestra-server-c
+  IMAGE_NAME: ghcr.io/appolon1908-hue/codestra-server-c
 
 jobs:
   release:
     name: Publish and attest exact crawler SHA
     runs-on: ubuntu-latest
     steps:
+      - name: Check out protected publication authority
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify reviewed source and publication intent
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_SOURCE_SHA: ${{ inputs.source_sha }}
+          RELEASE_INTENT_PATH: ${{ inputs.intent_path }}
+          RELEASE_PLAN_SHA256: ${{ inputs.plan_sha256 }}
+        run: python3 scripts/release/verify_intent.py
+
       - name: Reject anything except the certified full SHA
         shell: bash
         env:
@@ -57,6 +82,8 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$REQUESTED_SHA"
           git cat-file -e "${REQUESTED_SHA}^{commit}"
+          cp "$RUNNER_TEMP/reviewed-publication.json" reviewed-publication.json
+          git rev-parse "${REQUESTED_SHA}^{tree}" > source-tree.txt
           test "$(git -C protected-main rev-parse --abbrev-ref HEAD)" = main
           git -C protected-main merge-base --is-ancestor "$REQUESTED_SHA" HEAD
           test -z "$(git status --porcelain --untracked-files=no)"
@@ -176,8 +203,8 @@ jobs:
           file: backend/Dockerfile
           platforms: linux/amd64
           push: true
-          provenance: false
-          sbom: false
+          provenance: mode=max
+          sbom: true
           tags: ${{ env.IMAGE_NAME }}:sha-${{ inputs.source_sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
@@ -246,7 +273,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          visibility="$(gh api "/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/codestra-server-c" --jq .visibility)"
+          visibility="$(gh api "/users/${GITHUB_REPOSITORY_OWNER}/packages/container/codestra-server-c" --jq .visibility)"
           test "$visibility" = private
           printf '%s\n' 'PACKAGE_VISIBILITY=private' > package-visibility.txt
 
@@ -348,7 +375,7 @@ jobs:
               json.dumps(evidence, indent=2, sort_keys=True) + "\n"
           )
           PY
-          sha256sum image-digest.txt package-visibility.txt sbom.spdx.json \
+          sha256sum source-tree.txt reviewed-publication.json image-digest.txt package-visibility.txt sbom.spdx.json \
             grype-prepublish-report.json grype-report.json provenance-verification.txt \
             sbom-verification.txt provenance-oci-verification.txt \
             sbom-oci-verification.txt \
@@ -371,6 +398,8 @@ jobs:
             sbom-oci-verification.txt
             worker-disabled-smoke.txt
             release-evidence.json
+            source-tree.txt
+            reviewed-publication.json
             SHA256SUMS
             crawler-tests.txt
           if-no-files-found: error

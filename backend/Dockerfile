@@ -14,13 +14,9 @@ RUN /venv/bin/pip install --no-cache-dir --requirement requirements.txt \
 
 FROM cgr.dev/chainguard/python@sha256:1f37785e5cdb70151f36aaa15e1e3cef4571424dbefbf4b0d8a9222535cb13ff
 
-ARG VCS_REF=unknown
-LABEL org.opencontainers.image.source="https://github.com/Codestra-SRL/codestra-server-c" \
-      org.opencontainers.image.revision="${VCS_REF}" \
-      org.opencontainers.image.title="Codestra controlled scraper"
 
 ARG VCS_REF=unknown
-LABEL org.opencontainers.image.source="https://github.com/Codestra-SRL/codestra-server-c" \
+LABEL org.opencontainers.image.source="https://github.com/appolon1908-hue/codestra-server-c" \
       org.opencontainers.image.revision="${VCS_REF}" \
       org.opencontainers.image.title="Codestra controlled scraper"
 
