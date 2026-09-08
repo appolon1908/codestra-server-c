@@ -19,13 +19,22 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  IMAGE_NAME: ghcr.io/codestra-srl/codestra-server-c
+  IMAGE_NAME: ghcr.io/appolon1908-hue/codestra-server-c
 
 jobs:
   release:
     name: Publish and attest exact crawler SHA
+    environment: image-release
     runs-on: ubuntu-latest
     steps:
+      - name: Require independent release environment review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/environments/image-release" > "$RUNNER_TEMP/release-environment.json"
+          jq -e '[.protection_rules[] | select(.type == "required_reviewers") | select(.prevent_self_review == true) | select((.reviewers | length) > 0)] | length > 0' "$RUNNER_TEMP/release-environment.json" >/dev/null
+
       - name: Reject anything except the certified full SHA
         shell: bash
         env:
@@ -57,6 +66,7 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "$REQUESTED_SHA"
           git cat-file -e "${REQUESTED_SHA}^{commit}"
+          git rev-parse "${REQUESTED_SHA}^{tree}" > source-tree.txt
           test "$(git -C protected-main rev-parse --abbrev-ref HEAD)" = main
           git -C protected-main merge-base --is-ancestor "$REQUESTED_SHA" HEAD
           test -z "$(git status --porcelain --untracked-files=no)"
@@ -176,8 +186,8 @@ jobs:
           file: backend/Dockerfile
           platforms: linux/amd64
           push: true
-          provenance: false
-          sbom: false
+          provenance: mode=max
+          sbom: true
           tags: ${{ env.IMAGE_NAME }}:sha-${{ inputs.source_sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
@@ -246,7 +256,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          visibility="$(gh api "/orgs/${GITHUB_REPOSITORY_OWNER}/packages/container/codestra-server-c" --jq .visibility)"
+          visibility="$(gh api "/users/${GITHUB_REPOSITORY_OWNER}/packages/container/codestra-server-c" --jq .visibility)"
           test "$visibility" = private
           printf '%s\n' 'PACKAGE_VISIBILITY=private' > package-visibility.txt
 
