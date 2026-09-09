@@ -19,7 +19,20 @@ class ResolvedURL:
 
 
 def is_public_address(value: str) -> bool:
-    address = ipaddress.ip_address(value)
+    try:
+        address = ipaddress.ip_address(value)
+    except ValueError:
+        return False
+    if isinstance(address, ipaddress.IPv6Address):
+        # Disallow scoped and transition mechanisms whose effective IPv4 target
+        # can differ from the apparent globally routed IPv6 destination.
+        if address.scope_id or address.ipv4_mapped or address.sixtofour or address.teredo:
+            return False
+        if any(address in network for network in (
+            ipaddress.ip_network("64:ff9b::/96"),
+            ipaddress.ip_network("64:ff9b:1::/48"),
+        )):
+            return False
     return address.is_global and not any(
         (
             address.is_private,
@@ -35,14 +48,20 @@ def is_public_address(value: str) -> bool:
 def validate_public_url(url: str, resolver=socket.getaddrinfo) -> ResolvedURL:
     if not isinstance(url, str) or len(url) > 2048:
         raise UnsafeURL("invalid_url")
-    parsed = urlsplit(url)
+    if any(ord(char) <= 32 or ord(char) == 127 for char in url):
+        raise UnsafeURL("invalid_url")
+    try:
+        parsed = urlsplit(url)
+        explicit_port = parsed.port
+    except ValueError as exc:
+        raise UnsafeURL("invalid_url") from exc
     if parsed.scheme not in {"http", "https"}:
         raise UnsafeURL("unsupported_scheme")
     if parsed.username is not None or parsed.password is not None:
         raise UnsafeURL("url_credentials_forbidden")
     if not parsed.hostname or parsed.fragment:
         raise UnsafeURL("invalid_url")
-    port = parsed.port or (443 if parsed.scheme == "https" else 80)
+    port = explicit_port if explicit_port is not None else (443 if parsed.scheme == "https" else 80)
     if port not in {80, 443}:
         raise UnsafeURL("port_forbidden")
     host = parsed.hostname.rstrip(".").lower()

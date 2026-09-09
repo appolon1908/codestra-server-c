@@ -106,6 +106,7 @@ def protected_policy(repo):
 
 
 def main():
+    require(not command('git', 'status', '--porcelain', '--untracked-files=all'), 'Dirty authority checkout')
     repo = os.environ['GITHUB_REPOSITORY']
     require(os.environ['GITHUB_REF'] == 'refs/heads/main', 'Dispatch only from main')
     protected_policy(repo)

@@ -614,3 +614,39 @@ class OutboxDeliveryTests(TestCase):
         self.assertEqual(
             send_event(event, session).error_class, "invalid_acknowledgement"
         )
+
+
+class RequestValidationTests(SimpleTestCase):
+    def test_policy_types_and_unknown_fields(self):
+        from .serializers import CrawlJobRequestSerializer
+        base = {"campaign_id": str(uuid.uuid4()), "start_urls": [PUBLIC_URL]}
+        for policy in ({"max_pages": True}, {"max_pages": 1.5},
+                       {"max_retries": 1.2}, {"timeout_seconds": float("nan")},
+                       {"per_domain_delay_seconds": float("inf")}):
+            with self.subTest(policy=policy):
+                serializer = CrawlJobRequestSerializer(data={**base, "policy": policy})
+                self.assertFalse(serializer.is_valid())
+        serializer = CrawlJobRequestSerializer(data={**base, "unexpected": "ignored?"})
+        self.assertFalse(serializer.is_valid())
+        serializer = CrawlJobRequestSerializer(data={**base, "policy": {
+            "max_pages": 2, "per_domain_delay_seconds": 0.5}})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+
+    def test_transition_scoped_and_mixed_dns_destinations_rejected(self):
+        blocked = ["::ffff:8.8.8.8", "2002:0808:0808::1",
+                   "2001:0000:4136:e378:8000:63bf:3fff:fdd2",
+                   "64:ff9b::a00:1", "64:ff9b:1::1",
+                   "2606:4700:4700::1111%eth0", "invalid"]
+        for address in blocked:
+            with self.subTest(address=address):
+                self.assertFalse(is_public_address(address))
+                with self.assertRaises(UnsafeURL):
+                    validate_public_url("https://example.com/", resolver_for("8.8.8.8", address))
+        self.assertTrue(is_public_address("2606:4700:4700::1111"))
+
+    def test_malformed_url_errors_are_safe_rejections(self):
+        for url in ["http://[broken/", "http://example.com:invalid/",
+                    "http://example.com:0/", "http://example.com:65536/",
+                    "https://example.com/\nprivate", " https://example.com/"]:
+            with self.subTest(url=url), self.assertRaises(UnsafeURL):
+                validate_public_url(url, resolver_for("8.8.8.8"))
