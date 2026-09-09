@@ -185,7 +185,7 @@ jobs:
           REQUESTED_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
-          image_ref="${IMAGE_NAME}:sha-${REQUESTED_SHA}"
+          image_ref="${IMAGE_NAME}:${REQUESTED_SHA}"
           if inspection="$(docker buildx imagetools inspect "$image_ref" 2>/dev/null)"; then
             digest="$(awk '$1 == "Digest:" { print $2; exit }' <<<"$inspection")"
             [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]
@@ -205,7 +205,7 @@ jobs:
           push: true
           provenance: mode=max
           sbom: true
-          tags: ${{ env.IMAGE_NAME }}:sha-${{ inputs.source_sha }}
+          tags: ${{ env.IMAGE_NAME }}:${{ inputs.source_sha }}
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.revision=${{ inputs.source_sha }}
