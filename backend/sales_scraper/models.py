@@ -4,6 +4,12 @@ from django.conf import settings
 from django.db import models
 
 
+class ScraperAdmissionLock(models.Model):
+    """One seeded row serializes admission across tenants and principals."""
+
+    id = models.PositiveSmallIntegerField(primary_key=True)
+
+
 class ScraperTenantPrincipal(models.Model):
     """Server-side mapping from an authenticated middleware principal to a tenant."""
 
