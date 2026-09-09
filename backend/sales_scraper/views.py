@@ -4,13 +4,14 @@ from datetime import timedelta
 from django.http import Http404
 from django.conf import settings
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 from rest_framework import exceptions, permissions, serializers, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .contracts import IdempotencyConflict, create_job
-from .models import CrawlJob, ScraperTenantPrincipal
+from .models import CrawlJob, ScraperAdmissionLock, ScraperTenantPrincipal
 from .serializers import CrawlJobRequestSerializer
 
 
@@ -50,6 +51,13 @@ class CrawlJobCollectionView(TenantScopedScraperView):
         try:
             with transaction.atomic():
                 try:
+                    ScraperAdmissionLock.objects.select_for_update().get(pk=1)
+                except ScraperAdmissionLock.DoesNotExist:
+                    return Response(
+                        {"code": "admission_lock_unavailable"},
+                        status=status.HTTP_503_SERVICE_UNAVAILABLE,
+                    )
+                try:
                     principal = ScraperTenantPrincipal.objects.select_for_update().get(
                         user=request.user, active=True
                     )
@@ -58,11 +66,11 @@ class CrawlJobCollectionView(TenantScopedScraperView):
                         "scraper_tenant_mapping_required"
                     ) from exc
                 now = timezone.now()
+                key_hash = hashlib.sha256(idempotency_key.encode()).hexdigest()
                 existing = CrawlJob.objects.filter(
+                    Q(idempotency_key_hash=key_hash)
+                    | Q(policy___legacy_idempotency_key_hash=key_hash),
                     tenant_id=principal.tenant_id,
-                    idempotency_key_hash=hashlib.sha256(
-                        idempotency_key.encode()
-                    ).hexdigest(),
                 ).exists()
                 active_states = [
                     CrawlJob.State.QUEUED,

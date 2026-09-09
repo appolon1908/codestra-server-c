@@ -37,6 +37,14 @@ def create_job(
         policy=policy,
         extraction_profile=extraction_profile,
     )
+    legacy = CrawlJob.objects.filter(
+        tenant_id=tenant_id, policy___legacy_idempotency_key_hash=digest
+    )
+    if legacy.exists():
+        job = legacy.filter(request_payload_hash=payload_hash).first()
+        if job is None:
+            raise IdempotencyConflict("idempotency_key_payload_mismatch")
+        return job, False
     job, created = CrawlJob.objects.get_or_create(
         tenant_id=tenant_id,
         idempotency_key_hash=digest,

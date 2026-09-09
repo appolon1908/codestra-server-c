@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import socket
 import uuid
 from datetime import timedelta
@@ -293,6 +294,19 @@ class JobTests(TestCase):
         candidate = LeadCandidate.objects.get(job=job)
         self.assertEqual(candidate.outbox_event.state, ScraperOutboxEvent.State.PENDING)
         self.assertEqual(len(candidate.outbox_event.payload_hash), 64)
+
+    def test_migrated_job_candidate_keeps_original_caller_key(self):
+        original_hash = hashlib.sha256(b"legacy-caller-key").hexdigest()
+        job = self.make_job(policy={
+            "max_pages": 1, "_legacy_idempotency_key_hash": original_hash,
+        })
+        self.assertNotEqual(job.idempotency_key_hash, original_hash)
+        process_job(
+            job, self.fetcher(),
+            robots=Mock(allowed=Mock(return_value=True)), limiter=Mock(),
+        )
+        candidate = LeadCandidate.objects.get(job=job)
+        self.assertEqual(candidate.contract["idempotency"]["job_key_hash"], original_hash)
 
     def test_content_type_executable_and_size_rejection(self):
         for content_type in ("application/x-msdownload", "application/pdf"):

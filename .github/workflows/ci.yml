@@ -56,3 +56,43 @@ jobs:
           severity: CRITICAL,HIGH
           ignore-unfixed: true
           exit-code: "1"
+
+  postgres-certification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17.6-alpine@sha256:ef257d85f76e48da1c64832459b59fcaba1a4dac97bf5d7450c77753542eee94
+        env:
+          POSTGRES_DB: scraper_certification
+          POSTGRES_USER: scraper_certification
+          POSTGRES_PASSWORD: ${{ format('disposable-ci-{0}', github.run_id) }}
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U scraper_certification"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Real PostgreSQL migration and concurrent admission regressions
+        env:
+          DJANGO_SETTINGS_MODULE: CORE.pg_test_settings
+          TEST_DATABASE_PASSWORD: ${{ format('disposable-ci-{0}', github.run_id) }}
+          SECRET_KEY: disposable-ci-signing-key-never-used-in-production
+          ALLOWED_HOSTS: localhost,testserver
+          CSRF_TRUSTED_ORIGINS: http://localhost
+          CORS_ALLOWED_ORIGINS: http://localhost
+          POSTGRES_DB: scraper_certification
+          POSTGRES_USER: scraper_certification
+          POSTGRES_PASS: ${{ format('disposable-ci-{0}', github.run_id) }}
+          PG_HOST: localhost
+          PG_PORT: '5432'
+          SCRAPER_WORKER_ENABLED: 'false'
+          SCRAPER_MIDDLEWARE_DELIVERY_ENABLED: 'false'
+        run: python manage.py test sales_scraper.test_certification --verbosity 2

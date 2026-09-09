@@ -306,7 +306,9 @@ def process_job(job: CrawlJob, fetcher=None, robots=None, limiter=None):
                         "tenant_id": str(job.tenant_id),
                         "campaign_id": str(job.campaign_id),
                         "idempotency": {
-                            "job_key_hash": job.idempotency_key_hash,
+                            "job_key_hash": (job.policy or {}).get(
+                                "_legacy_idempotency_key_hash", job.idempotency_key_hash
+                            ),
                             "candidate_identity_hash": identity_hash,
                         },
                     }
