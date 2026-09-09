@@ -1,3 +1,5 @@
+import math
+
 from rest_framework import serializers
 
 
@@ -32,13 +34,19 @@ class CrawlJobRequestSerializer(serializers.Serializer):
             )
         for key, raw in value.items():
             low, high = limits[key]
-            if not isinstance(raw, (int, float)) or not low <= raw <= high:
+            if (isinstance(raw, bool) or not isinstance(raw, (int, float))
+                    or not math.isfinite(raw) or not low <= raw <= high
+                    or (key not in {"timeout_seconds", "max_total_duration_seconds",
+                                    "per_domain_delay_seconds"} and not isinstance(raw, int))):
                 raise serializers.ValidationError(
                     f"{key} must be between {low} and {high}"
                 )
         return value
 
     def validate(self, attrs):
+        unknown = set(self.initial_data) - set(self.fields) - {"tenant_id", "idempotency_key"}
+        if unknown:
+            raise serializers.ValidationError("unsupported request fields")
         if "tenant_id" in self.initial_data:
             raise serializers.ValidationError(
                 {"tenant_id": "tenant is derived from the authenticated principal"}
