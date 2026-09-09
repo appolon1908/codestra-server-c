@@ -1,0 +1,14 @@
+{
+  "schema": "reviewed-image-publication/v1",
+  "repository": "appolon1908-hue/codestra-server-c",
+  "source_sha": "d9a64a256b93d547182af41e53399862c5809f40",
+  "source_tree": "32e97b61523bd7cc35889f68f2cc5e37caeb3aa6",
+  "image_repository": "ghcr.io/appolon1908-hue/codestra-server-c",
+  "publish_image": true,
+  "deploy_production": false,
+  "external_effects": false,
+  "sbom_required": true,
+  "provenance_required": true,
+  "target_environment": "production",
+  "approval_scope": "BUILD_AND_PUBLISH_CANDIDATE_ONLY; exact digest production approval remains separate"
+}
