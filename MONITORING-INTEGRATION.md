@@ -1,6 +1,6 @@
 # Monitoring integration — codestra-server-c
 
-This repository is included in the shared design for **63 repositories and 17 monitoring components**. Its assigned profile is `release-and-dependency`. Runtime coverage is **unverified** until release and telemetry evidence are recorded.
+This repository is included in the shared design for **63 repositories and 17 monitoring components**. Its assigned profile is `runtime-or-website`. Runtime coverage is **unverified** until release and telemetry evidence are recorded.
 
 - [Complete architecture and rollout design](https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md)
 - [36-operation Middleware implementation](https://github.com/appolon1908-hue/Middleware-/tree/cedaa23b89f84f365ae6789413411c3f01516952/app/monitoring)
@@ -16,3 +16,5 @@ The release controller mounts reviewed configuration and artifacts in Middleware
 Keep native backends private. Send UI reads through authenticated Middleware/BFF routes, never browser-held backend credentials. Use release-mounted secrets, approved targets/query templates, tenant and campaign scopes, and structured redacted telemetry. Service registration, green CI and successful ingestion are distinct from verified production coverage.
 
 Acceptance requires the exact source CI result, approved immutable release, registered service/endpoint contracts, fresh telemetry, private authentication, a synthetic alert and recovery evidence. Production activation remains separate. This commit adds the repository's design/onboarding record; it does not instrument or deploy its application.
+
+This repository includes frontend, backend, Celery worker/scheduler and crawler service source. Onboarding must inventory their deployed units and apply website, API and worker telemetry requirements. The deployment composition is recorded in `backend/deploy/compose.production.yaml`; crawler health and private metrics contracts are documented in `CRAWLER_API.md`. The primary Codestra backend decision and actual deployment identities remain unresolved; this runtime profile does not select a primary backend or activate any service.
