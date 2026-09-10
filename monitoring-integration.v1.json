@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "appolon1908-hue/codestra-server-c",
-  "design_group": "Applications/websites",
+  "design_group": "Runtime and shared source",
   "monitoring_profile": "runtime-or-website",
   "controller_repository": "appolon1908-hue/Middleware-",
   "design_url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
@@ -45,5 +45,7 @@
     "private_authentication",
     "alert_delivery",
     "restore_and_rollback"
-  ]
+  ],
+  "repository_id": 1361975444,
+  "service_mapping_status": "awaiting-verified-release-mapping"
 }
